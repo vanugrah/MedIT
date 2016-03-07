@@ -53,19 +53,4 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-})
-
-.controller('HomeCtrl', function($scope) {
-  $scope.appts = [
-    { title: 'Appointment 1', id: 1 },
-    { title: 'Appointment 2', id: 2 },
-    { title: 'Appointment 3', id: 3 },
-    { title: 'Appointment 4', id: 4 },
-    { title: 'Appointment 5', id: 5 },
-    { title: 'Appointment 6', id: 6 }
-  ];
-  //
-  //$scope.viewAppt = function() {
-  //  href="#/app/browse"
-  //};
 });
