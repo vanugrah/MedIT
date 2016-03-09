@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('medIT', ['ionic', 'medIT.controllers', 'medIT.home'])
+angular.module('medIT', ['ionic', 'ionic.utils', 'medIT.controllers', 'medIT.home'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -71,4 +71,4 @@ angular.module('medIT', ['ionic', 'medIT.controllers', 'medIT.home'])
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
-});
+})
