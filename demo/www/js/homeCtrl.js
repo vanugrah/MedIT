@@ -2,7 +2,7 @@
  * Created by Anthony Tsou on 3/7/2016.
  */
 // Home Controller
-angular.module('starter.home', [])
+angular.module('medIT.home', [])
 
   .controller('HomeCtrl', function($scope) {
     $scope.appts = [
