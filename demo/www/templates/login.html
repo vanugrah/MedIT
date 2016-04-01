@@ -1,13 +1,29 @@
 <ion-view view-title="Login" name="login-view">
   <ion-content class="padding">
+      
+      <div id="loginHeader">
+        <center>
+          <h2>Insert Application Name Here</h2>
+        </center>
+      </div>   
+      
+      <div id="loginImage"class="padding" >
+        <center>
+          <img src="img/ionic_logo2.png" align="middle" />
+        </center>
+      </div>
+
       <div class="list list-inset">
           <label class="item item-input">
               <input type="text" placeholder="Username" ng-model="data.username">
           </label>
+
           <label class="item item-input">
               <input type="password" placeholder="Password" ng-model="data.password">
           </label>
       </div>
+
       <button class="button button-block button-positive" ng-click="login()">Login</button>
+
   </ion-content>
 </ion-view>
