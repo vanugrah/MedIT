@@ -1,18 +1,58 @@
 <ion-view view-title="Home">
   <ion-content>
+
     <div class="list card">
+
       <div class="item item-avatar">
-        <!--<img src="mcfly.jpg">-->
+        <img src="http://loremflickr.com/320/240/person">
         <h2>John Doe</h2>
         <p>Children's Health Care of Atlanta</p>
       </div>
 
+    </div>
+
+    <div class="list card">
+      
       <div class="item item-divider">
-        Upcoming Appointments
+        Upcoming Appointment
       </div>
+
       <div class="item item-text-wrap" ng-repeat="appt in appts" ng-click="viewAppt(appt)" ui-sref="app.browse">
-        {{appt.title}}
+        
+        <ion-list padding="false">
+          <ion-item ui-sref="menu.manageAppointments">
+            
+            <i class="icon ion-ios-calendar-outline"></i>
+
+            <span style="font-weight: bold;">When: </span> 
+            {{appt.date}}
+          </ion-item>
+
+          <ion-item ui-sref="menu.manageAppointments">
+            
+            <i class="icon ion-ios-location"></i>
+
+            <span style="font-weight: bold;">Where:</span> 
+            {{appt.location}}
+          </ion-item>
+
+          <ion-item ui-sref="menu.manageAppointments">
+            
+            <i class="icon ion-android-person"></i>
+
+            <span style="font-weight: bold;">With:</span> 
+            {{appt.physician}}
+          </ion-item>
+
+        </ion-list>
+
+        
+        
+        
+        
+
       </div>
+
     </div>
   </ion-content>
 </ion-view>
