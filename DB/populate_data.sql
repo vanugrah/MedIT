@@ -62,15 +62,15 @@ INSERT INTO clinic(Clinic_Specialization, HospitalID, Clinic_Phone)
     
 -- Preference
 INSERT INTO preference()
-	VALUES ('atsou3', 1, 1, 1);
+	VALUES ('atsou3', 1, 1, 1, 1, 1);
 INSERT INTO preference()
-	VALUES ('avijay3', 1, 0, 1);
+	VALUES ('avijay3', 1, 0, 1, 1, 0);
 INSERT INTO preference()
-	VALUES ('skim3', 0, 1, 1);
+	VALUES ('skim3', 0, 1, 1, 0, 0);
 INSERT INTO preference()
-	VALUES ('pbothra3', 0, 0, 0);
+	VALUES ('pbothra3', 0, 0, 0, 0, 1);
 INSERT INTO preference()
-	VALUES ('mbarulic3', 0, 0, 1);
+	VALUES ('mbarulic3', 0, 0, 1, 0, 0);
     
 -- Appointment
 INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Time_of_appt, Confirmed, Checked_In, Cancelled, Notes)
