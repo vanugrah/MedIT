@@ -11,45 +11,45 @@
 
     </div>
 
-    <div class="list card">
-      
+    <div class="list card" ui-sref="app.browse">
+
       <div class="item item-divider">
         Upcoming Appointment
       </div>
 
       <div class="item item-text-wrap" ng-repeat="appt in appts" ng-click="viewAppt(appt)" ui-sref="app.browse">
-        
+
         <ion-list padding="false">
-          <ion-item ui-sref="menu.manageAppointments">
-            
+          <ion-item>
+
             <i class="icon ion-ios-calendar-outline"></i>
 
-            <span style="font-weight: bold;">When: </span> 
+            <span style="font-weight: bold;">When: </span>
             {{appt.date}}
           </ion-item>
 
-          <ion-item ui-sref="menu.manageAppointments">
-            
+          <ion-item>
+
             <i class="icon ion-ios-location"></i>
 
-            <span style="font-weight: bold;">Where:</span> 
+            <span style="font-weight: bold;">Where:</span>
             {{appt.location}}
           </ion-item>
 
-          <ion-item ui-sref="menu.manageAppointments">
-            
+          <ion-item>
+
             <i class="icon ion-android-person"></i>
 
-            <span style="font-weight: bold;">With:</span> 
+            <span style="font-weight: bold;">With:</span>
             {{appt.physician}}
           </ion-item>
 
         </ion-list>
 
-        
-        
-        
-        
+
+
+
+
 
       </div>
 
