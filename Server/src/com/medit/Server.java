@@ -1,5 +1,9 @@
 package com.medit;
 
+import com.medit.db.Appointment;
+import com.medit.db.Patient;
+import com.medit.db.User;
+import com.mysql.fabric.xmlrpc.base.Data;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -7,7 +11,6 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
-import java.nio.Buffer;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -15,8 +18,6 @@ import java.util.StringTokenizer;
  * Created by matt on 4/2/2016.
  */
 public class Server implements Runnable {
-
-    private static ServerSocket serverSocket;
 
     private JSONObject getJSONFromPOSTReader(BufferedReader reader) {
         try {
@@ -61,36 +62,102 @@ public class Server implements Runnable {
             return response;
         }
         String messageType = root.getString("MessageType");
-        if(messageType.equals("AuthRequest")) {
-            System.out.println("Authentication Request received.");
-            String username = root.getString("Username");
-            String password = root.getString("Password");
-            // check if credentials are correct
-            response.put("MessageType", "AuthResponse");
-            response.put("PatientID", 0);
-        } else if(messageType.equals("PatientQuery")) {
-            System.out.println("Patient Query received.");
-            int id = root.getInt("PatientID");
-            // get data for patient with ID id
-            Patient p = new Patient();
-            response.put("FirstName", p.firstName = "fname");
-            response.put("LastName", p.lastName = "lname");
-            response.put("EmailAddress", p.emailAddress = "email");
-        } else if(messageType.equals("AppointmentsQuery")) {
-            System.out.println("Appointments Query received.");
-            int patientID = root.getInt("PatientID");
-            // get patient
-            Patient p = new Patient();
-            List<Appointment> appointments = p.getAppointments();
-            response.put("Appointments", new JSONArray());
-            for (Appointment app : appointments) {
-                JSONObject appObj = new JSONObject();
-                appObj.put("ClinicName", app.clinicName);
-                appObj.put("ClinicLocation", app.clinicLocation);
-                appObj.put("DoctorName", app.doctorName);
-                appObj.put("Date", app.appointmentDate);
-                appObj.put("PatientID", app.patientID);
-                response.append("Appointments", appObj);
+        switch (messageType) {
+            case "AuthRequest": {
+                System.out.println("Authentication Request received.");
+                String username = root.getString("Username");
+                String password = root.getString("Password");
+                boolean success = DatabaseManager.verifyLoginCredentials(username, password);
+                response.put("MessageType", "AuthResponse");
+                response.put("Success", success);
+                if(success) {
+                    response.put("User", DatabaseManager.getUser(username).toJSON());
+                } else {
+                    response.put("User", (User)null);
+                }
+                break;
+            }
+            case "PatientQuery": {
+                System.out.println("Patient Query received.");
+                int id = root.getInt("PatientID");
+                Patient p = DatabaseManager.getPatient(id);
+                response.put("MessageType", "PatientQueryResults");
+                if(p != null) {
+                    response.put("Found", true);
+                    response.put("Patient", p.toJSON());
+                } else {
+                    response.put("Found", false);
+                    response.put("Patient", (Patient)null);
+                }
+                break;
+            }
+            case "AppointmentsQuery": {
+                System.out.println("Appointments Query received.");
+                int patientID = root.getInt("PatientID");
+                Patient p = DatabaseManager.getPatient(patientID);
+                if(p == null) {
+                    response.put("MessageType", "Error");
+                    response.put("Message", "Could not find patient with ID " + patientID);
+                } else {
+                    List<Appointment> appointments = p.getAppointments();
+                    response.put("MessageType", "AppointmentsQueryResults");
+                    response.put("Appointments", new JSONArray());
+                    for (Appointment app : appointments) {
+                        response.append("Appointments", app.toJSON());
+                    }
+                }
+                break;
+            }
+            case "UserCreate" : {
+                System.out.println("User creation request received.");
+                User user = new User();
+                user.username = root.getString("Username");
+                String password = root.getString("Password");
+                user.phoneNumber = root.getString("PhoneNumber");
+                user.emailAddress = root.getString("EmailAddress");
+                user.firstName = root.getString("FirstName");
+                user.lastName = root.getString("LastName");
+                DatabaseManager.createNewUser(user, password);
+                response.put("MessageType", "UserCreateConfirmation");
+                response.put("User", user.toJSON());
+                break;
+            }
+            case "PatientCreate": {
+                System.out.println("Patient creation request received.");
+                String sex = root.getString("Sex");
+                Patient patient = new Patient();
+                patient.user.username = root.getString("Username");
+                patient.firstName = root.getString("FirstName");
+                patient.lastName = root.getString("LastName");
+                patient.age = root.getInt("Age");
+                patient.sex = (root.getString("Sex") == "M" ? Patient.Sex.Male : Patient.Sex.Female);
+                DatabaseManager.createNewPatient(patient);
+                response.put("MessageType", "PatientCreateConfirmation");
+                response.put("Patient", patient.toJSON());
+                break;
+            }
+            case "UserSettingsChange": {
+                System.out.println("User settings change request received.");
+                String username = root.getString("Username");
+                boolean getsPush = root.getBoolean("GetsPush");
+                boolean getsSMS = root.getBoolean("GetsSMS");
+                boolean getsEmail = root.getBoolean("GetsEmail");
+                DatabaseManager.saveSettings(username, getsPush, getsSMS, getsEmail);
+                response.put("MessageType", "UserSettingsChangeConfirmation");
+                break;
+            }
+            case "ConfirmAppointment" : {
+                System.out.println("Appointment confirmation received.");
+                // TODO : Appointments should have IDs
+                break;
+            }
+            case "CancelAppointment" : {
+                System.out.println("Appointment cancellation received.");
+                break;
+            }
+            case "CheckInForAppointment" : {
+                System.out.println("Appointment check-in received.");
+                break;
             }
         }
         return response;
@@ -99,7 +166,7 @@ public class Server implements Runnable {
     @Override
     public void run() {
         try {
-            serverSocket = new ServerSocket(80);
+            ServerSocket serverSocket = new ServerSocket(80);
             serverSocket.setSoTimeout(500);
             while(!Thread.interrupted()) {
                 Socket clientSocket;
@@ -127,7 +194,7 @@ public class Server implements Runnable {
             }
         } catch(IOException e) {
             System.err.println("Server thread encountered an error.");
-            System.err.println(e);
+            System.err.println(e.getMessage());
         }
     }
 }
