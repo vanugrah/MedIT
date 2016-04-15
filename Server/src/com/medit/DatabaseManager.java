@@ -17,10 +17,6 @@ import java.util.List;
  */
 public class DatabaseManager {
 
-    public static void main(String[] args) {
-
-    }
-
     public static void saveSettings(String username, boolean getsPush, boolean getsSMS, boolean getsEmail) {
         Connection connection = null;
         Statement statement = null;
