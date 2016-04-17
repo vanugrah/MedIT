@@ -1,5 +1,7 @@
 package com.medit;
 
+import com.medit.db.Appointment;
+
 import java.text.SimpleDateFormat;
 import java.util.*;
 import javax.mail.*;
@@ -11,34 +13,35 @@ import javax.mail.internet.*;
  */
 public class EmailManager {
 
-    static public void sendEmailReminder(Patient patient, Appointment appointment) {
+    static public void sendEmailReminder(Appointment appointment) {
 
-        String to = patient.emailAddress;
+        String to = appointment.user.emailAddress;
 
         SimpleDateFormat dateFormater = new SimpleDateFormat("EEEEE, MMMMM d 'at' h:mm aa");
 
         String messageText = "Hello\n\n" +
-                "This is a reminder from MedIT that you have an appointment with " +
-                appointment.doctorName + " at " + appointment.clinicName + " scheduled for " +
-                dateFormater.format(appointment.appointmentDate) + ".";
+                "This is a reminder from MedIT that you have an appointment with Dr. " +
+                appointment.doctor.firstName + " " + appointment.doctor.lastName + " at " +
+                appointment.clinic.hospital.name + " scheduled for " +
+                dateFormater.format(appointment.date) + ".";
 
-        String subject = appointment.clinicName + " Appointment Reminder";
+        String subject = appointment.clinic.hospital.name + " Appointment Reminder";
 
         sendEmail(to, messageText, subject);
     }
 
-    static public void sendEmailConfirmation(Patient patient, Appointment appointment) {
-        String to = patient.emailAddress;
+    static public void sendEmailConfirmation(Appointment appointment) {
+        String to = appointment.user.emailAddress;
 
         SimpleDateFormat dateFormater = new SimpleDateFormat("EEEEE, MMMMM d 'at' h:mm aa");
 
         String messageText = "Hello\n\n" +
-                "This is a reminder from MedIT that you have an appointment with " +
-                appointment.doctorName + " at " + appointment.clinicName +
-                " scheduled for " + dateFormater.format(appointment.appointmentDate) +
-                ". INSERT CONFIRMATION LINK HERE.";
+                "This is a reminder from MedIT that you have an appointment with Dr. " +
+                appointment.doctor.firstName + " " + appointment.doctor.lastName + " at " +
+                appointment.clinic.hospital.name + " scheduled for " +
+                dateFormater.format(appointment.date) + ". INSERT CONFIRMATION LINK HERE.";
 
-        String subject = appointment.clinicName + " Appointment Confirmation";
+        String subject = appointment.clinic.hospital.name + " Appointment Confirmation";
 
         sendEmail(to, messageText, subject);
     }

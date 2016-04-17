@@ -1,0 +1,73 @@
+Message Types
+
+Logging In
+  Request
+    MessageType : String = “AuthRequest”
+    Username : String
+    Password : String
+  Response
+    MessageType : String = “AuthResponse”
+    Success : Boolean
+    User : User
+
+Looking up a patient
+  Request
+    MessageType : String = “PatientQuery”
+    PatientID : int
+  Response
+    MessageType : String = “PatientQueryResults”
+    Found : Boolean
+    Patient : Patient
+    
+Looking up appointments
+  Request
+    MessageType : String = “AppointmentsQuery”
+    PatientID : int
+  Response
+    MessageType : String = “AppointmentsQueryResults”
+    Appointments : Appointment[]
+    
+Create a new user
+  Request
+    MessageType : String = “UserCreate”
+    Username : String
+    Password : String
+    PhoneNumber : String
+    EmailAddress : String
+    FirstName : String
+    LastName : String
+  Response
+    MessageType : String = “UserCreateConfirmation”
+    User : User
+    
+Create a new patient
+  Request
+    MessageType : String = “PatientCreate”
+  Response
+    MessageType : String = “PatientCreateConfirmation”
+    Patient : Patient
+    
+Save user settings
+  Request
+    MessageType : String = “UserSettingsChange”
+    Username : String
+    GetsPush : Boolean
+    GetsSMS : Boolean
+    GetsEmail : Boolean
+  Response
+    MessageType : String = “UserSettingsChangeConfirmation”
+
+Confirming an appointment
+  Request
+    MessageType : String = "ConfirmAppointment"
+  Response
+  
+Cancel an appointment
+  Request
+    MessageType : String = "CancelAppointment"
+  Response
+    
+Check-In for an appointment
+  Request
+    MessageType : String = "CheckInForAppointment"
+  Response

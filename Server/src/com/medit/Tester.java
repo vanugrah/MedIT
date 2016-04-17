@@ -6,9 +6,6 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  * Created by matt on 4/4/2016.
@@ -21,8 +18,14 @@ public class Tester {
         HttpURLConnection connection = null;
         try {
             JSONObject obj = new JSONObject();
-            obj.put("MessageType", "AppointmentsQuery");
-            obj.put("PatientID", 0);
+            obj.put("MessageType", "UserCreate");
+
+            obj.put("Username", "newUser");
+            obj.put("Password", "password");
+            obj.put("PhoneNumber", "000000000");
+            obj.put("EmailAddress", "newUser@medit.net");
+            obj.put("FirstName", "New");
+            obj.put("LastName", "User");
 
             URL url = new URL("http://127.0.0.1/");
             connection = (HttpURLConnection) url.openConnection();

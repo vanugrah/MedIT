@@ -30,6 +30,8 @@ CREATE TABLE Preference (
 	Gets_Push bit(1) NOT NULL,
 	Gets_SMS bit(1) NOT NULL,
 	Gets_Email bit(1) NOT NULL,
+    Gets_Weather bit(1) NOT NULL,
+    Gets_Traffic bit(1) NOT NULL,
 	PRIMARY KEY (Username),
 	FOREIGN KEY (Username)
 		REFERENCES Parent(Username)

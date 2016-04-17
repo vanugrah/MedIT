@@ -1,0 +1,62 @@
+<ion-view view-title="Settings">
+  <ion-content>
+
+    <div class="list card">
+
+      <div class="item item-divider">
+        Settings
+      </div>
+
+      <div class="item item-toggle">
+        Push Notifications
+        <label class="toggle toggle-positive">
+          <input type="checkbox" ng-model="push" ng-change="setPreference('push')">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </div>
+
+      <div class="item item-toggle">
+        SMS Notifications
+        <label class="toggle toggle-positive">
+          <input type="checkbox" ng-model="sms" ng-change="setPreference('sms')">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </div>
+
+      <div class="item item-toggle">
+        Email Notifications
+        <label class="toggle toggle-positive">
+          <input type="checkbox" ng-model="email" ng-change="setPreference('email')">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </div>
+
+      <div class="item item-toggle">
+        Weather Updates
+        <label class="toggle toggle-positive">
+          <input type="checkbox" ng-model="weather" ng-change="setPreference('weather')">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </div>
+
+      <div class="item item-toggle">
+        Traffic Updates
+        <label class="toggle toggle-positive">
+          <input type="checkbox" ng-model="traffic" ng-change="setPreference('traffic')">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>
