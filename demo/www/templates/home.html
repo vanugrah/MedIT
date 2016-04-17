@@ -20,7 +20,7 @@
       <div class="item item-text-wrap" ng-repeat="appt in appts" ng-click="viewAppt(appt)" ui-sref="app.browse">
 
         <ion-list padding="false">
-          <ion-item>
+          <ion-item class="item item-icon-left">
 
             <i class="icon ion-ios-calendar-outline"></i>
 
@@ -28,7 +28,7 @@
             {{appt.date}}
           </ion-item>
 
-          <ion-item>
+          <ion-item class="item item-icon-left">
 
             <i class="icon ion-ios-location"></i>
 
@@ -36,12 +36,23 @@
             {{appt.location}}
           </ion-item>
 
-          <ion-item>
+          <ion-item class="item item-icon-left">
 
             <i class="icon ion-android-person"></i>
 
             <span style="font-weight: bold;">With:</span>
             {{appt.physician}}
+          </ion-item>
+
+          <ion-item class="item item-icon-right">
+
+            <center>
+              <span style="font-weight: bold;">Settings</span>  
+            </center>
+
+            <i class="icon ion-ios-arrow-right"></i>
+            
+            
           </ion-item>
 
         </ion-list>
