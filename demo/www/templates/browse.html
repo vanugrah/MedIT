@@ -1,7 +1,42 @@
-<ion-view view-title="Browse">
-  <ion-content>
-    <h1>Browse</h1>
+<ion-view title="Appointment Settings">
+    <ion-content padding="true" class="has-header">
+
+        <div class="list card">
+          <div class="item item-avatar">
+            <img src="http://loremflickr.com/320/240/person">
+            <h2>John Doe</h2>
+            <p>Children's Health Care of Atlanta</p>
+          </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-divider">Appointment Information</div>
+            <div class="item item-body">
+                <ion-list>
+                    <ion-item>Date Time:</ion-item>
+                    <ion-item>Physician:</ion-item>
+                    <ion-item>Location:</ion-item>
+                    <label class="item item-input" name="Meow">
+                        <span class="input-label">Notes:</span><textarea placeholder="This is placeholder text."> </textarea>
+                    </label>
+                </ion-list>
+            </div>
+        </div>
 
 
-  </ion-content>
+
+        <button class="button button-block button-positive icon-left ion-android-call">Contact Clinic</button>
+
+        <div>
+            <center>
+                <p>
+                    -----------------------
+                    <b>OR</b>-----------------------
+                </p>
+            </center>
+        </div>
+
+        <button class="button button-block button-assertive icon-left ion-android-cancel">Cancel Appointment</button>
+
+    </ion-content>
 </ion-view>
