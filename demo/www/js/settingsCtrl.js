@@ -4,17 +4,22 @@
 // Settings Controller
 angular.module('medIT.settings', [])
 
-  .controller('SettingsCtrl', function($scope, $http) {
+  .controller('SettingsCtrl', function($scope, $http, $localstorage) {
 
-    $scope.push = true;
-    $scope.sms = true;
-    $scope.email = true;
-    $scope.weather = true;
-    $scope.traffic = true;
+    $scope.$on('$ionicView.loaded', function() {
+      $scope.settings = {
+        push: true,
+        sms: true,
+        email: true,
+        weather: true,
+        traffic: true
+      };
+      $localstorage.setObject("settings", $scope.settings);
+    });
 
-    // HTTP GET request that will retrieve values
+    // Sets the settings when the user enters settings page
     $scope.$on('$ionicView.beforeEnter', function(){
-
+      $scope.settings = $localstorage.getObject("settings");
         //$http.get("http://127.0.0.1/{REST OF THE URL PLS}")
         //  .success(function(data) {
         //    $scope.push = data.push;
@@ -27,40 +32,24 @@ angular.module('medIT.settings', [])
         //    alert("You messed up");
         //  });
 
-      // Retrieve all preferences from DB using GET request
-      //alert("Settings: "
-      //  + "\nPush: " + $scope.push
-      //  + "\nSMS: " + $scope.sms
-      //  + "\nEmail: " + $scope.email
-      //  + "\nWeather: " + $scope.weather
-      //  + "\nTraffic: " + $scope.traffic);
     });
-
-    $scope.setPreference = function(preference) {
-      switch(preference) {
-        case "push":
-          $scope.push = !$scope.push;
-          break;
-        case "sms":
-          $scope.sms = !$scope.sms;
-          break;
-        case "weather":
-          $scope.weather = !$scope.weather;
-          break;
-        case "traffic":
-          $scope.traffic = !$scope.traffic;
-          break;
-      }
-    };
 
     $scope.$on('$ionicView.beforeLeave', function(){
-      alert("Settings: "
-        + "\nPush: " + $scope.push
-        + "\nSMS: " + $scope.sms
-        + "\nEmail: " + $scope.email
-        + "\nWeather: " + $scope.weather
-        + "\nTraffic: " + $scope.traffic);
-
-      // Save all settings in DB using POST req
+      $localstorage.setObject("settings", $scope.settings);
+      //console.log($scope.settings.push);
+      //console.log($scope.settings.sms);
+      //console.log($scope.settings.email);
+      //console.log($scope.settings.weather);
+      //console.log($scope.settings.traffic);
     });
+
+    //$scope.getWeather = function() {
+    //  $http.get("http://api.wunderground.com/api/e6fd20d04846f5be/hourly/q/GA/Atlanta.json")
+    //    .success(function(data) {
+    //      alert(JSON.stringify(data));
+    //    })
+    //    .error(function(data) {
+    //      alert("You messed up");
+    //    });
+    //};
   });
