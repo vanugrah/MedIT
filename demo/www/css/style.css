@@ -15,3 +15,12 @@ h2 {
 	font-family: 'Raleway', sans-serif;
 	font-weight: 300;
 }
+
+.text-blue {
+  color: #007aff;
+}
+
+.item-title {
+  font-size: larger;
+  font-weight: 900;
+}

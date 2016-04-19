@@ -3,8 +3,8 @@
 
     <div class="list card" ui-sref="app.browse">
 
-      <div class="item item-divider">
-        Upcoming Appointment
+      <div class="item item-divider text-center">
+        <strong>Upcoming Appointments</strong>
       </div>
 
       <div class="item item-text-wrap" ng-repeat="appt in appts" ng-click="viewAppt(appt)" ui-sref="app.browse">
@@ -46,6 +46,30 @@
         </ion-list>
 
       </div>
+=======
+    <div class="item item-text-wrap card"
+         ng-repeat="appt in appts"
+         ng-click="viewAppt(appt)"
+         ui-sref="app.apptDetails">
+
+      <ion-list padding="false">
+
+        <ion-item>
+          <p>{{appt.time}}</p>
+          <span class="item-title">{{appt.date}}</span>
+          <p>{{appt.patient}}</p>
+          <p>{{appt.location}}</p>
+
+          <br>
+
+          <span class="text-blue">VIEW</span>
+        </ion-item>
+
+
+      </ion-list>
+
+    </div>
+>>>>>>> 8b275a78d776da021a873d9ce55d2f06d4396c4a
 
     </div>
   </ion-content>

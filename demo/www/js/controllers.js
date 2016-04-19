@@ -2,7 +2,7 @@ angular.module('medIT.controllers', [])
 
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
     $scope.data = {};
- 
+
     $scope.login = function() {
         LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
             $state.go('app.home');
@@ -38,18 +38,4 @@ angular.module('medIT.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
-})
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
 });
