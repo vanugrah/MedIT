@@ -110,7 +110,8 @@ angular.module('medIT.home', [])
       });
 
       alertPopup.then(function(res) {
-        //$state.go('app.home');
+        $localstorage.setObject('apptReminder', false);
+        $scope.apptReminder = false;
       });
     };
 
