@@ -21,6 +21,49 @@ h2 {
 }
 
 .item-title {
-  font-size: larger;
+  font-size: medium;
   font-weight: 900;
+}
+
+.profile-image {
+  border-radius: 60px;
+  background-image: url(http://loremflickr.com/120/120/person);
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.no-padding {
+  padding: 0;
+  margin: 0;
+}
+
+.no-padding-bot {
+  padding-bottom: 0;
+}
+
+#vert-bar {
+  width: 7%;
+  height: 100%;
+  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.yellow {
+  background: #E6B500;
+}
+
+.pac-blue {
+  background: #0a9dc7;
+}
+
+.text-yellow {
+  color: #E6B500;
+}
+
+.text-pac-blue {
+  color: #0a9dc7;
 }

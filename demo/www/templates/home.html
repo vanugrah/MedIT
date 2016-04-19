@@ -1,32 +1,47 @@
 <ion-view view-title="Home">
   <ion-content>
 
-    <div class="list card" ui-sref="app.browse">
+    <div class="list card">
 
       <div class="item item-divider text-center">
         <strong>Upcoming Appointments</strong>
       </div>
+    </div>
 
     <div class="item item-text-wrap card"
          ng-repeat="appt in appts"
          ng-click="viewAppt(appt)"
          ui-sref="app.apptDetails">
 
-      <ion-list padding="false">
 
-        <ion-item>
-          <span class="item-title">{{appt.date}} ({{appt.time}})</span>
-          <p>{{appt.location}}</p>
-          <p>{{appt.patient}}</p>
+      <div id="vert-bar"
+           ng-class="{'yellow': appt.patientID === '0',
+            'pac-blue': appt.patientID === '1'}">
+      </div>
 
-          <br>
+      <ion-item class="no-padding-bot">
 
-          <span class="text-blue">VIEW</span>
+            <span class="item-title">{{appt.date}} ({{appt.time}})</span>
+            <br>
+            {{appt.location}}
+            <p>{{appt.patient}}</p>
+
+            <br>
+
+            <ion-item class="item item-icon-right"
+                      ng-class="{'text-yellow': appt.patientID === '0',
+                        'text-pac-blue': appt.patientID === '1'}">
+              <center>
+                MORE INFO
+              </center>
+
+              <i class="icon ion-ios-arrow-right">
+              </i>
+            </ion-item>
+          </div>
+
         </ion-item>
 
-      </ion-list>
-
-    </div>
 
     </div>
   </ion-content>
