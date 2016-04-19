@@ -10,7 +10,7 @@ angular.module('medIT.controllers', [])
 
             // Setup the loader
             $ionicLoading.show({
-              template: '<h3>Loading...</h3> <ion-spinner icon="spiral" class="spinner-positive"></ion-spinner>',
+              template: '<h2>Loading...</h2> <p> <ion-spinner icon="android" class="spinner-positive" style="height: 50px !important;"></ion-spinner>',
               animation: 'fade-in',
               showBackdrop: true,
               maxWidth: 200,
