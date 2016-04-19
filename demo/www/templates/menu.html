@@ -1,5 +1,5 @@
-<ion-side-menus enable-menu-with-back-views="false">
-  <ion-side-menu-content>
+<ion-side-menus enable-menu-with-back-views="false" class="background">
+  <ion-side-menu-content class="background">
     <ion-nav-bar class="bar-positive">
       <ion-nav-back-button>
       </ion-nav-back-button>
@@ -26,31 +26,52 @@
     </ion-header-bar>
 
     <ion-content>
-      <ion-list>
-        
-        <div class="list card">
-
+      <!-- <div class="list card">
           <div class="item item-avatar">
             <img src="http://loremflickr.com/320/240/person">
             <h2>John Doe</h2>
             <p>jdoe@gatech.edu</p>
           </div>
-        </div>
+      </div> -->
 
-        <ion-item menu-close href="#/app/home">
+    
+      <div class="item">
+        <div class="profile-image">
+        </div>
+        <center>
+          <h2>John Doe</h2>
+          <p>jdoe@gatech.edu</p> 
+        </center>
+               
+      </div>
+
+      <ion-list>
+        
+        <ion-item menu-close href="#/app/home" class="item-icon-left">
+          <i class="icon ion-ios-home-outline"></i>
           Home
         </ion-item>
 
-        <ion-item menu-close href="#/app/browse">
+        <ion-item menu-close href="#/app/browse" class="item-icon-left">
+          <i class="icon ion-ios-settings "></i>
           Manage Appointments
         </ion-item>
 
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item menu-close href="#/app/playlists" class="item-icon-left">
+          <i class="icon ion-ios-person-outline "></i>
           My Profile
         </ion-item>
 
-        <ion-item menu-close href="#/app/settings">
+        <ion-item menu-close href="#/app/settings" class="item-icon-left">
+          <i class="icon ion-ios-gear-outline "></i>
           Settings
+        </ion-item>
+
+        <ion-item menu-close href="#/login" class="assertive item-icon-left">
+          
+            <i class="icon ion-ios-close-outline "></i>
+            Logout
+          
         </ion-item>
       </ion-list>
     </ion-content>
