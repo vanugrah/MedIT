@@ -2,7 +2,6 @@
   <ion-content>
 
     <div class="list card">
-
       <div class="item item-divider text-center">
         <strong>Upcoming Appointments</strong>
       </div>
@@ -14,7 +13,6 @@
          ng-hide="appt.isCancelled"
          ui-sref="app.apptDetails">
 
-
       <div id="vert-bar"
            ng-class="{'yellow': appt.color === 'Yellow',
             'pac-blue': appt.color === 'Blue',
@@ -22,13 +20,12 @@
             'green': appt.color === 'Green'}">
       </div>
 
-      <ion-item class="no-padding-bot">
+        <ion-item class="no-padding-bot">
 
             <span class="item-title">{{appt.date}} ({{appt.time}})</span>
             <br>
             {{appt.location}}
             <p>{{appt.patient}}</p>
-
             <br>
 
             <ion-item class="item item-icon-right"
@@ -36,18 +33,14 @@
                         'text-pac-blue': appt.color === 'Blue',
                         'text-maroon': appt.color === 'Red',
                         'text-green': appt.color === 'Green'}">
+
               <center>
                 MORE INFO
               </center>
-
-              <i class="icon ion-ios-arrow-right">
-              </i>
+              <i class="icon ion-ios-arrow-right"></i>
             </ion-item>
-          </div>
-
         </ion-item>
-
-
     </div>
+
   </ion-content>
 </ion-view>
