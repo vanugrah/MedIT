@@ -1,23 +1,52 @@
 <ion-view view-title="Home">
   <ion-content>
 
-    <div class="list card">
-
-      <div class="item item-avatar">
-        <img src="http://loremflickr.com/320/240/person">
-        <h2>John Doe</h2>
-        <p>MedIT</p>
-      </div>
-
-    </div>
-
-    <div class="list card">
+    <div class="list card" ui-sref="app.browse">
 
       <div class="item item-divider text-center">
         <strong>Upcoming Appointments</strong>
       </div>
-    </div>
 
+      <div class="item item-text-wrap" ng-repeat="appt in appts" ng-click="viewAppt(appt)" ui-sref="app.browse">
+
+        <ion-list padding="false">
+          <ion-item class="item item-icon-left">
+
+            <i class="icon ion-ios-calendar-outline"></i>
+
+            <span style="font-weight: bold;">When: </span>
+            {{appt.date}}
+          </ion-item>
+
+          <ion-item class="item item-icon-left">
+
+            <i class="icon ion-ios-location"></i>
+
+            <span style="font-weight: bold;">Where:</span>
+            {{appt.location}}
+          </ion-item>
+
+          <ion-item class="item item-icon-left">
+
+            <i class="icon ion-android-person"></i>
+
+            <span style="font-weight: bold;">With:</span>
+            {{appt.physician}}
+          </ion-item>
+
+          <ion-item class="item item-icon-right">
+            <center>
+              <span style="font-weight: bold;">Settings</span>  
+            </center>
+
+            <i class="icon ion-ios-arrow-right"></i>     
+          </ion-item>
+
+
+        </ion-list>
+
+      </div>
+=======
     <div class="item item-text-wrap card"
          ng-repeat="appt in appts"
          ng-click="viewAppt(appt)"
@@ -39,6 +68,7 @@
       </ion-list>
 
     </div>
+>>>>>>> 8b275a78d776da021a873d9ce55d2f06d4396c4a
 
     </div>
   </ion-content>
