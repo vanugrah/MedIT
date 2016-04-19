@@ -20,20 +20,38 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
+
     <ion-header-bar class="bar-positive">
       <h1 class="title">Menu</h1>
     </ion-header-bar>
+
     <ion-content>
       <ion-list>
+        
+        <div class="list card">
+          <div class="item item-divider">
+            User Profile
+          </div>
+
+          <div class="item item-avatar">
+            <img src="http://loremflickr.com/320/240/person">
+            <h2>John Doe</h2>
+            <p>jdoe@gatech.edu</p>
+          </div>
+        </div>
+
         <ion-item menu-close href="#/app/home">
           Home
         </ion-item>
+
         <ion-item menu-close href="#/app/browse">
           Manage Appointments
         </ion-item>
+
         <ion-item menu-close href="#/app/playlists">
           My Profile
         </ion-item>
+
         <ion-item menu-close href="#/app/settings">
           Settings
         </ion-item>

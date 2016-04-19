@@ -1,71 +1,51 @@
 <ion-view view-title="Home">
   <ion-content>
 
-    <div class="list card">
-
-      <div class="item item-avatar">
-        <img src="http://loremflickr.com/320/240/person">
-        <h2>John Doe</h2>
-        <p>MedIT</p>
-      </div>
-
-    </div>
-
-    <div class="list card">
+    <div class="list card" ui-sref="app.browse">
 
       <div class="item item-divider">
-        Upcoming Appointments
+        Upcoming Appointment
       </div>
-    </div>
 
-    <div class="item item-text-wrap card" ng-repeat="appt in appts" ng-click="viewAppt(appt)" ui-sref="app.browse">
+      <div class="item item-text-wrap" ng-repeat="appt in appts" ng-click="viewAppt(appt)" ui-sref="app.browse">
 
-      <ion-list padding="false">
-        <ion-item class="item item-icon-left">
+        <ion-list padding="false">
+          <ion-item class="item item-icon-left">
 
-          <i class="icon ion-ios-calendar-outline"></i>
+            <i class="icon ion-ios-calendar-outline"></i>
 
-          <span style="font-weight: bold;">When: </span>
-          {{appt.date}} | {{appt.time}}
-        </ion-item>
+            <span style="font-weight: bold;">When: </span>
+            {{appt.date}}
+          </ion-item>
 
-        <ion-item class="item item-icon-left">
+          <ion-item class="item item-icon-left">
 
-          <i class="icon ion-android-person"></i>
+            <i class="icon ion-ios-location"></i>
 
-          <span style="font-weight: bold;">Who:</span>
-          {{appt.patient}}
+            <span style="font-weight: bold;">Where:</span>
+            {{appt.location}}
+          </ion-item>
 
-        </ion-item>
+          <ion-item class="item item-icon-left">
 
-        <ion-item class="item item-icon-left">
+            <i class="icon ion-android-person"></i>
 
-          <i class="icon ion-ios-location"></i>
+            <span style="font-weight: bold;">With:</span>
+            {{appt.physician}}
+          </ion-item>
 
-          <span style="font-weight: bold;">Where:</span>
-          {{appt.location}}
-        </ion-item>
+          <ion-item class="item item-icon-right">
+            <center>
+              <span style="font-weight: bold;">Settings</span>  
+            </center>
 
-        <ion-item class="item item-icon-left">
-
-          <i class="icon ion-medkit"></i>
-
-          <span style="font-weight: bold;">With:</span>
-          {{appt.physician}}
-        </ion-item>
-
-        <ion-item class="item item-icon-right">
-          <center>
-            <span style="font-weight: bold;">More Info...</span>
-          </center>
-
-          <i class="icon ion-ios-arrow-right"></i>
-        </ion-item>
+            <i class="icon ion-ios-arrow-right"></i>     
+          </ion-item>
 
 
-      </ion-list>
+        </ion-list>
 
-    </div>
+      </div>
 
     </div>
   </ion-content>
