@@ -18,7 +18,9 @@ angular.module('medIT.apptDetails', [])
     $scope.cancelAppt = function() {
       var confirmPopup = $ionicPopup.confirm({
         title: 'Cancel Appointment',
-        template: 'Are you sure you want to cancel this appointment?'
+        template: 'Are you sure you want to cancel this appointment?',
+        cancelText: 'No',
+        okText: 'Yes'
       });
 
       confirmPopup.then(function(res) {
@@ -26,7 +28,6 @@ angular.module('medIT.apptDetails', [])
           $scope.appt[0].isCancelled = true;
           $scope.appts[$scope.apptID].isCancelled = true;
           $localstorage.setObject('appts', $scope.appts);
-          //console.log(JSON.stringify($scope.appts));
 
           $scope.cancelResult();
         } else {
