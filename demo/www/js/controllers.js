@@ -31,6 +31,15 @@ angular.module('medIT.controllers', [])
     //}, 2000);
 })
 
+.controller('ProfileCtrl', function($scope, $localstorage) {
+  $scope.$on('$ionicView.afterEnter', function() {
+    $scope.johnnyColor = $localstorage.getObject('johnnyColor');
+    console.log($scope.johnnyColor);
+    $scope.johannaColor = $localstorage.getObject('johannaColor');
+    console.log($scope.johannaColor);
+  });
+})
+
 
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicLoading) {

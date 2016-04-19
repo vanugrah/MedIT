@@ -18,8 +18,8 @@ angular.module('medIT',
 
     if (window.StatusBar) {
       StatusBar.styleDefault();
-    } 
-    
+    }
+
   });
 })
 
@@ -64,7 +64,7 @@ angular.module('medIT',
     views: {
       'menuContent': {
         templateUrl: 'templates/profile.html',
-        controller: 'AppCtrl'
+        controller: 'ProfileCtrl'
       }
     }
   })

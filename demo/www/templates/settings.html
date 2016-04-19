@@ -3,8 +3,8 @@
 
     <div class="list card">
 
-      <div class="item item-divider">
-        Settings
+      <div class="item item-divider text-center">
+        <strong>Notification Preferences</strong>
       </div>
 
       <div class="item item-toggle">
@@ -61,6 +61,32 @@
           </div>
         </label>
       </div>
+    </div>
+
+    <div class="list card">
+          <div class="item item-divider text-center">
+            <strong>Color Preferences</strong>
+          </div>
+
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Johnny Doe Jr.
+            </div>
+            <select ng-model="johnnyColor"
+                    ng-options="color for color in colors"
+                    ng-change="changeJohnnyColor(johnnyColor)">
+            </select><br>
+          </label>
+
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Johanna Doe
+            </div>
+            <select ng-model="johannaColor"
+                    ng-options="color for color in colors"
+                    ng-change="changeJohannaColor(johannaColor)">
+            </select><br>
+          </label>
 
     </div>
   </ion-content>

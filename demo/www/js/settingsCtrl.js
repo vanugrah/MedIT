@@ -15,11 +15,25 @@ angular.module('medIT.settings', [])
         traffic: true
       };
       $localstorage.setObject("settings", $scope.settings);
+
+      $scope.appts = $localstorage.getObject('appts');
+
+      $scope.johnnyColor = "Yellow";
+      $scope.johannaColor = "Blue";
+
+      $localstorage.setObject('johnnyColor', $scope.johnnyColor);
+      $localstorage.setObject('johannaColor', $scope.johannaColor);
+
+      $scope.colors = ["Blue", "Yellow", "Red", "Green"];
     });
 
     // Sets the settings when the user enters settings page
     $scope.$on('$ionicView.beforeEnter', function(){
       $scope.settings = $localstorage.getObject("settings");
+      $scope.appts = $localstorage.getObject('appts');
+      $scope.johnnyColor = $localstorage.getObject('johnnyColor');
+      $scope.johannaColor = $localstorage.getObject('johannaColor');
+
         //$http.get("http://127.0.0.1/{REST OF THE URL PLS}")
         //  .success(function(data) {
         //    $scope.push = data.push;
@@ -36,12 +50,30 @@ angular.module('medIT.settings', [])
 
     $scope.$on('$ionicView.beforeLeave', function(){
       $localstorage.setObject("settings", $scope.settings);
-      //console.log($scope.settings.push);
-      //console.log($scope.settings.sms);
-      //console.log($scope.settings.email);
-      //console.log($scope.settings.weather);
-      //console.log($scope.settings.traffic);
+
+      for (i = 0; i < $scope.appts.length; i++) {
+        if($scope.appts[i].patientID === "0") {
+          $scope.appts[i].color = $scope.johnnyColor;
+
+        } else if ($scope.appts[i].patientID === "1") {
+          $scope.appts[i].color = $scope.johannaColor;
+        }
+      }
+
+      $localstorage.setObject('appts', $scope.appts);
+      $localstorage.setObject('johnnyColor', $scope.johnnyColor);
+      $localstorage.setObject('johannaColor', $scope.johannaColor);
     });
+
+    $scope.changeJohnnyColor = function(color) {
+      $scope.johnnyColor = color;
+      $localstorage.setObject('johnnyColor', $scope.johnnyColor);
+    };
+
+    $scope.changeJohannaColor = function(color) {
+      $scope.johannaColor = color;
+      $localstorage.setObject('johannaColor', $scope.johannaColor);
+    };
 
     //$scope.getWeather = function() {
     //  $http.get("http://api.wunderground.com/api/e6fd20d04846f5be/hourly/q/GA/Atlanta.json")

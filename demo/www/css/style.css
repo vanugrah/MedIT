@@ -86,16 +86,30 @@ h2 {
   background: #E6B500;
 }
 
-.pac-blue {
-  background: #0a9dc7;
-}
-
 .text-yellow {
   color: #E6B500;
+}
+
+.pac-blue {
+  background: #0a9dc7;
 }
 
 .text-pac-blue {
   color: #0a9dc7;
 }
 
+.maroon {
+  background: #C70039;
+}
 
+.text-maroon {
+  color: #C70039;
+}
+
+.green {
+  background: #9DC70A;
+}
+
+.text-green {
+  color: #9DC70A;
+}

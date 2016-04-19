@@ -21,7 +21,8 @@ angular.module('medIT.home', [])
           patient: "Johnny Doe Jr.",
           patientID: "0",
           notes: "Follow-up appointment",
-          isCancelled: false
+          isCancelled: false,
+          color: "Yellow"
         },
         {
           id: 1,
@@ -36,7 +37,8 @@ angular.module('medIT.home', [])
           patient: "Johanna Doe",
           patientID: "1",
           notes: "6-month check-up",
-          isCancelled: false
+          isCancelled: false,
+          color: "Blue"
         },
         {
           id: 2,
@@ -51,7 +53,7 @@ angular.module('medIT.home', [])
           patient: "Johnny Doe Jr.",
           patientID: "0",
           notes: "N/A",
-          isCancelled: false
+          color: "Yellow"
         }
       ];
 
@@ -59,11 +61,13 @@ angular.module('medIT.home', [])
     });
 
     $scope.$on('$ionicView.beforeEnter', function() {
-      $scope.appts = $localstorage.getObject('appts');
+      //$scope.appts = $localstorage.getObject('appts');
       $scope.apptReminder = $localstorage.getObject('apptReminder');
     });
 
     $scope.$on('$ionicView.afterEnter', function() {
+      $scope.appts = $localstorage.getObject('appts');
+
       if($scope.apptReminder) {
         setTimeout(function() {
           $scope.reminder();

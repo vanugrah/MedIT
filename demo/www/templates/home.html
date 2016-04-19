@@ -16,8 +16,10 @@
 
 
       <div id="vert-bar"
-           ng-class="{'yellow': appt.patientID === '0',
-            'pac-blue': appt.patientID === '1'}">
+           ng-class="{'yellow': appt.color === 'Yellow',
+            'pac-blue': appt.color === 'Blue',
+            'maroon': appt.color === 'Red',
+            'green': appt.color === 'Green'}">
       </div>
 
       <ion-item class="no-padding-bot">
@@ -30,8 +32,10 @@
             <br>
 
             <ion-item class="item item-icon-right"
-                      ng-class="{'text-yellow': appt.patientID === '0',
-                        'text-pac-blue': appt.patientID === '1'}">
+                      ng-class="{'text-yellow': appt.color === 'Yellow',
+                        'text-pac-blue': appt.color === 'Blue',
+                        'text-maroon': appt.color === 'Red',
+                        'text-green': appt.color === 'Green'}">
               <center>
                 MORE INFO
               </center>
