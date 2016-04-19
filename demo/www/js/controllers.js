@@ -32,6 +32,7 @@ angular.module('medIT.controllers', [])
 })
 
 
+
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicLoading) {
 
   // Form data for the login modal
