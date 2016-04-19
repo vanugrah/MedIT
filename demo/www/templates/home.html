@@ -2,7 +2,6 @@
   <ion-content>
 
     <div class="list card">
-
       <div class="item item-divider text-center">
         <strong>Upcoming Appointments</strong>
       </div>
@@ -13,37 +12,28 @@
          ng-click="viewAppt(appt)"
          ng-hide="appt.isCancelled"
          ui-sref="app.apptDetails">
-
-
-      <div id="vert-bar"
+      
+        <div id="vert-bar"
            ng-class="{'yellow': appt.patientID === '0',
             'pac-blue': appt.patientID === '1'}">
-      </div>
+        </div>
 
-      <ion-item class="no-padding-bot">
+        <ion-item class="no-padding-bot">
 
             <span class="item-title">{{appt.date}} ({{appt.time}})</span>
             <br>
             {{appt.location}}
             <p>{{appt.patient}}</p>
-
             <br>
 
-            <ion-item class="item item-icon-right"
-                      ng-class="{'text-yellow': appt.patientID === '0',
-                        'text-pac-blue': appt.patientID === '1'}">
+            <ion-item class="item item-icon-right" ng-class="{'text-yellow': appt.patientID === '0','text-pac-blue': appt.patientID === '1'}">
               <center>
                 MORE INFO
               </center>
-
-              <i class="icon ion-ios-arrow-right">
-              </i>
+              <i class="icon ion-ios-arrow-right"></i>
             </ion-item>
-          </div>
-
         </ion-item>
-
-
     </div>
+
   </ion-content>
 </ion-view>
