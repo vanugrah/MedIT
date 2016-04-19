@@ -1,7 +1,5 @@
 package com.medit;
 
-import com.medit.demoPanel.DemoPanel;
-
 import javax.swing.*;
 import java.io.IOException;
 
@@ -11,12 +9,6 @@ public class Main {
         Thread serverThread = new Thread(new Server(), "Server");
         ReminderManager reminderManager = new ReminderManager();
         Thread daemonThread = new Thread(reminderManager, "ReminderManager");
-
-        JFrame frame = new JFrame("DemoPanel");
-        frame.setContentPane(new DemoPanel(reminderManager).getContentPane());
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
 
         serverThread.start();
         daemonThread.start();
@@ -36,8 +28,6 @@ public class Main {
             }
         }
         System.out.println("Shutting down server...");
-        if(frame.isVisible())
-            frame.dispose();
         if(serverThread.isAlive())
             serverThread.interrupt();
         if(daemonThread.isAlive())
