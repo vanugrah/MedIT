@@ -12,12 +12,30 @@ angular.module('medIT.apptDetails', [])
       $scope.appts = $localstorage.getObject('appts');
       $scope.appt[0] = $scope.appts[$scope.apptID];
 
-      console.log($scope.appt);
+      if($scope.appt[0].id === 0) {
+        setTimeout(function() {
+          var traffictTitle = "<strong>Traffic Alert</strong>";
+          var trafficTemplate = 'There has been an accident on I-85 Southbound, ' +
+            'causing delays of up to: ' +
+            '<br><strong><center>15 minutes</center></strong> <br>' +
+            'To reach your appointment on time, you should leave by: ' +
+            '<br> <strong><center>3:30pm</center></strong>';
+
+          var weatherTitle = "<strong>Severe Weather Alert</strong>";
+          var weatherTemplate = 'There is heavy rain in Atlanta, ' +
+            'causing delays of up to: ' +
+            '<br><strong><center>20 minutes</center></strong> <br>' +
+            'To reach your appointment on time, you should leave by: ' +
+            '<br> <strong><center>3:25pm</center></strong>';
+
+          $scope.notification(traffictTitle, trafficTemplate);
+        }, 6000);
+      }
     });
 
     $scope.cancelAppt = function() {
       var confirmPopup = $ionicPopup.confirm({
-        title: 'Cancel Appointment',
+        title: '<strong>Cancel Appointment</strong>',
         template: 'Are you sure you want to cancel this appointment?',
         cancelText: 'No',
         okText: 'Yes'
@@ -30,8 +48,6 @@ angular.module('medIT.apptDetails', [])
           $localstorage.setObject('appts', $scope.appts);
 
           $scope.cancelResult();
-        } else {
-          console.log('You are not sure');
         }
       });
     };
@@ -39,12 +55,25 @@ angular.module('medIT.apptDetails', [])
     // An alert dialog
     $scope.cancelResult = function() {
       var alertPopup = $ionicPopup.alert({
-        title: 'Cancel Appointment',
+        title: '<strong>Cancel Appointment</strong>',
         template: 'Appointment has been cancelled successfully!'
       });
 
       alertPopup.then(function(res) {
+        $localstorage.setObject('apptReminder', true);
         $state.go('app.home');
+      });
+    };
+
+    // Traffic Notification
+    $scope.notification = function(title, template) {
+      var update = $ionicPopup.alert({
+        title: title,
+        template: template
+      });
+
+      update.then(function(res) {
+
       });
     };
 
