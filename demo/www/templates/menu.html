@@ -10,7 +10,7 @@
       </ion-nav-buttons>
 
       <ion-nav-buttons side="right">
-        <button class="button button-icon button-clear" ng-click="settings()">
+        <button class="button button-icon button-clear" ui-sref="app.settings">
           <i class="icon ion-gear-a"></i>
         </button>
       </ion-nav-buttons>
@@ -26,10 +26,11 @@
     </ion-header-bar>
 
     <ion-content>
-      
+
       <div class="item">
         <div class="profile-image">
         </div>
+
         <center>
           <h2>John Doe</h2>
           <p>jdoe@gatech.edu</p> 
@@ -37,7 +38,7 @@
       </div>
 
       <ion-list>
-        
+
         <ion-item menu-close href="#/app/home" class="item-icon-left">
           <i class="icon ion-ios-home-outline"></i>
           Home
