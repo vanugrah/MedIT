@@ -20,7 +20,7 @@
 
                   <ion-item class="item item-icon-left">
 
-                    <i class="icon ion-android-time"></i>
+                    <i class="icon ion-ios-time-outline"></i>
 
                     <span style="font-weight: bold;">Time: </span>
                     {{details.time}}
@@ -28,7 +28,7 @@
 
                   <ion-item class="item item-icon-left">
 
-                    <i class="icon ion-android-person"></i>
+                    <i class="icon ion-ios-person-outline"></i>
 
                     <span style="font-weight: bold;">Patient:</span>
                     {{details.patient}}
@@ -37,7 +37,7 @@
 
                   <ion-item class="item item-icon-left">
 
-                    <i class="icon ion-home"></i>
+                    <i class="icon ion-ios-home"></i>
 
                     <span style="font-weight: bold;">Clinic:</span>
                     {{details.location}}
@@ -45,7 +45,7 @@
 
                   <ion-item class="item item-icon-left">
 
-                    <i class="icon ion-ios-location"></i>
+                    <i class="icon ion-ios-location-outline"></i>
 
                     <span style="font-weight: bold;">Address:</span>
                     {{details.address}}, {{details.city}}, {{details.state}} {{details.zip}}</p>
@@ -67,9 +67,19 @@
                     {{details.notes}}
                   </ion-item>
 
-                  <!--<label class="item item-input" name="Meow">-->
-                        <!--<span class="input-label">Notes:</span><textarea placeholder="This is placeholder text."> </textarea>-->
-                  <!--</label>-->
+                  
+
+                    
+
+                    <label class="item item-input item-icon-left">
+                      <i class="icon ion-clipboard"></i>
+                      <span class="input-label" style="font-weight: bold;">Notes:</span>
+                      <input type="text" value="{{details.notes}}">
+                      <!-- {{details.notes}}  -->
+                    </label>
+                  
+
+                  
                 </ion-list>
             </div>
 
