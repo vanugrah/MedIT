@@ -70,7 +70,7 @@ h2 {
 }
 
 #vert-bar {
-  width: 7%;
+  width: 3%;
   height: 100%;
   float: left;
   position: absolute;
@@ -93,3 +93,5 @@ h2 {
 .text-pac-blue {
   color: #0a9dc7;
 }
+
+
