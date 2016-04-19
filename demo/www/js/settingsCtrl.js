@@ -18,8 +18,8 @@ angular.module('medIT.settings', [])
 
       $scope.appts = $localstorage.getObject('appts');
 
-      $scope.johnnyColor = "Yellow";
-      $scope.johannaColor = "Blue";
+      $scope.johnnyColor = "Blue";
+      $scope.johannaColor = "Green";
 
       $localstorage.setObject('johnnyColor', $scope.johnnyColor);
       $localstorage.setObject('johannaColor', $scope.johannaColor);
