@@ -14,7 +14,7 @@ angular.module('medIT.controllers', [])
               animation: 'fade-in',
               showBackdrop: true,
               maxWidth: 200,
-              duration: 2000
+              duration: 10
             });
 
         }).error(function(data) {
