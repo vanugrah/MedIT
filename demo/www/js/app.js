@@ -1,4 +1,11 @@
-angular.module('medIT', ['ionic', 'ionic.utils', 'medIT.controllers', 'medIT.home', 'medIT.services', 'medIT.settings'])
+angular.module('medIT',
+  ['ionic',
+    'ionic.utils',
+    'medIT.controllers',
+    'medIT.home',
+    'medIT.services',
+    'medIT.settings',
+    'medIT.apptDetails'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -42,31 +49,12 @@ angular.module('medIT', ['ionic', 'ionic.utils', 'medIT.controllers', 'medIT.hom
     }
   })
 
-  .state('app.browse', {
-    url: '/browse',
+  .state('app.apptDetails', {
+    url: '/apptDetails',
     views: {
       'menuContent': {
-        templateUrl: 'templates/browse.html'
-      }
-    }
-  })
-
-  .state('app.playlists', {
-    url: '/playlists',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlists.html',
-        controller: 'PlaylistsCtrl'
-      }
-    }
-  })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/apptDetails.html',
+        controller: 'ApptDetailsCtrl'
       }
     }
   })
@@ -83,4 +71,4 @@ angular.module('medIT', ['ionic', 'ionic.utils', 'medIT.controllers', 'medIT.hom
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
-})
+});

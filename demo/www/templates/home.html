@@ -13,53 +13,27 @@
 
     <div class="list card">
 
-      <div class="item item-divider">
-        Upcoming Appointments
+      <div class="item item-divider text-center">
+        <strong>Upcoming Appointments</strong>
       </div>
     </div>
 
-    <div class="item item-text-wrap card" ng-repeat="appt in appts" ng-click="viewAppt(appt)" ui-sref="app.browse">
+    <div class="item item-text-wrap card"
+         ng-repeat="appt in appts"
+         ng-click="viewAppt(appt)"
+         ui-sref="app.apptDetails">
 
       <ion-list padding="false">
-        <ion-item class="item item-icon-left">
 
-          <i class="icon ion-ios-calendar-outline"></i>
+        <ion-item>
+          <p>{{appt.time}}</p>
+          <span class="item-title">{{appt.date}}</span>
+          <p>{{appt.patient}}</p>
+          <p>{{appt.location}}</p>
 
-          <span style="font-weight: bold;">When: </span>
-          {{appt.date}} | {{appt.time}}
-        </ion-item>
+          <br>
 
-        <ion-item class="item item-icon-left">
-
-          <i class="icon ion-android-person"></i>
-
-          <span style="font-weight: bold;">Who:</span>
-          {{appt.patient}}
-
-        </ion-item>
-
-        <ion-item class="item item-icon-left">
-
-          <i class="icon ion-ios-location"></i>
-
-          <span style="font-weight: bold;">Where:</span>
-          {{appt.location}}
-        </ion-item>
-
-        <ion-item class="item item-icon-left">
-
-          <i class="icon ion-medkit"></i>
-
-          <span style="font-weight: bold;">With:</span>
-          {{appt.physician}}
-        </ion-item>
-
-        <ion-item class="item item-icon-right">
-          <center>
-            <span style="font-weight: bold;">More Info...</span>
-          </center>
-
-          <i class="icon ion-ios-arrow-right"></i>
+          <span class="text-blue">VIEW</span>
         </ion-item>
 
 
