@@ -6,7 +6,7 @@ angular.module('medIT.home', [])
     $scope.$on('$ionicView.loaded', function() {
       $scope.appts = [
         {
-          id: 1,
+          id: 0,
           location: "Children's Healthcare of Atlanta - Egleston",
           address: "1405 Clifton Road NE",
           city: "Atlanta",
@@ -17,10 +17,11 @@ angular.module('medIT.home', [])
           physician: "Dr. Batisky",
           patient: "Johnny Doe Jr.",
           patientID: "0",
-          notes: "Follow-up appointment"
+          notes: "Follow-up appointment",
+          isCancelled: false
         },
         {
-          id: 2,
+          id: 1,
           location: "Children's Healthcare of Atlanta - Egleston",
           address: "1405 Clifton Road NE",
           city: "Atlanta",
@@ -31,10 +32,11 @@ angular.module('medIT.home', [])
           physician: "Dr. Omojokun",
           patient: "Johanna Doe",
           patientID: "1",
-          notes: "6-month check-up"
+          notes: "6-month check-up",
+          isCancelled: false
         },
         {
-          id: 3,
+          id: 2,
           location: "Children's Healthcare of Atlanta - Egleston",
           address: "1405 Clifton Road NE",
           city: "Atlanta",
@@ -45,7 +47,8 @@ angular.module('medIT.home', [])
           physician: "Dr. Menagarishvili",
           patient: "Johnny Doe Jr.",
           patientID: "0",
-          notes: "N/A"
+          notes: "N/A",
+          isCancelled: false
         }
       ];
 
@@ -57,6 +60,6 @@ angular.module('medIT.home', [])
     });
 
     $scope.viewAppt = function(appt) {
-      $localstorage.setObject('appt', appt);
+      $localstorage.setObject('apptID', appt.id);
     };
   });

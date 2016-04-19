@@ -11,6 +11,7 @@
     <div class="item item-text-wrap card"
          ng-repeat="appt in appts"
          ng-click="viewAppt(appt)"
+         ng-hide="appt.isCancelled"
          ui-sref="app.apptDetails">
 
 

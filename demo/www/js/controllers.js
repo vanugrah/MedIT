@@ -23,12 +23,12 @@ angular.module('medIT.controllers', [])
                 template: 'Please check your credentials!'
             });
         });
-    }
+    };
 
     // Simulate a login delay. Remove this and replace with your login
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 2000);
+    //$timeout(function() {
+    //  $scope.closeLogin();
+    //}, 2000);
 })
 
 
@@ -36,7 +36,7 @@ angular.module('medIT.controllers', [])
 
   // Form data for the login modal
   $scope.loginData = {};
-  
+
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
@@ -50,7 +50,7 @@ angular.module('medIT.controllers', [])
 });
 
 
-  
+
 
 
 
