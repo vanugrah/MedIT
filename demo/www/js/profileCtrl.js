@@ -6,7 +6,8 @@ angular.module('medIT.profile', [])
   .controller('ProfileCtrl', function($scope, $localstorage, $ionicPopup) {
 
     $scope.$on('$ionicView.loaded', function() {
-      $scope.isCheckingIn = true;
+      $scope.isCheckingIn = false;
+      $localstorage.setObject('isCheckingIn', false);
     });
 
     $scope.$on('$ionicView.afterEnter', function() {
