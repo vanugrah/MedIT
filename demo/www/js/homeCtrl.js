@@ -22,7 +22,7 @@ angular.module('medIT.home', [])
           patientID: "0",
           notes: "Follow-up appointment",
           isCancelled: false,
-          color: "Yellow"
+          color: "Blue"
         },
         {
           id: 1,
@@ -38,7 +38,7 @@ angular.module('medIT.home', [])
           patientID: "1",
           notes: "6-month check-up",
           isCancelled: false,
-          color: "Blue"
+          color: "Green"
         },
         {
           id: 2,
@@ -53,7 +53,7 @@ angular.module('medIT.home', [])
           patient: "Johnny Doe Jr.",
           patientID: "0",
           notes: "N/A",
-          color: "Yellow"
+          color: "Blue"
         }
       ];
 
