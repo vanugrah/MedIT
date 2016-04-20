@@ -19,7 +19,7 @@ angular.module('medIT.apptDetails', [])
       $scope.appts = $localstorage.getObject('appts');
       $scope.appt[0] = $scope.appts[$scope.apptID];
 
-      if($scope.appt[0].id === 0 && $localstorage.getObject('firstAlert')) {
+      if($scope.appt[0].id === 1 && $localstorage.getObject('firstAlert')) {
         setTimeout(function() {
           var traffictTitle = "<strong>Traffic Alert</strong>";
           var trafficTemplate = 'There has been an accident on I-85 Southbound, ' +
@@ -89,6 +89,7 @@ angular.module('medIT.apptDetails', [])
         if ($scope.appt[0].id == 0) {
           // Can check in for appointment.
           $localstorage.setObject('isCheckingIn', true);
+          console.log($localstorage.getObject('isCheckingIn'));
           $state.go('app.profile');
 
         } else {

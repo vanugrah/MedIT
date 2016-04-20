@@ -7,13 +7,14 @@ angular.module('medIT.profile', [])
 
     $scope.$on('$ionicView.loaded', function() {
       $scope.isCheckingIn = false;
-      $localstorage.setObject('isCheckingIn', false);
+      //$localstorage.setObject('isCheckingIn', false);
     });
 
     $scope.$on('$ionicView.afterEnter', function() {
       $scope.johnnyColor = $localstorage.getObject('johnnyColor');
       $scope.johannaColor = $localstorage.getObject('johannaColor');
       $scope.isCheckingIn = $localstorage.getObject('isCheckingIn');
+      console.log($scope.isCheckingIn);
     });
 
     $scope.checkIn = function(res) {
