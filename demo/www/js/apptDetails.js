@@ -77,4 +77,46 @@ angular.module('medIT.apptDetails', [])
       });
     };
 
+    $scope.checkinAppt = function() {
+      
+
+      if ($scope.appt[0].id == 0) {
+        // Can check in for appointment.
+
+        // ask if information up to date.
+
+
+      } else {
+        // Cannot check in for appointment.        
+           var alertPopup = $ionicPopup.alert({
+             title: 'Check-in Error',
+             template: 'You may only check in an hour before your appointment.'
+           });
+      };
+
+      
+
+
+
+      // var confirmPopup = $ionicPopup.confirm({
+      //   title: '<strong>Cancel Appointment</strong>',
+      //   template: 'Are you sure you want to cancel this appointment?',
+      //   cancelText: 'No',
+      //   okText: 'Yes'
+      // });
+
+      // confirmPopup.then(function(res) {
+      //   if(res) {
+      //     $scope.appt[0].isCancelled = true;
+      //     $scope.appts[$scope.apptID].isCancelled = true;
+      //     $localstorage.setObject('appts', $scope.appts);
+
+      //     $scope.cancelResult();
+      //   }
+      // });
+    };
+
+
+
+
   });

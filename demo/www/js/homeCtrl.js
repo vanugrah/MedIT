@@ -16,7 +16,7 @@ angular.module('medIT.home', [])
           state: "GA",
           zip: "30322",
           date: "21 April 2016",
-          time: "4:00pm",
+          time: "4:30pm",
           physician: "Dr. Batisky",
           patient: "Johnny Doe Jr.",
           patientID: "0",
