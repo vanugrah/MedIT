@@ -1,7 +1,10 @@
 angular.module('medIT.controllers', [])
 
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state, $timeout, $ionicLoading) {
-    $scope.data = {};
+    
+    $scope.$on('$ionicView.beforeEnter', function() {
+      $scope.data = {};
+    });
 
     $scope.login = function() {
         LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
@@ -12,9 +15,9 @@ angular.module('medIT.controllers', [])
             $ionicLoading.show({
               template: '<h2>Loading...</h2> <p> <ion-spinner icon="android" class="spinner-positive" style="height: 50px !important;"></ion-spinner>',
               animation: 'fade-in',
-              showBackdrop: true,
+              noBackdrop: false,
               maxWidth: 200,
-              duration: 10
+              duration: 2000
             });
 
         }).error(function(data) {
