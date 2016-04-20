@@ -6,13 +6,20 @@ angular.module('medIT.apptDetails', [])
 
   .controller('ApptDetailsCtrl', function($scope, $localstorage, $ionicPopup, $state) {
 
+    $scope.$on('$ionicView.loaded', function() {
+      $scope.hasCheckedIn = false;
+      $localstorage.setObject('hasCheckedIn', false);
+      $localstorage.setObject('firstAlert', true);
+    });
+
     $scope.$on('$ionicView.beforeEnter', function() {
+      $scope.hasCheckedIn = $localstorage.getObject('hasCheckedIn');
       $scope.appt = [];
       $scope.apptID = $localstorage.getObject('apptID');
       $scope.appts = $localstorage.getObject('appts');
       $scope.appt[0] = $scope.appts[$scope.apptID];
 
-      if($scope.appt[0].id === 0) {
+      if($scope.appt[0].id === 0 && $localstorage.getObject('firstAlert')) {
         setTimeout(function() {
           var traffictTitle = "<strong>Traffic Alert</strong>";
           var trafficTemplate = 'There has been an accident on I-85 Southbound, ' +
@@ -73,47 +80,34 @@ angular.module('medIT.apptDetails', [])
       });
 
       update.then(function(res) {
-
+        $localstorage.setObject('firstAlert', false);
       });
     };
 
-    $scope.checkinAppt = function() {
-      
+    $scope.checkinAppt = function(res) {
+      if (res === 0) {
+        if ($scope.appt[0].id == 0) {
+          // Can check in for appointment.
+          $localstorage.setObject('isCheckingIn', true);
+          $state.go('app.profile');
 
-      if ($scope.appt[0].id == 0) {
-        // Can check in for appointment.
-
-        // ask if information up to date.
-
-
+        } else {
+          // Cannot check in for appointment.
+          var alertPopup = $ionicPopup.alert({
+            title: 'Check-in Error',
+            template: 'You may only check in an hour before your appointment.'
+          });
+        }
       } else {
-        // Cannot check in for appointment.        
-           var alertPopup = $ionicPopup.alert({
-             title: 'Check-in Error',
-             template: 'You may only check in an hour before your appointment.'
-           });
-      };
+        var alertPopup = $ionicPopup.alert({
+          title: '<strong>Check In</strong>',
+          template: 'You have already checked into this appointment.'
+        });
 
-      
+        alertPopup.then(function(res) {
 
-
-
-      // var confirmPopup = $ionicPopup.confirm({
-      //   title: '<strong>Cancel Appointment</strong>',
-      //   template: 'Are you sure you want to cancel this appointment?',
-      //   cancelText: 'No',
-      //   okText: 'Yes'
-      // });
-
-      // confirmPopup.then(function(res) {
-      //   if(res) {
-      //     $scope.appt[0].isCancelled = true;
-      //     $scope.appts[$scope.apptID].isCancelled = true;
-      //     $localstorage.setObject('appts', $scope.appts);
-
-      //     $scope.cancelResult();
-      //   }
-      // });
+        });
+      }
     };
 
 

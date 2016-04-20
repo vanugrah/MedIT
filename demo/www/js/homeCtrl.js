@@ -5,6 +5,7 @@ angular.module('medIT.home', [])
 
     $scope.$on('$ionicView.loaded', function() {
       $scope.apptReminder = false;
+      $localstorage.setObject('hasCheckedIn', false);
       $localstorage.setObject('apptReminder', $scope.apptReminder);
 
       $scope.appts = [
@@ -22,7 +23,8 @@ angular.module('medIT.home', [])
           patientID: "0",
           notes: "Follow-up appointment",
           isCancelled: false,
-          color: "Blue"
+          color: "Blue",
+          notCheckedIn: true
         },
         {
           id: 1,
@@ -38,7 +40,8 @@ angular.module('medIT.home', [])
           patientID: "1",
           notes: "6-month check-up",
           isCancelled: false,
-          color: "Green"
+          color: "Green",
+          notCheckedIn: true
         },
         {
           id: 2,
@@ -53,7 +56,9 @@ angular.module('medIT.home', [])
           patient: "Johnny Doe Jr.",
           patientID: "0",
           notes: "N/A",
-          color: "Blue"
+          isCancelled: false,
+          color: "Blue",
+          notCheckedIn: true
         }
       ];
 
@@ -67,6 +72,11 @@ angular.module('medIT.home', [])
 
     $scope.$on('$ionicView.afterEnter', function() {
       $scope.appts = $localstorage.getObject('appts');
+
+      if ($localstorage.getObject('hasCheckedIn') !== null) {
+        console.log($localstorage.getObject('hasCheckedIn'));
+        $scope.appts[0].notCheckedIn = !$localstorage.getObject('hasCheckedIn');
+      }
 
       if($scope.apptReminder) {
         setTimeout(function() {

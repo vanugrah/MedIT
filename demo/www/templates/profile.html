@@ -3,8 +3,8 @@
 
      <div class="list card">
         <div>
-          <div class="item item-divider">
-            User Profile
+          <div class="item item-divider text-center">
+            <strong>User Profile</strong>
           </div>
 
           <div class="profile-image settings-page">
@@ -22,8 +22,8 @@
 
       <div class="list card">
         <div>
-          <div class="item item-divider">
-            Patient Profile
+          <div class="item item-divider text-center">
+            <strong>Patient Profiles</strong>
           </div>
 
           <div class="item item-text-wrap">
@@ -65,7 +65,7 @@
                 <p>Sex: Female</p> -->
                 <p>Insurance ID: 902-933-251</p>
                 <p>Insurance Provider: BCBS Georgia</p>
-                
+
             </div>
 
           </div>
@@ -73,25 +73,37 @@
 
         </div>
       </div>
-<!--
-      <div class="list card">
-        <div>
-          <div class="item item-divider">
-            Patient Profile
-          </div>
 
-          <div class="profile-image settings-page">
-          </div>
-
-          <div class="item">
-              <h2>Name: Johanna Doe</h2>
-              <p>Age: 7</p>
-              <p>Sex: Female</p>
-              <p>Insurance Provider: BCBS Georgia</p>
-              <p>Insurance ID: 902-933-285</p>
-          </div>
+      <div class="list card"
+           ng-show="isCheckingIn">
+        <div class="item text-center item-divider">
+          <strong>Is this information up to date?</strong>
         </div>
-      </div> -->
+
+        <div class="item button-bar">
+          <a class="button button-stable" ng-click="checkIn(0)">No</a>
+          <a class="button button-positive" ng-click="checkIn(1)">Yes</a>
+        </div>
+      </div>
+    <!--
+          <div class="list card">
+            <div>
+              <div class="item item-divider">
+                Patient Profile
+              </div>
+
+              <div class="profile-image settings-page">
+              </div>
+
+              <div class="item">
+                  <h2>Name: Johanna Doe</h2>
+                  <p>Age: 7</p>
+                  <p>Sex: Female</p>
+                  <p>Insurance Provider: BCBS Georgia</p>
+                  <p>Insurance ID: 902-933-285</p>
+              </div>
+            </div>
+          </div> -->
 
   </ion-content>
 </ion-view>

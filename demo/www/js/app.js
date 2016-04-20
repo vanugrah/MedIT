@@ -5,7 +5,8 @@ angular.module('medIT',
     'medIT.home',
     'medIT.services',
     'medIT.settings',
-    'medIT.apptDetails'])
+    'medIT.apptDetails',
+    'medIT.profile'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

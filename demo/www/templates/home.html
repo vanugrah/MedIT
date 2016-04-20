@@ -21,11 +21,11 @@
       </div>
 
         <ion-item class="no-padding-bot">
-
             <span class="item-title">{{appt.date}} ({{appt.time}})</span>
             <br>
             {{appt.location}}
             <p>{{appt.patient}}</p>
+            <div class="text-green" ng-hide="appt.notCheckedIn">CHECKED IN</div>
             <br>
 
             <ion-item class="item item-icon-right"
