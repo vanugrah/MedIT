@@ -1,17 +1,20 @@
 <ion-view view-title="Login" name="login-view">
   <ion-content class="padding">
 
-      <div id="loginHeader">
+      <div id="loginImage"class="" >
         <center>
-          <h2>MedIT</h2>
+          <img src="img/medit-logo.png" align="middle" />
         </center>
       </div>
 
-      <div id="loginImage"class="padding" >
+      <!-- <div id="loginHeader"> -->
         <center>
-          <img src="img/ionic_logo2.png" align="middle" />
+          <h4 class="loginHeading">Children's Healthcare of Atlanta <br> Patient Application</h4>
+
         </center>
-      </div>
+      <!-- </div> -->
+
+      
 
       <div class="list list-inset">
           <label class="item item-input">
@@ -24,8 +27,12 @@
       </div>
 
       <button class="button button-block button-positive" ng-click="login()">Login</button>
-
-      <h4 class="text-blue text-center" ui-sref="app.login">Forgot Password?</h4>
+      
+      <div class="text-center">
+        <h5 class="text-blue text-left forgot-text"  ui-sref="app.login">Forgot Username?</h5>
+        <h5 class="text-blue text-left forgot-text"  ui-sref="app.login">Forgot Password?</h5>
+      </div>
+      
   </ion-content>
 </ion-view>
 
