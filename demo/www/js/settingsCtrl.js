@@ -7,6 +7,7 @@ angular.module('medIT.settings', [])
   .controller('SettingsCtrl', function($scope, $http, $localstorage) {
 
     $scope.$on('$ionicView.loaded', function() {
+
       $scope.settings = {
         push: true,
         sms: true,
@@ -14,25 +15,39 @@ angular.module('medIT.settings', [])
         weather: true,
         traffic: true
       };
+
+      $scope.patients = [
+        {
+          pid: 0,
+          name: "Johnny Doe Jr",
+          color: "blue"
+        },
+        {
+          pid: 1,
+          name: "Johanna Doe",
+          color: "green"
+        }
+      ];
+
       $localstorage.setObject("settings", $scope.settings);
 
       $scope.appts = $localstorage.getObject('appts');
 
-      $scope.johnnyColor = "Blue";
-      $scope.johannaColor = "Green";
+      //$scope.johnnyColor = "Blue";
+      //$scope.johannaColor = "Green";
 
-      $localstorage.setObject('johnnyColor', $scope.johnnyColor);
-      $localstorage.setObject('johannaColor', $scope.johannaColor);
+      //$localstorage.setObject('johnnyColor', $scope.johnnyColor);
+      //$localstorage.setObject('johannaColor', $scope.johannaColor);
 
-      $scope.colors = ["Blue", "Yellow", "Red", "Green"];
+      $scope.colors = ["blue", "yellow", "red", "green"];
     });
 
     // Sets the settings when the user enters settings page
     $scope.$on('$ionicView.beforeEnter', function(){
       $scope.settings = $localstorage.getObject("settings");
       $scope.appts = $localstorage.getObject('appts');
-      $scope.johnnyColor = $localstorage.getObject('johnnyColor');
-      $scope.johannaColor = $localstorage.getObject('johannaColor');
+      //$scope.johnnyColor = $localstorage.getObject('johnnyColor');
+      //$scope.johannaColor = $localstorage.getObject('johannaColor');
 
         //$http.get("http://127.0.0.1/{REST OF THE URL PLS}")
         //  .success(function(data) {
@@ -48,22 +63,25 @@ angular.module('medIT.settings', [])
 
     });
 
-    $scope.$on('$ionicView.beforeLeave', function(){
-      $localstorage.setObject("settings", $scope.settings);
+    $scope.changeSettings = function() {
+      alert(JSON.stringify($scope.patients));
 
-      for (i = 0; i < $scope.appts.length; i++) {
-        if($scope.appts[i].patientID === "0") {
-          $scope.appts[i].color = $scope.johnnyColor;
-
-        } else if ($scope.appts[i].patientID === "1") {
-          $scope.appts[i].color = $scope.johannaColor;
-        }
-      }
-
-      $localstorage.setObject('appts', $scope.appts);
-      $localstorage.setObject('johnnyColor', $scope.johnnyColor);
-      $localstorage.setObject('johannaColor', $scope.johannaColor);
-    });
+      //$localstorage.setObject("settings", $scope.settings);
+      //
+      //// Update colors and stuff in DB according to $scope.patients
+      //for (i = 0; i < $scope.appts.length; i++) {
+      //  if($scope.appts[i].patientID === "0") {
+      //    $scope.appts[i].color = $scope.johnnyColor;
+      //
+      //  } else if ($scope.appts[i].patientID === "1") {
+      //    $scope.appts[i].color = $scope.johannaColor;
+      //  }
+      //}
+      //
+      //$localstorage.setObject('appts', $scope.appts);
+      //$localstorage.setObject('johnnyColor', $scope.johnnyColor);
+      //$localstorage.setObject('johannaColor', $scope.johannaColor);
+    };
 
     $scope.changeJohnnyColor = function(color) {
       $scope.johnnyColor = color;

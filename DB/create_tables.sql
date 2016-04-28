@@ -18,6 +18,7 @@ CREATE TABLE Patient (
     Age int(3) NOT NULL,
     Sex ENUM('M', 'F') NOT NULL,
 	Username varchar(255) NOT NULL,
+    Color varchar(255),
 	PRIMARY KEY (PatientID, Username),
 	FOREIGN KEY (Username)
 		REFERENCES Parent(Username)

@@ -23,7 +23,7 @@ angular.module('medIT.home', [])
           patientID: "0",
           notes: "Follow-up appointment",
           isCancelled: false,
-          color: "Blue",
+          color: "blue",
           notCheckedIn: true
         },
         {
@@ -40,7 +40,7 @@ angular.module('medIT.home', [])
           patientID: "1",
           notes: "6-month check-up",
           isCancelled: false,
-          color: "Green",
+          color: "green",
           notCheckedIn: true
         },
         {
@@ -57,7 +57,7 @@ angular.module('medIT.home', [])
           patientID: "0",
           notes: "N/A",
           isCancelled: false,
-          color: "Blue",
+          color: "blue",
           notCheckedIn: true
         }
       ];
@@ -68,6 +68,15 @@ angular.module('medIT.home', [])
     $scope.$on('$ionicView.beforeEnter', function() {
       //$scope.appts = $localstorage.getObject('appts');
       $scope.apptReminder = $localstorage.getObject('apptReminder');
+
+
+      //$http.get("http://127.0.0.1/{REST OF THE URL PLS}")
+      //  .success(function(data) {
+      //    $scope.appts = data;
+      //  })
+      //  .error(function(data) {
+      //    alert("You messed up");
+      //  });
     });
 
     $scope.$on('$ionicView.afterEnter', function() {
@@ -78,58 +87,67 @@ angular.module('medIT.home', [])
         $scope.appts[0].notCheckedIn = !$localstorage.getObject('hasCheckedIn');
       }
 
-      if($scope.apptReminder) {
-        setTimeout(function() {
-          $scope.reminder();
-        }, 6000);
-      }
+      //if($scope.apptReminder) {
+      //  setTimeout(function() {
+      //    $scope.reminder();
+      //  }, 6000);
+      //}
     });
 
-    $scope.reminder = function() {
-      var confirmPopup = $ionicPopup.confirm({
-        title: '<strong>Upcoming Appointment Reminder</strong>',
-        template: "Johanna has an appointment tomorrow " +
-          "<strong>4/22/16</strong> " +
-          "at <strong>3:15pm</strong> " +
-          "at <strong>Children's Healthcare of Atlanta - Egleston.</strong><br>" +
-          "<br>Will she be able to make the appointment?<br>" +
-          "<br>(If unsure, please select 'Yes')",
-        cancelText: 'No',
-        okText: 'Yes'
-      });
-
-      confirmPopup.then(function(res) {
-        var yesTitle = "<strong>Confirmed</strong>";
-        var yesTemplate = "Thank you for your response! <br>" +
-                          "<br>The clinic has been informed of your expected attendance!";
-        var noTitle = "<strong>Cancelled</strong>";
-        var noTemplate = "Thank you for your response! <br>" +
-                         "<br>The appointment has been cancelled.";
-
-        if(res) {
-          $scope.result(yesTitle, yesTemplate);
-        } else {
-          $scope.result(noTitle, noTemplate);
-          $scope.appts[1].isCancelled = true;
-          $localstorage.setObject('appts', $scope.appts);
-        }
-      });
-    };
+    //$scope.reminder = function() {
+    //  var confirmPopup = $ionicPopup.confirm({
+    //    title: '<strong>Upcoming Appointment Reminder</strong>',
+    //    template: "Johanna has an appointment tomorrow " +
+    //      "<strong>4/22/16</strong> " +
+    //      "at <strong>3:15pm</strong> " +
+    //      "at <strong>Children's Healthcare of Atlanta - Egleston.</strong><br>" +
+    //      "<br>Will she be able to make the appointment?<br>" +
+    //      "<br>(If unsure, please select 'Yes')",
+    //    cancelText: 'No',
+    //    okText: 'Yes'
+    //  });
+    //
+    //  confirmPopup.then(function(res) {
+    //    var yesTitle = "<strong>Confirmed</strong>";
+    //    var yesTemplate = "Thank you for your response! <br>" +
+    //                      "<br>The clinic has been informed of your expected attendance!";
+    //    var noTitle = "<strong>Cancelled</strong>";
+    //    var noTemplate = "Thank you for your response! <br>" +
+    //                     "<br>The appointment has been cancelled.";
+    //
+    //    if(res) {
+    //      $scope.result(yesTitle, yesTemplate);
+    //    } else {
+    //      $scope.result(noTitle, noTemplate);
+    //
+    //      $scope.appts[1].isCancelled = true;
+    //      $localstorage.setObject('appts', $scope.appts);
+    //
+    //      //$http.post("http://127.0.0.1/{REST OF THE URL PLS}", $scope.appts)
+    //      //  .success(function(data) {
+    //      //    $scope.result();
+    //      //  })
+    //      //  .error(function(data) {
+    //      //    alert("You messed up");
+    //      //  });
+    //    }
+    //  });
+    //};
 
     // An alert dialog
-    $scope.result = function(title, template) {
-      var alertPopup = $ionicPopup.alert({
-        title: title,
-        template: template
-      });
-
-      alertPopup.then(function(res) {
-        $localstorage.setObject('apptReminder', false);
-        $scope.apptReminder = false;
-      });
-    };
-
-    $scope.viewAppt = function(appt) {
-      $localstorage.setObject('apptID', appt.id);
-    };
+    //$scope.result = function(title, template) {
+    //  var alertPopup = $ionicPopup.alert({
+    //    title: title,
+    //    template: template
+    //  });
+    //
+    //  alertPopup.then(function(res) {
+    //    $localstorage.setObject('apptReminder', false);
+    //    $scope.apptReminder = false;
+    //  });
+    //};
+    //
+    //$scope.viewAppt = function(appt) {
+    //  $localstorage.setObject('apptID', appt.id);
+    //};
   });

@@ -14,7 +14,46 @@ angular.module('medIT.profile', [])
       $scope.johnnyColor = $localstorage.getObject('johnnyColor');
       $scope.johannaColor = $localstorage.getObject('johannaColor');
       $scope.isCheckingIn = $localstorage.getObject('isCheckingIn');
-      console.log($scope.isCheckingIn);
+
+      //$http.get("http://127.0.0.1/getPatients")
+      //  .success(function(data) {
+      //    $scope.patients = data;
+      //  })
+      //  .error(function(data) {
+      //    console.log("You messed up yo");
+      //  });
+      //console.log($scope.isCheckingIn);
+
+      $scope.user = {
+        name: "John Doe",
+        email: "jdoe@gatech.edu",
+        phone: "404-915-3496",
+        address: "733 Techwood Dr. Atlanta",
+        city: "Atlanta",
+        state: "GA",
+        zip: "30313"
+      };
+
+      $scope.patients = [
+        {
+          name: "Johnny Doe Jr",
+          age: "8",
+          gender: "Male",
+          insuranceID: "902933285",
+          insuranceProvider: "BCBS Georgia",
+          color: "pac-blue",
+          photo: "img/boy-child.jpg"
+        },
+        {
+          name: "Johanna Doe",
+          age: "5",
+          gender: "Female",
+          insuranceID: "902933251",
+          insuranceProvider: "BCBS Georgia",
+          color: "green",
+          photo: "img/girl-child.jpg"
+        }
+      ];
     });
 
     $scope.checkIn = function(res) {
@@ -40,6 +79,8 @@ angular.module('medIT.profile', [])
         $scope.isCheckingIn = false;
         $localstorage.setObject('isCheckingIn', false);
         $localstorage.setObject('hasCheckedIn', true);
+
+
       });
     };
   });

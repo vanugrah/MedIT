@@ -14,10 +14,7 @@
          ui-sref="app.apptDetails">
 
       <div id="vert-bar"
-           ng-class="{'yellow': appt.color === 'Yellow',
-            'pac-blue': appt.color === 'Blue',
-            'maroon': appt.color === 'Red',
-            'green': appt.color === 'Green'}">
+           ng-class="appt.color">
       </div>
 
         <ion-item class="no-padding-bot">
@@ -28,11 +25,7 @@
             <div class="text-green" ng-hide="appt.notCheckedIn">CHECKED IN</div>
             <br>
 
-            <ion-item class="item item-icon-right"
-                      ng-class="{'text-yellow': appt.color === 'Yellow',
-                        'text-pac-blue': appt.color === 'Blue',
-                        'text-maroon': appt.color === 'Red',
-                        'text-green': appt.color === 'Green'}">
+            <ion-item class="item item-icon-right">
 
               <center>
                 MORE INFO

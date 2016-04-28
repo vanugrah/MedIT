@@ -97,19 +97,19 @@ h2 {
   color: #E6B500;
 }
 
-.pac-blue {
+.blue {
   background: #0a9dc7;
 }
 
-.text-pac-blue {
+.text-blue {
   color: #0a9dc7;
 }
 
-.maroon {
+.red {
   background: #C70039;
 }
 
-.text-maroon {
+.text-red {
   color: #C70039;
 }
 
@@ -129,7 +129,7 @@ h2 {
 }
 /*
 .scroll-content{
- background: url(http://wallpapershome.com/images/pages/pic_h/225.jpg) no-repeat center center fixed; 
+ background: url(http://wallpapershome.com/images/pages/pic_h/225.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

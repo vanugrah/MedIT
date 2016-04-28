@@ -68,25 +68,41 @@
             <strong>Color Preferences</strong>
           </div>
 
-          <label class="item item-input item-select">
+          <label class="item item-input item-select"
+                  ng-repeat="patient in patients">
             <div class="input-label">
-              Johnny Doe Jr.
+              {{patient.name}} {{patient.color}}
             </div>
-            <select ng-model="johnnyColor"
-                    ng-options="color for color in colors"
-                    ng-change="changeJohnnyColor(johnnyColor)">
+            <select ng-model="patient.color"
+                    ng-options="color for color in colors">
+                    <!--ng-change="changeJohnnyColor(patient.color)">-->
             </select><br>
           </label>
 
-          <label class="item item-input item-select">
-            <div class="input-label">
-              Johanna Doe
-            </div>
-            <select ng-model="johannaColor"
-                    ng-options="color for color in colors"
-                    ng-change="changeJohannaColor(johannaColor)">
-            </select><br>
-          </label>
+          <button class="button button-block button-balanced"
+                  ng-click="changeSettings()">
+            Submit
+          </button>
+
+          <!--<label class="item item-input item-select">-->
+            <!--<div class="input-label">-->
+              <!--Johnny Doe Jr.-->
+            <!--</div>-->
+            <!--<select ng-model="johnnyColor"-->
+                    <!--ng-options="color for color in colors"-->
+                    <!--ng-change="changeJohnnyColor(johnnyColor)">-->
+            <!--</select><br>-->
+          <!--</label>-->
+
+          <!--<label class="item item-input item-select">-->
+            <!--<div class="input-label">-->
+              <!--Johanna Doe-->
+            <!--</div>-->
+            <!--<select ng-model="johannaColor"-->
+                    <!--ng-options="color for color in colors"-->
+                    <!--ng-change="changeJohannaColor(johannaColor)">-->
+            <!--</select><br>-->
+          <!--</label>-->
 
     </div>
   </ion-content>
