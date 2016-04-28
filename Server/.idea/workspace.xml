@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56dd9a49-ec17-409f-881e-7df149c77223" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/DatabaseManager.java" afterPath="$PROJECT_DIR$/src/com/medit/DatabaseManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/EPICManager.java" afterPath="$PROJECT_DIR$/src/com/medit/EPICManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/Main.java" afterPath="$PROJECT_DIR$/src/com/medit/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/Tester.java" afterPath="$PROJECT_DIR$/src/com/medit/Tester.java" />
     </list>
     <ignored path="Server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,7 +91,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/medit/Server.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="814">
@@ -114,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/medit/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -241,10 +238,10 @@
         <option value="$PROJECT_DIR$/src/com/medit/Server.java" />
         <option value="$PROJECT_DIR$/src/com/medit/db/Patient.java" />
         <option value="$PROJECT_DIR$/src/com/medit/db/User.java" />
-        <option value="$PROJECT_DIR$/src/com/medit/Main.java" />
         <option value="$PROJECT_DIR$/src/com/medit/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/src/com/medit/EPICManager.java" />
         <option value="$PROJECT_DIR$/src/com/medit/Tester.java" />
+        <option value="$PROJECT_DIR$/src/com/medit/Main.java" />
       </list>
     </option>
   </component>
@@ -808,12 +805,12 @@
       <workItem from="1460995189754" duration="1060000" />
       <workItem from="1461099469546" duration="3356000" />
       <workItem from="1461538264431" duration="589000" />
-      <workItem from="1461809653393" duration="3355000" />
+      <workItem from="1461809653393" duration="3427000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69944000" />
+    <option name="totallyTimeSpent" value="70016000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1244,14 +1241,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/medit/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_05/src.zip!/java/sql/Statement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
@@ -1357,6 +1346,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="814">
           <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/medit/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding />
         </state>
       </provider>
