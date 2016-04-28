@@ -42,7 +42,7 @@ public class SMSManager {
         String messageText = "Hello! This is a reminder from MedIT that you have an appointment with Dr. " +
                 appointment.doctor.firstName + " " + appointment.doctor.lastName + " at " +
                 appointment.clinic.hospital.name + " scheduled for " +
-                dateFormater.format(appointment.date) + ". INSERT CONFIRMATION LINK HERE.";
+                dateFormater.format(appointment.date) + ". Click here to confirm: http://127.0.0.1/Confirm?ID=" + appointment.appointmentID + ".";
 
         sendSMS(to, messageText);
     }

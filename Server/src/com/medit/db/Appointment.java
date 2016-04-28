@@ -19,18 +19,6 @@ public class Appointment {
     public boolean CheckedIn = false;
     public boolean Cancelled = false;
 
-    public void confirmAppointment() {
-
-    }
-
-    public void checkInAppointment() {
-
-    }
-
-    public void cancelAppointment() {
-
-    }
-
     public boolean dueForReminder() {
         return false;
     }
