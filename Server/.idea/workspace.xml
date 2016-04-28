@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56dd9a49-ec17-409f-881e-7df149c77223" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JSON API Message Types.txt" afterPath="$PROJECT_DIR$/JSON API Message Types.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/DatabaseManager.java" afterPath="$PROJECT_DIR$/src/com/medit/DatabaseManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/Server.java" afterPath="$PROJECT_DIR$/src/com/medit/Server.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../demo/www/js/controllers.js" afterPath="$PROJECT_DIR$/../demo/www/js/controllers.js" />
     </list>
     <ignored path="Server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -210,7 +208,7 @@
           <file leaf-file-name="JSON API Message Types.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/JSON API Message Types.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1156">
+                <state relative-caret-position="2068">
                   <caret line="94" column="18" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
                   <folding />
                 </state>
@@ -833,12 +831,12 @@
       <workItem from="1460995189754" duration="1060000" />
       <workItem from="1461099469546" duration="3356000" />
       <workItem from="1461538264431" duration="589000" />
-      <workItem from="1461809653393" duration="19125000" />
+      <workItem from="1461809653393" duration="19725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85714000" />
+    <option name="totallyTimeSpent" value="86314000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1345,7 +1343,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JSON API Message Types.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
+        <state relative-caret-position="2068">
           <caret line="94" column="18" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
           <folding />
         </state>

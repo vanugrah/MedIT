@@ -1,37 +1,43 @@
 angular.module('medIT.controllers', [])
 
-.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state, $timeout, $ionicLoading) {
+.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state, $timeout, $http) {
     
     $scope.$on('$ionicView.beforeEnter', function() {
       $scope.data = {};
     });
 
     $scope.login = function() {
-        LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
+      
+      var data = {
+        MessageType: "AuthRequest",
+        Username: $scope.data.username,
+        Password: $scope.data.password
+      };
+
+      $http({
+        method: "POST",
+        url: "http://localhost/",
+        data: data
+      }).then(function successCallback(response) {
+        if (response.data.MessageType === "Error") {
+          alert("Server error. " + response.data.Message);
+        } else {
+          if(response.data.Success) {
+            // user = response.data.User;
+            
             // Redirect to homepage
             $state.go('app.home');
-
-            // Setup the loader
-            $ionicLoading.show({
-              template: '<h2>Loading...</h2> <p> <ion-spinner icon="android" class="spinner-positive" style="height: 50px !important;"></ion-spinner>',
-              animation: 'fade-in',
-              noBackdrop: false,
-              maxWidth: 200,
-              duration: 2000
-            });
-
-        }).error(function(data) {
+          } else {
             var alertPopup = $ionicPopup.alert({
                 title: 'Login failed!',
                 template: 'Please check your credentials!'
             });
-        });
+          }
+        }
+      }, function errorCallback(response) {
+        alert("Unable to connect to server!");
+      });
     };
-
-    // Simulate a login delay. Remove this and replace with your login
-    //$timeout(function() {
-    //  $scope.closeLogin();
-    //}, 2000);
 })
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicLoading) {
