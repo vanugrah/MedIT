@@ -30,7 +30,6 @@ public class Server implements Runnable {
             if (httpMethod.equals("POST")) {
                 while (reader.ready()) {
                     currentLine = reader.readLine();
-//                    System.out.println(currentLine);
                     if (currentLine.contains("Content-type:")) {
                         if (!currentLine.contains("application/json"))
                             System.out.println("Unsupported content type in POST.");
@@ -80,7 +79,7 @@ public class Server implements Runnable {
             case "PatientQuery": {
                 System.out.println("Patient Query received.");
                 int id = root.getInt("PatientID");
-                Patient p = DatabaseManager.getPatient(id);
+                Patient p = EPICManager.getPatientInformation(id);
                 response.put("MessageType", "PatientQueryResults");
                 if(p != null) {
                     response.put("Found", true);
@@ -94,7 +93,7 @@ public class Server implements Runnable {
             case "AppointmentsQuery": {
                 System.out.println("Appointments Query received.");
                 int patientID = root.getInt("PatientID");
-                Patient p = DatabaseManager.getPatient(patientID);
+                Patient p = EPICManager.getPatientInformation(patientID);
                 if(p == null) {
                     response.put("MessageType", "Error");
                     response.put("Message", "Could not find patient with ID " + patientID);
@@ -124,7 +123,6 @@ public class Server implements Runnable {
             }
             case "PatientCreate": {
                 System.out.println("Patient creation request received.");
-                String sex = root.getString("Sex");
                 Patient patient = new Patient();
                 patient.user.username = root.getString("Username");
                 patient.firstName = root.getString("FirstName");
@@ -148,15 +146,33 @@ public class Server implements Runnable {
             }
             case "ConfirmAppointment" : {
                 System.out.println("Appointment confirmation received.");
-                // TODO : Appointments should have IDs
+                int appointmentID = root.getInt("AppointmentID");
+                EPICManager.confirmAppointment(appointmentID);
+                response.put("MessageType", "AppointmentConfirmed");
+                response.put("AppointmentID", appointmentID);
                 break;
             }
             case "CancelAppointment" : {
                 System.out.println("Appointment cancellation received.");
+                int appointmentID = root.getInt("AppointmentID");
+                EPICManager.cancelAppointment(appointmentID);
+                response.put("MessageType", "AppointmentCancelled");
+                response.put("AppointmentID", appointmentID);
                 break;
             }
             case "CheckInForAppointment" : {
                 System.out.println("Appointment check-in received.");
+                int appointmentID = root.getInt("AppointmentID");
+                EPICManager.checkInForAppointment(appointmentID);
+                response.put("MessageType", "AppointmentCheckedIn");
+                response.put("AppointmentID", appointmentID);
+                break;
+            }
+            default : {
+                String message = "Unrecognized message type: " + messageType;
+                System.out.println(message);
+                response.put("MessageType", "Error");
+                response.put("Message", message);
                 break;
             }
         }

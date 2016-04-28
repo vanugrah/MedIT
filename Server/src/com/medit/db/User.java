@@ -1,6 +1,7 @@
 package com.medit.db;
 
 import com.medit.DatabaseManager;
+import com.medit.EPICManager;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class User {
         List<Appointment> appointments = new ArrayList<>();
 
         for (Patient patient : patients) {
-            appointments.addAll(DatabaseManager.getAppointmentsForPatient(patient));
+            appointments.addAll(EPICManager.getAppointmentsForPatient(patient));
         }
 
         return appointments;

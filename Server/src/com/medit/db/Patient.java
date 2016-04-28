@@ -1,6 +1,7 @@
 package com.medit.db;
 
 import com.medit.DatabaseManager;
+import com.medit.EPICManager;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class Patient {
     public User user = new User();
 
     public List<Appointment> getAppointments() {
-        return DatabaseManager.getAppointmentsForPatient(this);
+        return EPICManager.getAppointmentsForPatient(this);
     }
 
     public JSONObject toJSON() {

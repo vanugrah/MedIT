@@ -17,10 +17,8 @@ public class ReminderManager implements Runnable {
         while(!Thread.interrupted()) {
             List<Patient> patients = db.getAllPatients();
             for (Patient patient : patients) {
-//                System.out.println(patient.firstName);
                 List<Appointment> appointments = patient.getAppointments();
                 for (Appointment appointment : appointments) {
-//                    System.out.println("\t" + appointment.date);
                     if(appointment.dueForReminder()) {
                         if(appointment.dueForConfirmation()) {
                             sendConfirmation(patient, appointment);
