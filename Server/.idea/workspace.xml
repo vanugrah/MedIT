@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56dd9a49-ec17-409f-881e-7df149c77223" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/DatabaseManager.java" afterPath="$PROJECT_DIR$/src/com/medit/DatabaseManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/db/Appointment.java" afterPath="$PROJECT_DIR$/src/com/medit/db/Appointment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/db/Patient.java" afterPath="$PROJECT_DIR$/src/com/medit/db/Patient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/EPICManager.java" afterPath="$PROJECT_DIR$/src/com/medit/EPICManager.java" />
     </list>
     <ignored path="Server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -129,7 +126,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Patient.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Patient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/medit/db/Patient.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="370">
@@ -173,27 +170,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EPICManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EPICManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/medit/EPICManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="143" column="67" selection-start-line="143" selection-start-column="67" selection-end-line="143" selection-end-column="67" />
+            <state relative-caret-position="506">
+              <caret line="151" column="17" selection-start-line="151" selection-start-column="17" selection-end-line="151" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1461818808892" expanded="true" signature="569:628" placeholder="SELECT * FRO... Patient" />
-                <marker date="1461818808892" expanded="true" signature="2165:2190" placeholder="SELECT * FRO... Appointment" />
-                <marker date="1461818808892" expanded="true" signature="2165:2208" placeholder="SELECT * FRO... Appointment" />
-                <marker date="1461818808892" expanded="true" signature="2165:2209" placeholder="SELECT * FRO... Appointment" />
-                <marker date="1461818808892" expanded="true" signature="3745:3816" placeholder="SELECT * FRO... Parent" />
-                <marker date="1461818808892" expanded="true" signature="4386:4461" placeholder="SELECT * FRO... Parent" />
-                <marker date="1461818808892" expanded="true" signature="4977:5050" placeholder="SELECT * FRO... Doctor" />
-                <marker date="1461818808892" expanded="true" signature="5549:5622" placeholder="SELECT * FRO... Clinic" />
-                <marker date="1461818808892" expanded="true" signature="6138:6215" placeholder="SELECT * FRO... Hospital" />
-                <marker date="1461818808892" expanded="true" signature="7680:7714" placeholder="UPDATE Appoi... " />
-                <marker date="1461818808892" expanded="true" signature="7680:7741" placeholder="UPDATE Appoi... " />
-                <marker date="1461818808892" expanded="true" signature="7680:7742" placeholder="UPDATE Appoi... " />
-                <marker date="1461818808892" expanded="true" signature="8623:8685" placeholder="UPDATE Appoi... " />
-                <marker date="1461818808892" expanded="true" signature="9570:9633" placeholder="UPDATE Appoi... " />
+                <marker date="1461868444619" expanded="true" signature="569:628" placeholder="SELECT * FRO... Patient" />
+                <marker date="1461868444619" expanded="true" signature="2165:2190" placeholder="SELECT * FRO... Appointment" />
+                <marker date="1461868444619" expanded="true" signature="2165:2208" placeholder="SELECT * FRO... Appointment" />
+                <marker date="1461868444619" expanded="true" signature="2165:2209" placeholder="SELECT * FRO... Appointment" />
+                <marker date="1461868444619" expanded="true" signature="3745:3816" placeholder="SELECT * FRO... Parent" />
+                <marker date="1461868444619" expanded="true" signature="4386:4461" placeholder="SELECT * FRO... Parent" />
+                <marker date="1461868444619" expanded="true" signature="4977:5050" placeholder="SELECT * FRO... Doctor" />
+                <marker date="1461868444619" expanded="true" signature="5549:5622" placeholder="SELECT * FRO... Clinic" />
+                <marker date="1461868444619" expanded="true" signature="6138:6226" placeholder="SELECT * FRO... Hospital" />
+                <marker date="1461868444619" expanded="true" signature="7691:7725" placeholder="UPDATE Appoi... " />
+                <marker date="1461868444619" expanded="true" signature="7691:7752" placeholder="UPDATE Appoi... " />
+                <marker date="1461868444619" expanded="true" signature="7691:7753" placeholder="UPDATE Appoi... " />
+                <marker date="1461868444619" expanded="true" signature="8634:8696" placeholder="UPDATE Appoi... " />
+                <marker date="1461868444619" expanded="true" signature="9581:9644" placeholder="UPDATE Appoi... " />
               </folding>
             </state>
           </provider>
@@ -252,7 +249,6 @@
         <option value="$PROJECT_DIR$/src/com/medit/EmailManager.java" />
         <option value="$PROJECT_DIR$/JSON API Message Types.txt" />
         <option value="$PROJECT_DIR$/src/com/medit/Tester.java" />
-        <option value="$PROJECT_DIR$/src/com/medit/EPICManager.java" />
         <option value="$PROJECT_DIR$/src/com/medit/db/Clinic.java" />
         <option value="$PROJECT_DIR$/src/com/medit/ReminderManager.java" />
         <option value="$PROJECT_DIR$/src/com/medit/Main.java" />
@@ -260,6 +256,7 @@
         <option value="$PROJECT_DIR$/src/com/medit/db/Appointment.java" />
         <option value="$PROJECT_DIR$/src/com/medit/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/src/com/medit/db/Patient.java" />
+        <option value="$PROJECT_DIR$/src/com/medit/EPICManager.java" />
       </list>
     </option>
   </component>
@@ -823,12 +820,12 @@
       <workItem from="1460995189754" duration="1060000" />
       <workItem from="1461099469546" duration="3356000" />
       <workItem from="1461538264431" duration="589000" />
-      <workItem from="1461809653393" duration="15689000" />
+      <workItem from="1461809653393" duration="16410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82278000" />
+    <option name="totallyTimeSpent" value="82999000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -841,7 +838,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -851,15 +848,15 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2752809" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18314607" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17650215" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21995708" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17328326" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24937028" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1295,30 +1292,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/medit/EPICManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="143" column="67" selection-start-line="143" selection-start-column="67" selection-end-line="143" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1461818808892" expanded="true" signature="569:628" placeholder="SELECT * FRO... Patient" />
-            <marker date="1461818808892" expanded="true" signature="2165:2190" placeholder="SELECT * FRO... Appointment" />
-            <marker date="1461818808892" expanded="true" signature="2165:2208" placeholder="SELECT * FRO... Appointment" />
-            <marker date="1461818808892" expanded="true" signature="2165:2209" placeholder="SELECT * FRO... Appointment" />
-            <marker date="1461818808892" expanded="true" signature="3745:3816" placeholder="SELECT * FRO... Parent" />
-            <marker date="1461818808892" expanded="true" signature="4386:4461" placeholder="SELECT * FRO... Parent" />
-            <marker date="1461818808892" expanded="true" signature="4977:5050" placeholder="SELECT * FRO... Doctor" />
-            <marker date="1461818808892" expanded="true" signature="5549:5622" placeholder="SELECT * FRO... Clinic" />
-            <marker date="1461818808892" expanded="true" signature="6138:6215" placeholder="SELECT * FRO... Hospital" />
-            <marker date="1461818808892" expanded="true" signature="7680:7714" placeholder="UPDATE Appoi... " />
-            <marker date="1461818808892" expanded="true" signature="7680:7741" placeholder="UPDATE Appoi... " />
-            <marker date="1461818808892" expanded="true" signature="7680:7742" placeholder="UPDATE Appoi... " />
-            <marker date="1461818808892" expanded="true" signature="8623:8685" placeholder="UPDATE Appoi... " />
-            <marker date="1461818808892" expanded="true" signature="9570:9633" placeholder="UPDATE Appoi... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JSON API Message Types.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -1333,6 +1306,18 @@
           <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/medit/db/Patient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#896#897#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1401,14 +1386,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/medit/db/Patient.java">
+    <entry file="file://$PROJECT_DIR$/src/com/medit/EPICManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+        <state relative-caret-position="506">
+          <caret line="151" column="17" selection-start-line="151" selection-start-column="17" selection-end-line="151" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#830#831#0" expanded="true" />
-            <element signature="e#896#897#0" expanded="true" />
+            <marker date="1461868444619" expanded="true" signature="569:628" placeholder="SELECT * FRO... Patient" />
+            <marker date="1461868444619" expanded="true" signature="2165:2190" placeholder="SELECT * FRO... Appointment" />
+            <marker date="1461868444619" expanded="true" signature="2165:2208" placeholder="SELECT * FRO... Appointment" />
+            <marker date="1461868444619" expanded="true" signature="2165:2209" placeholder="SELECT * FRO... Appointment" />
+            <marker date="1461868444619" expanded="true" signature="3745:3816" placeholder="SELECT * FRO... Parent" />
+            <marker date="1461868444619" expanded="true" signature="4386:4461" placeholder="SELECT * FRO... Parent" />
+            <marker date="1461868444619" expanded="true" signature="4977:5050" placeholder="SELECT * FRO... Doctor" />
+            <marker date="1461868444619" expanded="true" signature="5549:5622" placeholder="SELECT * FRO... Clinic" />
+            <marker date="1461868444619" expanded="true" signature="6138:6226" placeholder="SELECT * FRO... Hospital" />
+            <marker date="1461868444619" expanded="true" signature="7691:7725" placeholder="UPDATE Appoi... " />
+            <marker date="1461868444619" expanded="true" signature="7691:7752" placeholder="UPDATE Appoi... " />
+            <marker date="1461868444619" expanded="true" signature="7691:7753" placeholder="UPDATE Appoi... " />
+            <marker date="1461868444619" expanded="true" signature="8634:8696" placeholder="UPDATE Appoi... " />
+            <marker date="1461868444619" expanded="true" signature="9581:9644" placeholder="UPDATE Appoi... " />
           </folding>
         </state>
       </provider>

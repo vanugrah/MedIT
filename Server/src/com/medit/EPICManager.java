@@ -141,7 +141,7 @@ public class EPICManager {
                 statement.close();
 
                 statement = connection.createStatement();
-                results = statement.executeQuery("SELECT * FROM Hospital WHERE HospitalID='" + appointment.clinic.clinicID + "';");
+                results = statement.executeQuery("SELECT * FROM Hospital WHERE HospitalID='" + appointment.clinic.hospital.hospitalID + "';");
                 if(results.next()) {
                     appointment.clinic.hospital.name = results.getString("Hos_Name");
                     appointment.clinic.hospital.branch = results.getString("Branch");
