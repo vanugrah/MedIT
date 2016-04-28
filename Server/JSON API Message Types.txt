@@ -2,34 +2,41 @@ Message Types
 
 Logging In
   Request
-    MessageType : String = “AuthRequest”
+    MessageType : String = "AuthRequest"
     Username : String
     Password : String
   Response
-    MessageType : String = “AuthResponse”
+    MessageType : String = "AuthResponse"
     Success : Boolean
     User : User
 
 Looking up a patient
   Request
-    MessageType : String = “PatientQuery”
+    MessageType : String = "PatientQuery"
     PatientID : int
   Response
-    MessageType : String = “PatientQueryResults”
+    MessageType : String = "PatientQueryResults"
     Found : Boolean
     Patient : Patient
     
 Looking up appointments
   Request
-    MessageType : String = “AppointmentsQuery”
+    MessageType : String = "AppointmentsQuery"
     PatientID : int
   Response
-    MessageType : String = “AppointmentsQueryResults”
+    MessageType : String = "AppointmentsQueryResults"
     Appointments : Appointment[]
+
+Looking up a single appointment
+  Request
+    MessageType : String = "AppointmentQuery"
+    AppointmentID : int
+  Response
+    Appointment : Appointment
     
 Create a new user
   Request
-    MessageType : String = “UserCreate”
+    MessageType : String = "UserCreate"
     Username : String
     Password : String
     PhoneNumber : String
@@ -37,37 +44,46 @@ Create a new user
     FirstName : String
     LastName : String
   Response
-    MessageType : String = “UserCreateConfirmation”
+    MessageType : String = "UserCreateConfirmation"
     User : User
     
 Create a new patient
   Request
-    MessageType : String = “PatientCreate”
+    MessageType : String = "PatientCreate"
   Response
-    MessageType : String = “PatientCreateConfirmation”
+    MessageType : String = "PatientCreateConfirmation"
     Patient : Patient
     
 Save user settings
   Request
-    MessageType : String = “UserSettingsChange”
+    MessageType : String = "UserSettingsChange"
     Username : String
     GetsPush : Boolean
     GetsSMS : Boolean
     GetsEmail : Boolean
   Response
-    MessageType : String = “UserSettingsChangeConfirmation”
+    MessageType : String = "UserSettingsChangeConfirmation"
 
 Confirming an appointment
   Request
     MessageType : String = "ConfirmAppointment"
+    AppointmentID : int
   Response
+    MessageType : String = "AppointmentConfirmed"
+    AppointmentID : int
   
 Cancel an appointment
   Request
     MessageType : String = "CancelAppointment"
+    AppointmentID : int
   Response
+    MessageType : String = "AppointmentCancelled"
+    AppointmentID : int
     
 Check-In for an appointment
   Request
     MessageType : String = "CheckInForAppointment"
+    AppointmentID : int
   Response
+    MessageType : String = "AppointmentCheckedIn"
+    AppointmentID : int
