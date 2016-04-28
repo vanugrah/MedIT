@@ -65,9 +65,30 @@ angular.module('medIT.home', [])
       //$localstorage.setObject('appts', $scope.appts)
     });
 
-    $scope.$on('$ionicView.beforeEnter', function() {
-      //$scope.appts = $localstorage.getObject('appts');
-      //$scope.apptReminder = $localstorage.getObject('apptReminder');
+    //$scope.$on('$ionicView.beforeEnter', function() {
+    //  //$scope.appts = $localstorage.getObject('appts');
+    //  //$scope.apptReminder = $localstorage.getObject('apptReminder');
+    //
+    //  var data = {
+    //    MessageType: "AppointmentsQuery",
+    //    Username: 'atsou3'
+    //  };
+    //
+    //  $http.post("http://localhost/", data)
+    //    .success(function(data) {
+    //      if (data.MessageType === "Error") {
+    //        alert("Error");
+    //      } else {
+    //        $scope.appts = data.Appointments;
+    //      }
+    //    })
+    //    .error(function(data) {
+    //      alert("You messed up");
+    //    });
+    //
+    //});
+
+    $scope.getAppts = function() {
 
       var data = {
         MessageType: "AppointmentsQuery",
@@ -86,7 +107,7 @@ angular.module('medIT.home', [])
           alert("You messed up");
         });
 
-    });
+    };
     //
     //$scope.$on('$ionicView.afterEnter', function() {
     //  //$scope.appts = $localstorage.getObject('appts');
