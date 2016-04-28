@@ -11,7 +11,8 @@ public class Main {
         Thread daemonThread = new Thread(reminderManager, "ReminderManager");
 
         serverThread.start();
-        daemonThread.start();
+        // TODO : re-enable daemon
+//        daemonThread.start();
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {

@@ -11,6 +11,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -205,6 +206,7 @@ public class Server implements Runnable {
 
                 String currentLine = bufferedReader.readLine();
                 String headerLine = currentLine;
+                System.out.println(headerLine);
                 StringTokenizer tokenizer = new StringTokenizer(headerLine);
                 String httpMethod = tokenizer.nextToken();
 
@@ -213,14 +215,20 @@ public class Server implements Runnable {
                         JSONObject obj = getJSONFromPOSTReader(bufferedReader);
                         JSONObject response = executeJSONRequest(obj);
 
+                        SimpleDateFormat dateFormater = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zz");
                         OutputStream out = new BufferedOutputStream(clientSocket.getOutputStream());
                         final String HEADERS = "HTTP/1.1 200 OK\r\n" +
+                                "Date: " + dateFormater.format(new java.util.Date()) + "\r\n" +
+                                "Access-Control-Allow-Origin:*\r\n" +
                                 "Content-Type: application/json\r\n" +
                                 "Content-Length: ";
                         String responseString = response.toString();
                         out.write((HEADERS + responseString.length() + "\r\n\r\n" + responseString).getBytes());
                         out.flush();
                         out.close();
+
+                        System.out.println((HEADERS + responseString.length() + "\r\n\r\n" + responseString));
+                        System.out.println();
                         System.out.println("Response sent.");
                         break;
                     }
@@ -237,8 +245,40 @@ public class Server implements Runnable {
                         System.out.println("Response sent.");
                         break;
                     }
+                    case "OPTIONS" : {
+                        OutputStream out = new BufferedOutputStream(clientSocket.getOutputStream());
+                        SimpleDateFormat dateFormater = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zz");
+                        final String HEADERS = "HTTP/1.1 200 OK\r\n" +
+                                "Date: " + dateFormater.format(new java.util.Date()) + "\r\n" +
+                                "Access-Control-Allow-Origin:*\r\n" +
+                                "Access-Control-Allow-Methods: POST, GET, OPTIONS\r\n" +
+                                "Access-Control-Allow-Headers: X-PINGOTHER, Content-Type\r\n" +
+                                "Access-Control-Max-Age: 86400\r\n" +
+                                "Vary: Accept-Encoding, Origin\r\n" +
+                                "Content-Encoding: gzip\r\n" +
+                                "Content-Length: 0\r\n" +
+                                "Keep-Alive: timeout=2, max=100\r\n" +
+                                "Connection: Keep-Alive\r\n" +
+                                "Content-Type: text/plain\r\n\r\n";
+                        out.write(HEADERS.getBytes());
+                        out.flush();
+                        out.close();
+                        System.out.println("Response sent.");
+                        System.out.println(HEADERS);
+                        break;
+                    }
                     default : {
                         System.out.println("Unsupported HTTP method : " + httpMethod);
+                        OutputStream out = new BufferedOutputStream(clientSocket.getOutputStream());
+                        final String HEADERS = "HTTP/1.1 400 BAD REQUEST\r\n" +
+                                "Content-Type: text/text\r\n" +
+                                "Content-Length: ";
+
+                        String responseString = "Unsupported HTTP method : " + httpMethod;
+                        out.write((HEADERS + responseString.length() + "\r\n\r\n" + responseString).getBytes());
+                        out.flush();
+                        out.close();
+                        clientSocket.close();
                         break;
                     }
                 }

@@ -1,7 +1,7 @@
 // Home Controller
 angular.module('medIT.home', [])
 
-  .controller('HomeCtrl', function($scope, $localstorage, $ionicPopup) {
+  .controller('HomeCtrl', function($scope, $localstorage, $ionicPopup, $http) {
 
     $scope.$on('$ionicView.loaded', function() {
       //$scope.apptReminder = false;
@@ -95,17 +95,20 @@ angular.module('medIT.home', [])
         Username: 'atsou3'
       };
 
-      $http.post("http://localhost/", data)
-        .success(function(data) {
-          if (data.MessageType === "Error") {
-            alert("Error");
-          } else {
-            $scope.appts = data.Appointments;
-          }
-        })
-        .error(function(data) {
-          alert("You messed up");
-        });
+      $http({
+        method: "POST",
+        url: "http://localhost/",
+        data: data
+      }).then(function successCallback(response) {
+        console.log(JSON.stringify(response));
+        if (response.MessageType === "Error") {
+          alert("Error");
+        } else {
+          $scope.appts = response.data.Appointments;
+        }
+      }, function errorCallback(response) {
+        alert("You messed up");
+      });
 
     };
     //

@@ -15,7 +15,7 @@
     <div class="item item-text-wrap card"
          ng-repeat="appt in appts"
          ng-click="viewAppt(appt)"
-         ng-hide="appt.isCancelled"
+         ng-hide="appt.Cancelled"
          ui-sref="app.apptDetails">
 
       <div id="vert-bar"
@@ -23,11 +23,11 @@
       </div>
 
         <ion-item class="no-padding-bot">
-            <span class="item-title">{{appt.date}} ({{appt.time}})</span>
+            <span class="item-title">{{appt.Date}}</span>
             <br>
-            {{appt.location}}
-            <p>{{appt.patient}}</p>
-            <div class="text-green" ng-hide="appt.notCheckedIn">CHECKED IN</div>
+            {{appt.Clinic.Hospital.Address}}<br>{{appt.Clinic.Hospital.City}}, {{appt.Clinic.Hospital.State}}
+            <p>{{appt.Patient.FirstName}} {{appt.Patient.LastName}}</p>
+            <div class="text-green" ng-show="appt.CheckedIn">CHECKED IN</div>
             <br>
 
             <ion-item class="item item-icon-right">

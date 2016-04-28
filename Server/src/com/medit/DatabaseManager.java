@@ -18,6 +18,8 @@ import java.util.List;
  */
 public class DatabaseManager {
 
+    // TODO : Crashes occasionally with null connection objects
+
     private static final String MySQLIP = "localhost:3306";
 
     public static Connection getConnection() {
