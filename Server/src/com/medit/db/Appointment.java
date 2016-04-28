@@ -77,7 +77,7 @@ public class Appointment {
         JSONObject json = new JSONObject();
 
         json.put("AppointmentID", appointmentID);
-        json.put("Date", date);
+        json.put("Date", date.getTime());
         json.put("Notes", notes);
         json.put("Confirmed", Confirmed);
         json.put("Cancelled", Cancelled);

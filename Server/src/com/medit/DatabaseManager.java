@@ -161,6 +161,7 @@ public class DatabaseManager {
                 patient.lastName = results.getString("Patient_Lname");
                 patient.age = results.getInt("Age");
                 patient.sex = results.getString("Sex").equals("M") ? Patient.Sex.Male : Patient.Sex.Female;
+                patient.color = results.getString("Color");
 
                 patient.user = getUser(results.getString("Username"));
 
@@ -359,6 +360,7 @@ public class DatabaseManager {
                 patient.age = results.getInt("Age");
                 patient.sex = results.getString("Sex").equals("M") ? Patient.Sex.Male : Patient.Sex.Female;
                 patient.user.username = results.getString("Username");
+                patient.color = results.getString("Color");
 
                 ret.add(patient);
             }
