@@ -1,11 +1,14 @@
 package com.medit;
 
+import com.medit.db.Appointment;
+import com.mysql.fabric.xmlrpc.base.Data;
 import org.json.JSONObject;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Date;
 
 /**
  * Created by matt on 4/4/2016.

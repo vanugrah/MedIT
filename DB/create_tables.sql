@@ -83,6 +83,7 @@ CREATE TABLE Appointment (
     Checked_In bit(1) NOT NULL,
     Cancelled bit(1) NOT NULL,
 	Notes text NULL,
+  Date_of_last_reminder date,
 	PRIMARY KEY (AppointmentID),
 	FOREIGN KEY (PatientID)
 		REFERENCES Patient(PatientID)

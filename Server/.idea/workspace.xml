@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56dd9a49-ec17-409f-881e-7df149c77223" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/EmailManager.java" afterPath="$PROJECT_DIR$/src/com/medit/EmailManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/SMSManager.java" afterPath="$PROJECT_DIR$/src/com/medit/SMSManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/Server.java" afterPath="$PROJECT_DIR$/src/com/medit/Server.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/DatabaseManager.java" afterPath="$PROJECT_DIR$/src/com/medit/DatabaseManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/EPICManager.java" afterPath="$PROJECT_DIR$/src/com/medit/EPICManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/ReminderManager.java" afterPath="$PROJECT_DIR$/src/com/medit/ReminderManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/Tester.java" afterPath="$PROJECT_DIR$/src/com/medit/Tester.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/medit/db/Appointment.java" afterPath="$PROJECT_DIR$/src/com/medit/db/Appointment.java" />
     </list>
     <ignored path="Server.iws" />
@@ -32,8 +32,8 @@
       <file leaf-file-name="DatabaseManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/medit/DatabaseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
+            <state relative-caret-position="-185">
+              <caret line="393" column="0" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#DatabaseManager#0" expanded="false" />
                 <element signature="method#getUser#0;class#DatabaseManager#0" expanded="false" />
@@ -41,64 +41,67 @@
                 <element signature="method#verifyLoginCredentials#0;class#DatabaseManager#0" expanded="false" />
                 <element signature="method#createNewPatient#0;class#DatabaseManager#0" expanded="false" />
                 <element signature="method#createNewUser#0;class#DatabaseManager#0" expanded="false" />
-                <marker date="1461812676208" expanded="true" signature="1404:1437" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="true" signature="1404:1438" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="true" signature="1404:1474" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="true" signature="1404:1487" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="true" signature="1404:1504" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="false" signature="1540:1638" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="false" signature="1674:1709" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="false" signature="1674:1710" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="false" signature="1674:1729" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="false" signature="1674:1735" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="false" signature="1674:1758" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="false" signature="1674:1760" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="true" signature="1674:1777" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="true" signature="1674:1780" placeholder="UPDATE Prefe... " />
-                <marker date="1461812676208" expanded="false" signature="2640:2696" placeholder="SELECT * FRO... Parent" />
-                <marker date="1461812676208" expanded="false" signature="3173:3197" placeholder="SELECT * FRO... Preference" />
-                <marker date="1461812676208" expanded="false" signature="3173:3216" placeholder="SELECT * FRO... Preference" />
-                <marker date="1461812676208" expanded="false" signature="3173:3238" placeholder="SELECT * FRO... Preference" />
-                <marker date="1461812676208" expanded="false" signature="4555:4617" placeholder="SELECT * FRO... Parent" />
-                <marker date="1461812676208" expanded="false" signature="6124:6241" placeholder="SELECT COUNT... Parent" />
-                <marker date="1461812676208" expanded="true" signature="7328:7407" placeholder="INSERT INTO patient... " />
-                <marker date="1461812676208" expanded="true" signature="7328:7456" placeholder="INSERT INTO patient... " />
-                <marker date="1461812676208" expanded="true" signature="7328:7501" placeholder="INSERT INTO patient... " />
-                <marker date="1461812676208" expanded="true" signature="7328:7504" placeholder="INSERT INTO patient... " />
-                <marker date="1461812676208" expanded="true" signature="7328:7547" placeholder="INSERT INTO patient... " />
-                <marker date="1461812676208" expanded="true" signature="7328:7601" placeholder="INSERT INTO patient... " />
-                <marker date="1461812676208" expanded="true" signature="7328:7652" placeholder="INSERT INTO patient... " />
-                <marker date="1461812676208" expanded="true" signature="7704:7733" placeholder="SELECT Patie... Patient" />
-                <marker date="1461812676208" expanded="true" signature="7704:7775" placeholder="SELECT Patie... Patient" />
-                <marker date="1461812676208" expanded="true" signature="7704:7777" placeholder="SELECT Patie... Patient" />
-                <marker date="1461812676208" expanded="true" signature="7704:7807" placeholder="SELECT Patie... Patient" />
-                <marker date="1461812676208" expanded="true" signature="7704:7837" placeholder="SELECT Patie... Patient" />
-                <marker date="1461812676208" expanded="true" signature="7704:7880" placeholder="SELECT Patie... Patient" />
-                <marker date="1461812676208" expanded="true" signature="7704:7881" placeholder="SELECT Patie... Patient" />
-                <marker date="1461812676208" expanded="true" signature="7704:7909" placeholder="SELECT Patie... PatientWHERE" />
-                <marker date="1461812676208" expanded="true" signature="7704:7917" placeholder="SELECT Patie... Patient" />
-                <marker date="1461812676208" expanded="true" signature="7704:7951" placeholder="SELECT Patie... Patient" />
-                <marker date="1461812676208" expanded="true" signature="7704:7955" placeholder="SELECT Patie... Patient" />
-                <marker date="1461812676208" expanded="true" signature="8967:9028" placeholder="SELECT * FRO... Patient" />
-                <marker date="1461812676208" expanded="true" signature="9228:9307" placeholder="INSERT INTO parent... " />
-                <marker date="1461812676208" expanded="true" signature="9228:9351" placeholder="INSERT INTO parent... " />
-                <marker date="1461812676208" expanded="true" signature="9228:9401" placeholder="INSERT INTO parent... " />
-                <marker date="1461812676208" expanded="true" signature="9228:9450" placeholder="INSERT INTO parent... " />
-                <marker date="1461812676208" expanded="true" signature="9228:9497" placeholder="INSERT INTO parent... " />
-                <marker date="1461812676208" expanded="true" signature="9228:9502" placeholder="INSERT INTO parent... " />
-                <marker date="1461812676208" expanded="true" signature="9228:9552" placeholder="INSERT INTO parent... " />
-                <marker date="1461812676208" expanded="true" signature="9228:9553" placeholder="INSERT INTO parent... " />
-                <marker date="1461812676208" expanded="false" signature="9228:9574" placeholder="INSERT INTO parent... " />
-                <marker date="1461812676208" expanded="false" signature="10583:10604" placeholder="SELECT * FRO... Patient" />
+                <marker date="1461817182190" expanded="true" signature="1427:1460" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="true" signature="1427:1461" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="true" signature="1427:1497" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="true" signature="1427:1510" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="true" signature="1427:1527" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="false" signature="1563:1661" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="false" signature="1697:1732" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="false" signature="1697:1733" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="false" signature="1697:1752" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="false" signature="1697:1758" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="false" signature="1697:1781" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="false" signature="1697:1783" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="true" signature="1697:1800" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="true" signature="1697:1803" placeholder="UPDATE Prefe... " />
+                <marker date="1461817182190" expanded="false" signature="2663:2719" placeholder="SELECT * FRO... Parent" />
+                <marker date="1461817182190" expanded="false" signature="3196:3220" placeholder="SELECT * FRO... Preference" />
+                <marker date="1461817182190" expanded="false" signature="3196:3239" placeholder="SELECT * FRO... Preference" />
+                <marker date="1461817182190" expanded="false" signature="3196:3261" placeholder="SELECT * FRO... Preference" />
+                <marker date="1461817182190" expanded="false" signature="4578:4640" placeholder="SELECT * FRO... Parent" />
+                <marker date="1461817182190" expanded="false" signature="6147:6264" placeholder="SELECT COUNT... Parent" />
+                <marker date="1461817182190" expanded="true" signature="7351:7430" placeholder="INSERT INTO patient... " />
+                <marker date="1461817182190" expanded="true" signature="7351:7479" placeholder="INSERT INTO patient... " />
+                <marker date="1461817182190" expanded="true" signature="7351:7524" placeholder="INSERT INTO patient... " />
+                <marker date="1461817182190" expanded="true" signature="7351:7527" placeholder="INSERT INTO patient... " />
+                <marker date="1461817182190" expanded="true" signature="7351:7570" placeholder="INSERT INTO patient... " />
+                <marker date="1461817182190" expanded="true" signature="7351:7624" placeholder="INSERT INTO patient... " />
+                <marker date="1461817182190" expanded="true" signature="7351:7675" placeholder="INSERT INTO patient... " />
+                <marker date="1461817182190" expanded="true" signature="7727:7756" placeholder="SELECT Patie... Patient" />
+                <marker date="1461817182190" expanded="true" signature="7727:7798" placeholder="SELECT Patie... Patient" />
+                <marker date="1461817182190" expanded="true" signature="7727:7800" placeholder="SELECT Patie... Patient" />
+                <marker date="1461817182190" expanded="true" signature="7727:7830" placeholder="SELECT Patie... Patient" />
+                <marker date="1461817182190" expanded="true" signature="7727:7860" placeholder="SELECT Patie... Patient" />
+                <marker date="1461817182190" expanded="true" signature="7727:7903" placeholder="SELECT Patie... Patient" />
+                <marker date="1461817182190" expanded="true" signature="7727:7904" placeholder="SELECT Patie... Patient" />
+                <marker date="1461817182190" expanded="true" signature="7727:7932" placeholder="SELECT Patie... PatientWHERE" />
+                <marker date="1461817182190" expanded="true" signature="7727:7940" placeholder="SELECT Patie... Patient" />
+                <marker date="1461817182190" expanded="true" signature="7727:7974" placeholder="SELECT Patie... Patient" />
+                <marker date="1461817182190" expanded="true" signature="7727:7978" placeholder="SELECT Patie... Patient" />
+                <marker date="1461817182190" expanded="true" signature="8990:9051" placeholder="SELECT * FRO... Patient" />
+                <marker date="1461817182190" expanded="true" signature="9251:9330" placeholder="INSERT INTO parent... " />
+                <marker date="1461817182190" expanded="true" signature="9251:9374" placeholder="INSERT INTO parent... " />
+                <marker date="1461817182190" expanded="true" signature="9251:9424" placeholder="INSERT INTO parent... " />
+                <marker date="1461817182190" expanded="true" signature="9251:9473" placeholder="INSERT INTO parent... " />
+                <marker date="1461817182190" expanded="true" signature="9251:9520" placeholder="INSERT INTO parent... " />
+                <marker date="1461817182190" expanded="true" signature="9251:9525" placeholder="INSERT INTO parent... " />
+                <marker date="1461817182190" expanded="true" signature="9251:9575" placeholder="INSERT INTO parent... " />
+                <marker date="1461817182190" expanded="true" signature="9251:9576" placeholder="INSERT INTO parent... " />
+                <marker date="1461817182190" expanded="false" signature="9251:9597" placeholder="INSERT INTO parent... " />
+                <marker date="1461817182190" expanded="false" signature="10606:10627" placeholder="SELECT * FRO... Patient" />
+                <marker date="1461817182190" expanded="true" signature="12384:12431" placeholder="UPDATE Appoi... " />
+                <marker date="1461817182190" expanded="true" signature="12384:12470" placeholder="UPDATE Appoi... " />
+                <marker date="1461817182190" expanded="true" signature="12384:12524" placeholder="UPDATE Appoi... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/medit/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
+            <state relative-caret-position="1760">
               <caret line="219" column="21" selection-start-line="219" selection-start-column="21" selection-end-line="219" selection-end-column="21" />
               <folding>
                 <element signature="docComment;class#Server#0" expanded="false" />
@@ -111,8 +114,8 @@
       <file leaf-file-name="ReminderManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/medit/ReminderManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="145">
+              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -128,12 +131,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmailManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Tester.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/medit/Tester.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmailManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/medit/EmailManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="41" column="145" selection-start-line="41" selection-start-column="59" selection-end-line="41" selection-end-column="145" />
+            <state relative-caret-position="277">
+              <caret line="52" column="27" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Patient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/medit/db/Patient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#800#801#0" expanded="true" />
+                <element signature="e#866#867#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -151,42 +178,23 @@
       <file leaf-file-name="EPICManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/medit/EPICManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="219" column="17" selection-start-line="219" selection-start-column="17" selection-end-line="219" selection-end-column="17" />
+            <state relative-caret-position="483">
+              <caret line="241" column="4" selection-start-line="241" selection-start-column="4" selection-end-line="271" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1461812709860" expanded="true" signature="569:628" placeholder="SELECT * FRO... Patient" />
-                <marker date="1461812709860" expanded="true" signature="2165:2190" placeholder="SELECT * FRO... Appointment" />
-                <marker date="1461812709860" expanded="true" signature="3282:3353" placeholder="SELECT * FRO... Parent" />
-                <marker date="1461812709860" expanded="true" signature="3923:3996" placeholder="SELECT * FRO... Doctor" />
-                <marker date="1461812709860" expanded="true" signature="4495:4568" placeholder="SELECT * FRO... Clinic" />
-                <marker date="1461812709860" expanded="true" signature="5084:5161" placeholder="SELECT * FRO... Hospital" />
-                <marker date="1461812709860" expanded="true" signature="6626:6660" placeholder="UPDATE Appoi... " />
-                <marker date="1461812709860" expanded="true" signature="6626:6687" placeholder="UPDATE Appoi... " />
-                <marker date="1461812709860" expanded="true" signature="6626:6688" placeholder="UPDATE Appoi... " />
-                <marker date="1461812709860" expanded="true" signature="7569:7631" placeholder="UPDATE Appoi... " />
-                <marker date="1461812709860" expanded="true" signature="8516:8579" placeholder="UPDATE Appoi... " />
+                <marker date="1461816255434" expanded="true" signature="569:628" placeholder="SELECT * FRO... Patient" />
+                <marker date="1461816255434" expanded="true" signature="2165:2190" placeholder="SELECT * FRO... Appointment" />
+                <marker date="1461816255434" expanded="true" signature="3706:3777" placeholder="SELECT * FRO... Parent" />
+                <marker date="1461816255434" expanded="true" signature="4347:4422" placeholder="SELECT * FRO... Parent" />
+                <marker date="1461816255434" expanded="true" signature="4938:5011" placeholder="SELECT * FRO... Doctor" />
+                <marker date="1461816255434" expanded="true" signature="5510:5583" placeholder="SELECT * FRO... Clinic" />
+                <marker date="1461816255434" expanded="true" signature="6099:6176" placeholder="SELECT * FRO... Hospital" />
+                <marker date="1461816255434" expanded="true" signature="7641:7675" placeholder="UPDATE Appoi... " />
+                <marker date="1461816255434" expanded="true" signature="7641:7702" placeholder="UPDATE Appoi... " />
+                <marker date="1461816255434" expanded="true" signature="7641:7703" placeholder="UPDATE Appoi... " />
+                <marker date="1461816255434" expanded="true" signature="8584:8646" placeholder="UPDATE Appoi... " />
+                <marker date="1461816255434" expanded="true" signature="9531:9594" placeholder="UPDATE Appoi... " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tester.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/medit/Tester.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/medit/db/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -194,13 +202,10 @@
       <file leaf-file-name="Appointment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/medit/db/Appointment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="167">
+              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding>
-                <element signature="e#555#556#0" expanded="true" />
-                <element signature="e#583#584#0" expanded="true" />
-                <element signature="e#626#627#0" expanded="true" />
-                <element signature="e#654#655#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -245,18 +250,18 @@
         <option value="$PROJECT_DIR$/src/com/medit/db/Clinic.java" />
         <option value="$PROJECT_DIR$/src/com/medit/demoPanel/DemoPanel.form" />
         <option value="$PROJECT_DIR$/src/com/medit/demoPanel/DemoPanel.java" />
-        <option value="$PROJECT_DIR$/src/com/medit/ReminderManager.java" />
         <option value="$PROJECT_DIR$/JSON API Message Types.txt" />
         <option value="$PROJECT_DIR$/src/com/medit/db/Patient.java" />
         <option value="$PROJECT_DIR$/src/com/medit/db/User.java" />
-        <option value="$PROJECT_DIR$/src/com/medit/DatabaseManager.java" />
-        <option value="$PROJECT_DIR$/src/com/medit/EPICManager.java" />
-        <option value="$PROJECT_DIR$/src/com/medit/Tester.java" />
         <option value="$PROJECT_DIR$/src/com/medit/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/medit/db/Appointment.java" />
-        <option value="$PROJECT_DIR$/src/com/medit/EmailManager.java" />
         <option value="$PROJECT_DIR$/src/com/medit/SMSManager.java" />
         <option value="$PROJECT_DIR$/src/com/medit/Server.java" />
+        <option value="$PROJECT_DIR$/src/com/medit/EPICManager.java" />
+        <option value="$PROJECT_DIR$/src/com/medit/DatabaseManager.java" />
+        <option value="$PROJECT_DIR$/src/com/medit/Tester.java" />
+        <option value="$PROJECT_DIR$/src/com/medit/ReminderManager.java" />
+        <option value="$PROJECT_DIR$/src/com/medit/db/Appointment.java" />
+        <option value="$PROJECT_DIR$/src/com/medit/EmailManager.java" />
       </list>
     </option>
   </component>
@@ -300,42 +305,7 @@
       <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -798,12 +768,12 @@
       <workItem from="1460995189754" duration="1060000" />
       <workItem from="1461099469546" duration="3356000" />
       <workItem from="1461538264431" duration="589000" />
-      <workItem from="1461809653393" duration="4722000" />
+      <workItem from="1461809653393" duration="7905000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71311000" />
+    <option name="totallyTimeSpent" value="74494000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -826,19 +796,19 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31910113" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33033708" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16738197" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16901408" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6286682" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21451788" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24937028" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -885,7 +855,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -924,55 +894,58 @@
             <element signature="method#verifyLoginCredentials#0;class#DatabaseManager#0" expanded="false" />
             <element signature="method#createNewPatient#0;class#DatabaseManager#0" expanded="false" />
             <element signature="method#createNewUser#0;class#DatabaseManager#0" expanded="false" />
-            <marker date="1461812676208" expanded="true" signature="1404:1437" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="true" signature="1404:1438" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="true" signature="1404:1474" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="true" signature="1404:1487" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="true" signature="1404:1504" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1540:1638" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1674:1709" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1674:1710" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1674:1729" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1674:1735" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1674:1758" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1674:1760" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="true" signature="1674:1777" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="true" signature="1674:1780" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="2640:2696" placeholder="SELECT * FRO... Parent" />
-            <marker date="1461812676208" expanded="false" signature="3173:3197" placeholder="SELECT * FRO... Preference" />
-            <marker date="1461812676208" expanded="false" signature="3173:3216" placeholder="SELECT * FRO... Preference" />
-            <marker date="1461812676208" expanded="false" signature="3173:3238" placeholder="SELECT * FRO... Preference" />
-            <marker date="1461812676208" expanded="false" signature="4555:4617" placeholder="SELECT * FRO... Parent" />
-            <marker date="1461812676208" expanded="false" signature="6124:6241" placeholder="SELECT COUNT... Parent" />
-            <marker date="1461812676208" expanded="true" signature="7328:7407" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7328:7456" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7328:7501" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7328:7504" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7328:7547" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7328:7601" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7328:7652" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7704:7733" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7775" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7777" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7807" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7837" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7880" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7881" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7909" placeholder="SELECT Patie... PatientWHERE" />
-            <marker date="1461812676208" expanded="true" signature="7704:7917" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7951" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7955" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="8967:9028" placeholder="SELECT * FRO... Patient" />
-            <marker date="1461812676208" expanded="true" signature="9228:9307" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9351" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9401" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9450" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9497" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9502" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9552" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9553" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="false" signature="9228:9574" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="false" signature="10583:10604" placeholder="SELECT * FRO... Patient" />
+            <marker date="1461817182190" expanded="true" signature="1427:1460" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="true" signature="1427:1461" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="true" signature="1427:1497" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="true" signature="1427:1510" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="true" signature="1427:1527" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1563:1661" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1697:1732" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1697:1733" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1697:1752" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1697:1758" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1697:1781" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1697:1783" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="true" signature="1697:1800" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="true" signature="1697:1803" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="2663:2719" placeholder="SELECT * FRO... Parent" />
+            <marker date="1461817182190" expanded="false" signature="3196:3220" placeholder="SELECT * FRO... Preference" />
+            <marker date="1461817182190" expanded="false" signature="3196:3239" placeholder="SELECT * FRO... Preference" />
+            <marker date="1461817182190" expanded="false" signature="3196:3261" placeholder="SELECT * FRO... Preference" />
+            <marker date="1461817182190" expanded="false" signature="4578:4640" placeholder="SELECT * FRO... Parent" />
+            <marker date="1461817182190" expanded="false" signature="6147:6264" placeholder="SELECT COUNT... Parent" />
+            <marker date="1461817182190" expanded="true" signature="7351:7430" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7351:7479" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7351:7524" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7351:7527" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7351:7570" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7351:7624" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7351:7675" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7727:7756" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7798" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7800" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7830" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7860" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7903" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7904" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7932" placeholder="SELECT Patie... PatientWHERE" />
+            <marker date="1461817182190" expanded="true" signature="7727:7940" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7974" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7978" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="8990:9051" placeholder="SELECT * FRO... Patient" />
+            <marker date="1461817182190" expanded="true" signature="9251:9330" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9374" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9424" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9473" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9520" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9525" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9575" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9576" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="false" signature="9251:9597" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="false" signature="10606:10627" placeholder="SELECT * FRO... Patient" />
+            <marker date="1461817182190" expanded="true" signature="12384:12431" placeholder="UPDATE Appoi... " />
+            <marker date="1461817182190" expanded="true" signature="12384:12470" placeholder="UPDATE Appoi... " />
+            <marker date="1461817182190" expanded="true" signature="12384:12524" placeholder="UPDATE Appoi... " />
           </folding>
         </state>
       </provider>
@@ -1180,13 +1153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_05/src.zip!/java/sql/ResultSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="678" column="14" selection-start-line="678" selection-start-column="14" selection-end-line="678" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_05/src.zip!/java/sql/Time.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8">
@@ -1203,18 +1169,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/medit/demoPanel/DemoPanel.java" />
     <entry file="file://$PROJECT_DIR$/src/com/medit/demoPanel/DemoPanel.form" />
-    <entry file="file://$PROJECT_DIR$/src/com/medit/db/Patient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#800#801#0" expanded="true" />
-            <element signature="e#866#867#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/medit/db/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -1239,132 +1193,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/medit/EPICManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="219" column="17" selection-start-line="219" selection-start-column="17" selection-end-line="219" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1461812709860" expanded="true" signature="569:628" placeholder="SELECT * FRO... Patient" />
-            <marker date="1461812709860" expanded="true" signature="2165:2190" placeholder="SELECT * FRO... Appointment" />
-            <marker date="1461812709860" expanded="true" signature="3282:3353" placeholder="SELECT * FRO... Parent" />
-            <marker date="1461812709860" expanded="true" signature="3923:3996" placeholder="SELECT * FRO... Doctor" />
-            <marker date="1461812709860" expanded="true" signature="4495:4568" placeholder="SELECT * FRO... Clinic" />
-            <marker date="1461812709860" expanded="true" signature="5084:5161" placeholder="SELECT * FRO... Hospital" />
-            <marker date="1461812709860" expanded="true" signature="6626:6660" placeholder="UPDATE Appoi... " />
-            <marker date="1461812709860" expanded="true" signature="6626:6687" placeholder="UPDATE Appoi... " />
-            <marker date="1461812709860" expanded="true" signature="6626:6688" placeholder="UPDATE Appoi... " />
-            <marker date="1461812709860" expanded="true" signature="7569:7631" placeholder="UPDATE Appoi... " />
-            <marker date="1461812709860" expanded="true" signature="8516:8579" placeholder="UPDATE Appoi... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/medit/Tester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/medit/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/medit/db/Appointment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#583#584#0" expanded="true" />
-            <element signature="e#626#627#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/medit/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
-          <folding>
-            <element signature="docComment;class#DatabaseManager#0" expanded="false" />
-            <element signature="method#getUser#0;class#DatabaseManager#0" expanded="false" />
-            <element signature="method#getPatientsForUser#0;class#DatabaseManager#0" expanded="false" />
-            <element signature="method#verifyLoginCredentials#0;class#DatabaseManager#0" expanded="false" />
-            <element signature="method#createNewPatient#0;class#DatabaseManager#0" expanded="false" />
-            <element signature="method#createNewUser#0;class#DatabaseManager#0" expanded="false" />
-            <marker date="1461812676208" expanded="true" signature="1404:1437" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="true" signature="1404:1438" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="true" signature="1404:1474" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="true" signature="1404:1487" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="true" signature="1404:1504" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1540:1638" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1674:1709" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1674:1710" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1674:1729" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1674:1735" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1674:1758" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="1674:1760" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="true" signature="1674:1777" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="true" signature="1674:1780" placeholder="UPDATE Prefe... " />
-            <marker date="1461812676208" expanded="false" signature="2640:2696" placeholder="SELECT * FRO... Parent" />
-            <marker date="1461812676208" expanded="false" signature="3173:3197" placeholder="SELECT * FRO... Preference" />
-            <marker date="1461812676208" expanded="false" signature="3173:3216" placeholder="SELECT * FRO... Preference" />
-            <marker date="1461812676208" expanded="false" signature="3173:3238" placeholder="SELECT * FRO... Preference" />
-            <marker date="1461812676208" expanded="false" signature="4555:4617" placeholder="SELECT * FRO... Parent" />
-            <marker date="1461812676208" expanded="false" signature="6124:6241" placeholder="SELECT COUNT... Parent" />
-            <marker date="1461812676208" expanded="true" signature="7328:7407" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7328:7456" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7328:7501" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7328:7504" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7328:7547" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7328:7601" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7328:7652" placeholder="INSERT INTO patient... " />
-            <marker date="1461812676208" expanded="true" signature="7704:7733" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7775" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7777" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7807" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7837" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7880" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7881" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7909" placeholder="SELECT Patie... PatientWHERE" />
-            <marker date="1461812676208" expanded="true" signature="7704:7917" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7951" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="7704:7955" placeholder="SELECT Patie... Patient" />
-            <marker date="1461812676208" expanded="true" signature="8967:9028" placeholder="SELECT * FRO... Patient" />
-            <marker date="1461812676208" expanded="true" signature="9228:9307" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9351" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9401" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9450" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9497" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9502" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9552" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="true" signature="9228:9553" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="false" signature="9228:9574" placeholder="INSERT INTO parent... " />
-            <marker date="1461812676208" expanded="false" signature="10583:10604" placeholder="SELECT * FRO... Patient" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/medit/ReminderManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/medit/EmailManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="41" column="145" selection-start-line="41" selection-start-column="59" selection-end-line="41" selection-end-column="145" />
           <folding />
         </state>
       </provider>
@@ -1379,12 +1211,155 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/medit/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
+        <state relative-caret-position="1760">
           <caret line="219" column="21" selection-start-line="219" selection-start-column="21" selection-end-line="219" selection-end-column="21" />
           <folding>
             <element signature="docComment;class#Server#0" expanded="false" />
             <element signature="method#executeJSONRequest#0;class#Server#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/medit/db/Patient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#800#801#0" expanded="true" />
+            <element signature="e#866#867#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_05/src.zip!/java/sql/ResultSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="678" column="18" selection-start-line="678" selection-start-column="18" selection-end-line="678" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/medit/EPICManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="241" column="4" selection-start-line="241" selection-start-column="4" selection-end-line="271" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1461816255434" expanded="true" signature="569:628" placeholder="SELECT * FRO... Patient" />
+            <marker date="1461816255434" expanded="true" signature="2165:2190" placeholder="SELECT * FRO... Appointment" />
+            <marker date="1461816255434" expanded="true" signature="3706:3777" placeholder="SELECT * FRO... Parent" />
+            <marker date="1461816255434" expanded="true" signature="4347:4422" placeholder="SELECT * FRO... Parent" />
+            <marker date="1461816255434" expanded="true" signature="4938:5011" placeholder="SELECT * FRO... Doctor" />
+            <marker date="1461816255434" expanded="true" signature="5510:5583" placeholder="SELECT * FRO... Clinic" />
+            <marker date="1461816255434" expanded="true" signature="6099:6176" placeholder="SELECT * FRO... Hospital" />
+            <marker date="1461816255434" expanded="true" signature="7641:7675" placeholder="UPDATE Appoi... " />
+            <marker date="1461816255434" expanded="true" signature="7641:7702" placeholder="UPDATE Appoi... " />
+            <marker date="1461816255434" expanded="true" signature="7641:7703" placeholder="UPDATE Appoi... " />
+            <marker date="1461816255434" expanded="true" signature="8584:8646" placeholder="UPDATE Appoi... " />
+            <marker date="1461816255434" expanded="true" signature="9531:9594" placeholder="UPDATE Appoi... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/medit/Tester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/medit/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-185">
+          <caret line="393" column="0" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#DatabaseManager#0" expanded="false" />
+            <element signature="method#getUser#0;class#DatabaseManager#0" expanded="false" />
+            <element signature="method#getPatientsForUser#0;class#DatabaseManager#0" expanded="false" />
+            <element signature="method#verifyLoginCredentials#0;class#DatabaseManager#0" expanded="false" />
+            <element signature="method#createNewPatient#0;class#DatabaseManager#0" expanded="false" />
+            <element signature="method#createNewUser#0;class#DatabaseManager#0" expanded="false" />
+            <marker date="1461817182190" expanded="true" signature="1427:1460" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="true" signature="1427:1461" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="true" signature="1427:1497" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="true" signature="1427:1510" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="true" signature="1427:1527" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1563:1661" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1697:1732" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1697:1733" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1697:1752" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1697:1758" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1697:1781" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="1697:1783" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="true" signature="1697:1800" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="true" signature="1697:1803" placeholder="UPDATE Prefe... " />
+            <marker date="1461817182190" expanded="false" signature="2663:2719" placeholder="SELECT * FRO... Parent" />
+            <marker date="1461817182190" expanded="false" signature="3196:3220" placeholder="SELECT * FRO... Preference" />
+            <marker date="1461817182190" expanded="false" signature="3196:3239" placeholder="SELECT * FRO... Preference" />
+            <marker date="1461817182190" expanded="false" signature="3196:3261" placeholder="SELECT * FRO... Preference" />
+            <marker date="1461817182190" expanded="false" signature="4578:4640" placeholder="SELECT * FRO... Parent" />
+            <marker date="1461817182190" expanded="false" signature="6147:6264" placeholder="SELECT COUNT... Parent" />
+            <marker date="1461817182190" expanded="true" signature="7351:7430" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7351:7479" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7351:7524" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7351:7527" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7351:7570" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7351:7624" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7351:7675" placeholder="INSERT INTO patient... " />
+            <marker date="1461817182190" expanded="true" signature="7727:7756" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7798" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7800" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7830" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7860" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7903" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7904" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7932" placeholder="SELECT Patie... PatientWHERE" />
+            <marker date="1461817182190" expanded="true" signature="7727:7940" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7974" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="7727:7978" placeholder="SELECT Patie... Patient" />
+            <marker date="1461817182190" expanded="true" signature="8990:9051" placeholder="SELECT * FRO... Patient" />
+            <marker date="1461817182190" expanded="true" signature="9251:9330" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9374" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9424" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9473" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9520" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9525" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9575" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="true" signature="9251:9576" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="false" signature="9251:9597" placeholder="INSERT INTO parent... " />
+            <marker date="1461817182190" expanded="false" signature="10606:10627" placeholder="SELECT * FRO... Patient" />
+            <marker date="1461817182190" expanded="true" signature="12384:12431" placeholder="UPDATE Appoi... " />
+            <marker date="1461817182190" expanded="true" signature="12384:12470" placeholder="UPDATE Appoi... " />
+            <marker date="1461817182190" expanded="true" signature="12384:12524" placeholder="UPDATE Appoi... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/medit/db/Appointment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/medit/ReminderManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/medit/EmailManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="52" column="27" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>

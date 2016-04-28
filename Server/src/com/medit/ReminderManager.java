@@ -1,5 +1,6 @@
 package com.medit;
 
+import java.util.Date;
 import java.util.List;
 
 import com.medit.db.Appointment;
@@ -21,10 +22,12 @@ public class ReminderManager implements Runnable {
                 for (Appointment appointment : appointments) {
                     if(appointment.dueForReminder()) {
                         if(appointment.dueForConfirmation()) {
-                            sendConfirmation(patient, appointment);
+                            sendConfirmation(appointment);
                         } else {
-                            sendConfirmation(patient, appointment);
+                            sendReminder(appointment);
                         }
+                        System.out.println("Sending reminder for appointment " + appointment.appointmentID);
+                        updateDateOfLastReminder(appointment);
                     }
                 }
 
@@ -32,7 +35,7 @@ public class ReminderManager implements Runnable {
         }
     }
 
-    public void sendReminder(Appointment appointment) {
+    private void sendReminder(Appointment appointment) {
         if(appointment.user.preferences.getsEmail) {
             EmailManager.sendEmailReminder(appointment);
         }
@@ -41,12 +44,16 @@ public class ReminderManager implements Runnable {
         }
     }
 
-    public void sendConfirmation(Patient patient, Appointment appointment) {
-        if(appointment.user.preferences.getsSMS) {
+    private void sendConfirmation(Appointment appointment) {
+        if(appointment.user.preferences.getsEmail) {
             EmailManager.sendEmailConfirmation(appointment);
         }
         if(appointment.user.preferences.getsSMS) {
             SMSManager.sendSMSConfirmation(appointment);
         }
+    }
+
+    private void updateDateOfLastReminder(Appointment appointment) {
+        DatabaseManager.saveDateOfLastReminder(appointment, new Date());
     }
 }
