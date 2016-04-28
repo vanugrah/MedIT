@@ -18,8 +18,7 @@ public class EPICManager {
         ResultSet results = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?" +
-                    "user=serverUser&password=gtsecret&useSSL=false");
+            connection = DatabaseManager.getConnection();
 
             statement = connection.createStatement();
             results = statement.executeQuery("SELECT * FROM Patient WHERE PatientID = '" + patientID + "';");
@@ -68,8 +67,7 @@ public class EPICManager {
         ResultSet results = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?" +
-                    "user=serverUser&password=gtsecret&useSSL=false");
+            connection = DatabaseManager.getConnection();
 
             statement = connection.createStatement();
             results = statement.executeQuery("SELECT * FROM Appointment");
@@ -161,15 +159,99 @@ public class EPICManager {
     }
 
     public static void confirmAppointment(int appointmentID) {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet results = null;
 
+        try {
+            connection = DatabaseManager.getConnection();
+
+            statement = connection.createStatement();
+            statement.execute("UPDATE Appointment SET Confirmed = b'1' WHERE AppointmentID = " + appointmentID + ";");
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(results != null) {
+                try {
+                    results.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if(statement != null) {
+                try {
+                    statement.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public static void cancelAppointment(int appointmentID) {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet results = null;
 
+        try {
+            connection = DatabaseManager.getConnection();
+
+            statement = connection.createStatement();
+            statement.execute("UPDATE Appointment SET Cancelled = b'1' WHERE AppointmentID = " + appointmentID + ";");
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(results != null) {
+                try {
+                    results.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if(statement != null) {
+                try {
+                    statement.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public static void checkInForAppointment(int appointmentID) {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet results = null;
 
+        try {
+            connection = DatabaseManager.getConnection();
+
+            statement = connection.createStatement();
+            statement.execute("UPDATE Appointment SET Checked_In = b'1' WHERE AppointmentID = " + appointmentID + ";");
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(results != null) {
+                try {
+                    results.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if(statement != null) {
+                try {
+                    statement.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 

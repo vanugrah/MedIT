@@ -17,25 +17,39 @@ import java.util.List;
  */
 public class DatabaseManager {
 
+    private static final String MySQLIP = "localhost:3306";
+
+    public static Connection getConnection() {
+        Connection connection = null;
+
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://" + MySQLIP + "/test?" +
+                    "user=serverUser&password=gtsecret&useSSL=false");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            if(connection != null) {
+                try {
+                    connection.close();
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return connection;
+    }
+
     public static void saveSettings(String username, boolean getsPush, boolean getsSMS, boolean getsEmail) {
         Connection connection = null;
         Statement statement = null;
         ResultSet results = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?" +
-                    "user=serverUser&password=gtsecret&useSSL=false");
+            connection = DatabaseManager.getConnection();
 
             statement = connection.createStatement();
-            if(!statement.execute("UPDATE Preference SET Gets_Push = " + (getsPush ? "1" : "0") + " WHERE Username = '" + username + "';")) {
-                System.err.println("Unable to set GetsPush for " + username);
-            }
-            if(!statement.execute("UPDATE Preference SET Gets_SMS = " + (getsSMS ? "1" : "0") + " WHERE Username = '" + username + "';")) {
-                System.err.println("Unable to set GetsSMS for " + username);
-            }
-            if(!statement.execute("UPDATE Preferences SET Gets_Email = " + (getsEmail ? "1" : "0") + " WHERE Username = '" + username + "';")) {
-                System.err.println("Unable to set GetsEmail for " + username);
-            }
+            statement.execute("UPDATE Preference SET Gets_Push = " + (getsPush ? "1" : "0") + " WHERE Username = '" + username + "';");
+            statement.execute("UPDATE Preference SET Gets_SMS = " + (getsSMS ? "1" : "0") + " WHERE Username = '" + username + "';");
+            statement.execute("UPDATE Preferences SET Gets_Email = " + (getsEmail ? "1" : "0") + " WHERE Username = '" + username + "';");
         } catch(SQLException e) {
             e.printStackTrace();
         } finally {
@@ -64,8 +78,7 @@ public class DatabaseManager {
         ResultSet results = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?" +
-                    "user=serverUser&password=gtsecret&useSSL=false");
+            connection = DatabaseManager.getConnection();
 
             statement = connection.createStatement();
             results = statement.executeQuery("SELECT * FROM Parent WHERE Username = '" + username + "';");
@@ -124,8 +137,7 @@ public class DatabaseManager {
         List<Patient> patients = new ArrayList<>();
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?" +
-                    "user=serverUser&password=gtsecret&useSSL=false");
+            connection = DatabaseManager.getConnection();
 
             statement = connection.createStatement();
             results = statement.executeQuery("SELECT * FROM Patient WHERE Username = '" + user.username + "';");
@@ -174,8 +186,7 @@ public class DatabaseManager {
         ResultSet results = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?" +
-                    "user=serverUser&password=gtsecret&useSSL=false");
+            connection = DatabaseManager.getConnection();
 
             statement = connection.createStatement();
             results = statement.executeQuery("SELECT COUNT(*) FROM Parent WHERE Username = '" +
@@ -218,8 +229,7 @@ public class DatabaseManager {
         ResultSet results = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?" +
-                    "user=serverUser&password=gtsecret&useSSL=false");
+            connection = DatabaseManager.getConnection();
 
             statement = connection.createStatement();
 
@@ -269,8 +279,7 @@ public class DatabaseManager {
         ResultSet results = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?" +
-                    "user=serverUser&password=gtsecret&useSSL=false");
+            connection = DatabaseManager.getConnection();
 
             statement = connection.createStatement();
             results = statement.executeQuery("SELECT * FROM Parent WHERE Username = '" + user.username + "';");
@@ -325,8 +334,7 @@ public class DatabaseManager {
         List<Patient> ret = new ArrayList<>();
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?" +
-                    "user=serverUser&password=gtsecret&useSSL=false");
+            connection = DatabaseManager.getConnection();
 
             statement = connection.createStatement();
             results = statement.executeQuery("SELECT * FROM Patient");

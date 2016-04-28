@@ -18,14 +18,9 @@ public class Tester {
         HttpURLConnection connection = null;
         try {
             JSONObject obj = new JSONObject();
-            obj.put("MessageType", "UserCreate");
+            obj.put("MessageType", "CheckInForAppointment");
 
-            obj.put("Username", "newUser");
-            obj.put("Password", "password");
-            obj.put("PhoneNumber", "000000000");
-            obj.put("EmailAddress", "newUser@medit.net");
-            obj.put("FirstName", "New");
-            obj.put("LastName", "User");
+            obj.put("AppointmentID", "1");
 
             URL url = new URL("http://127.0.0.1/");
             connection = (HttpURLConnection) url.openConnection();
