@@ -21,13 +21,16 @@ public class DatabaseManager {
     // TODO : Crashes occasionally with null connection objects
 
     private static final String MySQLIP = "localhost:3306";
+    private static final String MySQLDatabaseName = "test";
+    private static final String MySQLUsername = "serverUser";
+    private static final String MySQLPassword = "gtsecret";
 
     public static Connection getConnection() {
         Connection connection = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://" + MySQLIP + "/test?" +
-                    "user=serverUser&password=gtsecret&useSSL=false");
+            connection = DriverManager.getConnection("jdbc:mysql://" + MySQLIP + "/" + MySQLDatabaseName + "?" +
+                    "user=" + MySQLUsername + "&password=" + MySQLPassword + "&useSSL=false");
         } catch (SQLException e) {
             e.printStackTrace();
             if(connection != null) {
