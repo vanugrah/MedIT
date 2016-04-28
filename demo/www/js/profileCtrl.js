@@ -41,7 +41,7 @@ angular.module('medIT.profile', [])
           gender: "Male",
           insuranceID: "902933285",
           insuranceProvider: "BCBS Georgia",
-          color: "pac-blue",
+          color: "blue",
           photo: "img/boy-child.jpg"
         },
         {

@@ -4,95 +4,104 @@ angular.module('medIT.home', [])
   .controller('HomeCtrl', function($scope, $localstorage, $ionicPopup) {
 
     $scope.$on('$ionicView.loaded', function() {
-      $scope.apptReminder = false;
-      $localstorage.setObject('hasCheckedIn', false);
-      $localstorage.setObject('apptReminder', $scope.apptReminder);
+      //$scope.apptReminder = false;
+      //$localstorage.setObject('hasCheckedIn', false);
+      //$localstorage.setObject('apptReminder', $scope.apptReminder);
 
-      $scope.appts = [
-        {
-          id: 0,
-          location: "Children's Healthcare of Atlanta - Egleston",
-          address: "1405 Clifton Road NE",
-          city: "Atlanta",
-          state: "GA",
-          zip: "30322",
-          date: "21 April 2016",
-          time: "4:30pm",
-          physician: "Dr. Batisky",
-          patient: "Johnny Doe Jr.",
-          patientID: "0",
-          notes: "Follow-up appointment",
-          isCancelled: false,
-          color: "blue",
-          notCheckedIn: true
-        },
-        {
-          id: 1,
-          location: "Children's Healthcare of Atlanta - Egleston",
-          address: "1405 Clifton Road NE",
-          city: "Atlanta",
-          state: "GA",
-          zip: "30322",
-          date: "22 April 2016",
-          time: "1:00pm",
-          physician: "Dr. Omojokun",
-          patient: "Johanna Doe",
-          patientID: "1",
-          notes: "6-month check-up",
-          isCancelled: false,
-          color: "green",
-          notCheckedIn: true
-        },
-        {
-          id: 2,
-          location: "Children's Healthcare of Atlanta - Egleston",
-          address: "1405 Clifton Road NE",
-          city: "Atlanta",
-          state: "GA",
-          zip: "30322",
-          date: "05 May 2016",
-          time: "8:00am",
-          physician: "Dr. Menagarishvili",
-          patient: "Johnny Doe Jr.",
-          patientID: "0",
-          notes: "N/A",
-          isCancelled: false,
-          color: "blue",
-          notCheckedIn: true
-        }
-      ];
-
-      $localstorage.setObject('appts', $scope.appts)
+      //$scope.appts = [
+      //  {
+      //    id: 0,
+      //    location: "Children's Healthcare of Atlanta - Egleston",
+      //    address: "1405 Clifton Road NE",
+      //    city: "Atlanta",
+      //    state: "GA",
+      //    zip: "30322",
+      //    date: "21 April 2016",
+      //    time: "4:30pm",
+      //    physician: "Dr. Batisky",
+      //    patient: "Johnny Doe Jr.",
+      //    patientID: "0",
+      //    notes: "Follow-up appointment",
+      //    isCancelled: false,
+      //    color: "blue",
+      //    notCheckedIn: true
+      //  },
+      //  {
+      //    id: 1,
+      //    location: "Children's Healthcare of Atlanta - Egleston",
+      //    address: "1405 Clifton Road NE",
+      //    city: "Atlanta",
+      //    state: "GA",
+      //    zip: "30322",
+      //    date: "22 April 2016",
+      //    time: "1:00pm",
+      //    physician: "Dr. Omojokun",
+      //    patient: "Johanna Doe",
+      //    patientID: "1",
+      //    notes: "6-month check-up",
+      //    isCancelled: false,
+      //    color: "green",
+      //    notCheckedIn: true
+      //  },
+      //  {
+      //    id: 2,
+      //    location: "Children's Healthcare of Atlanta - Egleston",
+      //    address: "1405 Clifton Road NE",
+      //    city: "Atlanta",
+      //    state: "GA",
+      //    zip: "30322",
+      //    date: "05 May 2016",
+      //    time: "8:00am",
+      //    physician: "Dr. Menagarishvili",
+      //    patient: "Johnny Doe Jr.",
+      //    patientID: "0",
+      //    notes: "N/A",
+      //    isCancelled: false,
+      //    color: "blue",
+      //    notCheckedIn: true
+      //  }
+      //];
+      //
+      //$localstorage.setObject('appts', $scope.appts)
     });
 
     $scope.$on('$ionicView.beforeEnter', function() {
       //$scope.appts = $localstorage.getObject('appts');
-      $scope.apptReminder = $localstorage.getObject('apptReminder');
+      //$scope.apptReminder = $localstorage.getObject('apptReminder');
 
+      var data = {
+        MessageType: "AppointmentsQuery",
+        Username: 'atsou3'
+      };
 
-      //$http.get("http://127.0.0.1/{REST OF THE URL PLS}")
-      //  .success(function(data) {
-      //    $scope.appts = data;
-      //  })
-      //  .error(function(data) {
-      //    alert("You messed up");
-      //  });
+      $http.post("http://localhost/", data)
+        .success(function(data) {
+          if (data.MessageType === "Error") {
+            alert("Error");
+          } else {
+            $scope.appts = data.Appointments;
+          }
+        })
+        .error(function(data) {
+          alert("You messed up");
+        });
+
     });
-
-    $scope.$on('$ionicView.afterEnter', function() {
-      $scope.appts = $localstorage.getObject('appts');
-
-      if ($localstorage.getObject('hasCheckedIn') !== null) {
-        console.log($localstorage.getObject('hasCheckedIn'));
-        $scope.appts[0].notCheckedIn = !$localstorage.getObject('hasCheckedIn');
-      }
-
-      //if($scope.apptReminder) {
-      //  setTimeout(function() {
-      //    $scope.reminder();
-      //  }, 6000);
-      //}
-    });
+    //
+    //$scope.$on('$ionicView.afterEnter', function() {
+    //  //$scope.appts = $localstorage.getObject('appts');
+    //
+    //  if ($localstorage.getObject('hasCheckedIn') !== null) {
+    //    console.log($localstorage.getObject('hasCheckedIn'));
+    //    $scope.appts[0].notCheckedIn = !$localstorage.getObject('hasCheckedIn');
+    //  }
+    //
+    //  //if($scope.apptReminder) {
+    //  //  setTimeout(function() {
+    //  //    $scope.reminder();
+    //  //  }, 6000);
+    //  //}
+    //});
 
     //$scope.reminder = function() {
     //  var confirmPopup = $ionicPopup.confirm({

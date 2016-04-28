@@ -11,22 +11,22 @@ INSERT INTO parent()
 	VALUES ('mbarulic3', 'password', 'Matthew', 'Barulic', '678-123-4567', 'mbarulic3@gatech.edu');
     
 -- Patient
-INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Username, Color) 
-	VALUES ('Junior', 'Tsou', 12, 'M', 'atsou3', 'blue');
-INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Username, Color) 
-	VALUES ('Antoinette', 'Tsou', 10, 'F', 'atsou3', 'green');
-INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Username, Color) 
-	VALUES ('Junior', 'Vijay', 8, 'M', 'avijay3', 'yellow');
-INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Username, Color) 
-	VALUES ('Faith', 'Kim', 13, 'F', 'skim3', 'red');
-INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Username, Color) 
-	VALUES ('Hope', 'Kim', 9, 'F', 'skim3', 'yellow');
-INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Username, Color) 
-	VALUES ('Love', 'Kim', 7, 'F', 'skim3', 'blue');
-INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Username, Color) 
-	VALUES ('Junior', 'Bothra', 7, 'M', 'pbothra3', 'green');
-INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Username, Color) 
-	VALUES ('Matilda', 'Barulic', 5, 'F', 'mbarulic3', 'red');
+INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Color, InsuranceID, InsuranceProvider, Username) 
+	VALUES ('Junior', 'Tsou', 12, 'M', 'blue', '1234567890', 'Kaiser Permamente', 'atsou3');
+INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Color, InsuranceID, InsuranceProvider, Username) 
+	VALUES ('Antoinette', 'Tsou', 10, 'F', 'green', '2345678901', 'Kaiser Permamente', 'atsou3');
+INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Color, InsuranceID, InsuranceProvider, Username) 
+	VALUES ('Junior', 'Vijay', 8, 'M', 'yellow', '3456789012', 'Coventry One', 'avijay3');
+INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Color, InsuranceID, InsuranceProvider, Username) 
+	VALUES ('Faith', 'Kim', 13, 'F', 'red', '4567890123', 'Blue Cross Blue Shield', 'skim3');
+INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Color, InsuranceID, InsuranceProvider, Username) 
+	VALUES ('Hope', 'Kim', 9, 'F', 'yellow', '5678901234', 'Blue Cross Blue Shield', 'skim3');
+INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Color, InsuranceID, InsuranceProvider, Username) 
+	VALUES ('Love', 'Kim', 7, 'F', 'blue', '6789012345', 'Blue Cross Blue Shield', 'skim3');
+INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Color, InsuranceID, InsuranceProvider, Username) 
+	VALUES ('Junior', 'Bothra', 7, 'M', 'green', '7890123456', 'Humana', 'pbothra3');
+INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Color, InsuranceID, InsuranceProvider, Username) 
+	VALUES ('Matilda', 'Barulic', 5, 'F', 'red', '8901234567', 'Anthem', 'mbarulic3');
     
 -- Doctor
 INSERT INTO doctor(Doc_Fname, Doc_Lname, Doc_Specialization) 

@@ -3,12 +3,16 @@ SELECT
     AppointmentID,
     CONCAT(Parent_Fname, ' ', Parent_Lname) AS Parent,
     CONCAT(Patient_Fname, ' ', Patient_Lname) AS Patient,
+    Color,
     CONCAT(Doc_Fname, ' ', Doc_Lname) AS Doctor,
     Hos_Name AS Hospital,
     Branch,
     Clinic_Specialization AS Clinic,
+    Address, City, State, ZipCode,
     Date_of_appt AS Date,
     Time_of_appt AS Time,
+    Cancelled,
+    Checked_In,
     Notes
 FROM
     Appointment NATURAL JOIN Patient NATURAL JOIN Parent NATURAL JOIN Doctor NATURAL JOIN Clinic NATURAL JOIN Hospital

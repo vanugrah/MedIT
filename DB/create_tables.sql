@@ -1,4 +1,3 @@
-
 DROP TABLE IF EXISTS Appointment, Clinic, Hospital, Doctor, Patient, Preference, Parent;
 
 CREATE TABLE Parent (
@@ -17,8 +16,10 @@ CREATE TABLE Patient (
 	Patient_Lname varchar(255) NOT NULL,
     Age int(3) NOT NULL,
     Sex ENUM('M', 'F') NOT NULL,
+	Color varchar(255),
+    InsuranceID varchar(255) NOT NULL,
+    InsuranceProvider varchar(255) NOT NULL,
 	Username varchar(255) NOT NULL,
-    Color varchar(255),
 	PRIMARY KEY (PatientID, Username),
 	FOREIGN KEY (Username)
 		REFERENCES Parent(Username)
