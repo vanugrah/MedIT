@@ -18,7 +18,15 @@ Looking up a patient
     MessageType : String = "PatientQueryResults"
     Found : Boolean
     Patient : Patient
-    
+
+Looking up all patients for a user
+  Request
+    MessageType : String = "UserPatientsQuery"
+    Username : string
+  Response
+    MessageType : String = "UserPatientsQueryResults"
+    Patients : Patient[]
+
 Looking up appointments
   Request
     MessageType : String = "AppointmentsQuery"
@@ -32,28 +40,20 @@ Looking up a single appointment
     MessageType : String = "AppointmentQuery"
     AppointmentID : int
   Response
+    MessageType : String = "AppointmentQueryResults"
     Appointment : Appointment
-    
-Create a new user
+
+Get user settings
   Request
-    MessageType : String = "UserCreate"
+    MessageType : String = "UserSettingsQuery"
     Username : String
-    Password : String
-    PhoneNumber : String
-    EmailAddress : String
-    FirstName : String
-    LastName : String
   Response
-    MessageType : String = "UserCreateConfirmation"
-    User : User
-    
-Create a new patient
-  Request
-    MessageType : String = "PatientCreate"
-  Response
-    MessageType : String = "PatientCreateConfirmation"
-    Patient : Patient
-    
+    MessageType : String = "UserSettingsQueryResults"
+    Username : String
+    GetsPush : Boolean
+    GetsSMS : Boolean
+    GetsEmail : Boolean
+
 Save user settings
   Request
     MessageType : String = "UserSettingsChange"
@@ -87,3 +87,12 @@ Check-In for an appointment
   Response
     MessageType : String = "AppointmentCheckedIn"
     AppointmentID : int
+
+Save color for a patient
+  Request
+    MessageType : String = "SaveColorForPatient"
+    PatientID : int
+    Color : String
+  Response
+    MessageType : String = "ColorSaved"
+    PatientID : int

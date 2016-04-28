@@ -84,6 +84,24 @@ public class Server implements Runnable {
                 }
                 break;
             }
+            case "UserPatientsQuery": {
+                System.out.println("User patients query received.");
+                String username = root.getString("Username");
+                User user = DatabaseManager.getUser(username);
+                if(user == null) {
+                    response.put("MessageType", "Error");
+                    response.put("Message", "No user found with username " + username);
+                    break;
+                }
+                List<Patient> patients = DatabaseManager.getPatientsForUser(user);
+                response.put("MessageType", "UserPatientsQueryResults");
+                response.put("Patients", new JSONArray());
+
+                for(Patient patient : patients) {
+                    response.append("Patients", patient.toJSON());
+                }
+                break;
+            }
             case "AppointmentsQuery": {
                 System.out.println("Appointments Query received.");
                 String username = root.getString("Username");
@@ -99,7 +117,6 @@ public class Server implements Runnable {
                 response.put("Appointments", new JSONArray());
 
                 for (Patient patient : patients) {
-                    System.out.println("Getting appointments for " + patient.firstName);
                     List<Appointment> appointments = patient.getAppointments();
                     for(Appointment appointment : appointments) {
                         response.append("Appointments", appointment.toJSON());
@@ -107,31 +124,15 @@ public class Server implements Runnable {
                 }
                 break;
             }
-            case "UserCreate" : {
-                System.out.println("User creation request received.");
-                User user = new User();
-                user.username = root.getString("Username");
-                String password = root.getString("Password");
-                user.phoneNumber = root.getString("PhoneNumber");
-                user.emailAddress = root.getString("EmailAddress");
-                user.firstName = root.getString("FirstName");
-                user.lastName = root.getString("LastName");
-                DatabaseManager.createNewUser(user, password);
-                response.put("MessageType", "UserCreateConfirmation");
-                response.put("User", user.toJSON());
-                break;
-            }
-            case "PatientCreate": {
-                System.out.println("Patient creation request received.");
-                Patient patient = new Patient();
-                patient.user.username = root.getString("Username");
-                patient.firstName = root.getString("FirstName");
-                patient.lastName = root.getString("LastName");
-                patient.age = root.getInt("Age");
-                patient.sex = (root.getString("Sex") == "M" ? Patient.Sex.Male : Patient.Sex.Female);
-                DatabaseManager.createNewPatient(patient);
-                response.put("MessageType", "PatientCreateConfirmation");
-                response.put("Patient", patient.toJSON());
+            case "UserSettingsQuery" : {
+                System.out.println("User settings query received.");
+                String username = root.getString("Username");
+                User user = DatabaseManager.getUser(username);
+                response.put("MessageType", "UserSettingsQueryResults");
+                response.put("Username", username);
+                response.put("GetsPush", user.preferences.getsPush);
+                response.put("GetsSMS", user.preferences.getsSMS);
+                response.put("GetsEmail", user.preferences.getsEmail);
                 break;
             }
             case "UserSettingsChange": {
@@ -166,6 +167,15 @@ public class Server implements Runnable {
                 EPICManager.checkInForAppointment(appointmentID);
                 response.put("MessageType", "AppointmentCheckedIn");
                 response.put("AppointmentID", appointmentID);
+                break;
+            }
+            case "SaveColorForPatient" : {
+                System.out.println("Color chance request received.");
+                int patientID = root.getInt("PatientID");
+                String color = root.getString("Color");
+                DatabaseManager.saveColorForPatient(patientID, color);
+                response.put("MessageType", "ColorSaved");
+                response.put("PatientID", patientID);
                 break;
             }
             default : {

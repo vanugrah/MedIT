@@ -65,28 +65,9 @@ angular.module('medIT.home', [])
       //$localstorage.setObject('appts', $scope.appts)
     });
 
-    //$scope.$on('$ionicView.beforeEnter', function() {
-    //  //$scope.appts = $localstorage.getObject('appts');
-    //  //$scope.apptReminder = $localstorage.getObject('apptReminder');
-    //
-    //  var data = {
-    //    MessageType: "AppointmentsQuery",
-    //    Username: 'atsou3'
-    //  };
-    //
-    //  $http.post("http://localhost/", data)
-    //    .success(function(data) {
-    //      if (data.MessageType === "Error") {
-    //        alert("Error");
-    //      } else {
-    //        $scope.appts = data.Appointments;
-    //      }
-    //    })
-    //    .error(function(data) {
-    //      alert("You messed up");
-    //    });
-    //
-    //});
+    $scope.$on('$ionicView.beforeEnter', function() {
+      $scope.getAppts();
+    });
 
     $scope.getAppts = function() {
 
@@ -100,8 +81,7 @@ angular.module('medIT.home', [])
         url: "http://localhost/",
         data: data
       }).then(function successCallback(response) {
-        console.log(JSON.stringify(response));
-        if (response.MessageType === "Error") {
+        if (response.data.MessageType === "Error") {
           alert("Error");
         } else {
           $scope.appts = response.data.Appointments;
@@ -111,76 +91,5 @@ angular.module('medIT.home', [])
       });
 
     };
-    //
-    //$scope.$on('$ionicView.afterEnter', function() {
-    //  //$scope.appts = $localstorage.getObject('appts');
-    //
-    //  if ($localstorage.getObject('hasCheckedIn') !== null) {
-    //    console.log($localstorage.getObject('hasCheckedIn'));
-    //    $scope.appts[0].notCheckedIn = !$localstorage.getObject('hasCheckedIn');
-    //  }
-    //
-    //  //if($scope.apptReminder) {
-    //  //  setTimeout(function() {
-    //  //    $scope.reminder();
-    //  //  }, 6000);
-    //  //}
-    //});
-
-    //$scope.reminder = function() {
-    //  var confirmPopup = $ionicPopup.confirm({
-    //    title: '<strong>Upcoming Appointment Reminder</strong>',
-    //    template: "Johanna has an appointment tomorrow " +
-    //      "<strong>4/22/16</strong> " +
-    //      "at <strong>3:15pm</strong> " +
-    //      "at <strong>Children's Healthcare of Atlanta - Egleston.</strong><br>" +
-    //      "<br>Will she be able to make the appointment?<br>" +
-    //      "<br>(If unsure, please select 'Yes')",
-    //    cancelText: 'No',
-    //    okText: 'Yes'
-    //  });
-    //
-    //  confirmPopup.then(function(res) {
-    //    var yesTitle = "<strong>Confirmed</strong>";
-    //    var yesTemplate = "Thank you for your response! <br>" +
-    //                      "<br>The clinic has been informed of your expected attendance!";
-    //    var noTitle = "<strong>Cancelled</strong>";
-    //    var noTemplate = "Thank you for your response! <br>" +
-    //                     "<br>The appointment has been cancelled.";
-    //
-    //    if(res) {
-    //      $scope.result(yesTitle, yesTemplate);
-    //    } else {
-    //      $scope.result(noTitle, noTemplate);
-    //
-    //      $scope.appts[1].isCancelled = true;
-    //      $localstorage.setObject('appts', $scope.appts);
-    //
-    //      //$http.post("http://127.0.0.1/{REST OF THE URL PLS}", $scope.appts)
-    //      //  .success(function(data) {
-    //      //    $scope.result();
-    //      //  })
-    //      //  .error(function(data) {
-    //      //    alert("You messed up");
-    //      //  });
-    //    }
-    //  });
-    //};
-
-    // An alert dialog
-    //$scope.result = function(title, template) {
-    //  var alertPopup = $ionicPopup.alert({
-    //    title: title,
-    //    template: template
-    //  });
-    //
-    //  alertPopup.then(function(res) {
-    //    $localstorage.setObject('apptReminder', false);
-    //    $scope.apptReminder = false;
-    //  });
-    //};
-    //
-    //$scope.viewAppt = function(appt) {
-    //  $localstorage.setObject('apptID', appt.id);
-    //};
+ 
   });

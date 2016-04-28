@@ -9,78 +9,116 @@ angular.module('medIT.settings', [])
     $scope.$on('$ionicView.loaded', function() {
 
       $scope.settings = {
-        push: true,
-        sms: true,
-        email: true,
-        weather: true,
-        traffic: true
+        push: false,
+        sms: false,
+        email: false
       };
 
-      $scope.patients = [
-        {
-          pid: 0,
-          name: "Johnny Doe Jr",
-          color: "blue"
-        },
-        {
-          pid: 1,
-          name: "Johanna Doe",
-          color: "green"
-        }
-      ];
-
-      $localstorage.setObject("settings", $scope.settings);
-
-      $scope.appts = $localstorage.getObject('appts');
-
-      //$scope.johnnyColor = "Blue";
-      //$scope.johannaColor = "Green";
-
-      //$localstorage.setObject('johnnyColor', $scope.johnnyColor);
-      //$localstorage.setObject('johannaColor', $scope.johannaColor);
+      $scope.patients = [ ];
 
       $scope.colors = ["blue", "yellow", "red", "green"];
     });
 
+    $scope.getSettingsFromServer = function() {
+      var data = {
+        MessageType: "UserSettingsQuery",
+        Username: 'atsou3'
+      };
+
+      $http({
+        method: "POST",
+        url: "http://localhost/",
+        data: data
+      }).then(function successCallback(response) {
+        if (response.data.MessageType === "Error") {
+          alert("Server error. " + response.data.Message);
+        } else {
+          $scope.settings.push = response.data.GetsPush;
+          $scope.settings.sms = response.data.GetsSMS;
+          $scope.settings.email = response.data.GetsEmail;
+        }
+      }, function errorCallback(response) {
+        alert("Unable to connect to server!");
+      });
+    }
+    
+    $scope.getPatientsFromServer = function() {
+      var data = {
+        MessageType: "UserPatientsQuery",
+        Username: 'atsou3'
+      };
+
+      $http({
+        method: "POST",
+        url: "http://localhost/",
+        data: data
+      }).then(function successCallback(response) {
+        if (response.data.MessageType === "Error") {
+          alert("Server error. " + response.data.Message);
+        } else {
+          $scope.patients = [];
+          for (var i = 0; i < response.data.Patients.length; i++) {
+            patient = {
+              pid: response.data.Patients[i].PatientID,
+              name: (response.data.Patients[i].FirstName + " " + response.data.Patients[i].LastName),
+              color: response.data.Patients[i].Color
+            };
+            $scope.patients.push(patient);
+          }
+        }
+      }, function errorCallback(response) {
+        alert("Unable to connect to server!");
+      });
+    }
+    
     // Sets the settings when the user enters settings page
     $scope.$on('$ionicView.beforeEnter', function(){
-      $scope.settings = $localstorage.getObject("settings");
-      $scope.appts = $localstorage.getObject('appts');
-      //$scope.johnnyColor = $localstorage.getObject('johnnyColor');
-      //$scope.johannaColor = $localstorage.getObject('johannaColor');
-
-        //$http.get("http://127.0.0.1/{REST OF THE URL PLS}")
-        //  .success(function(data) {
-        //    $scope.push = data.push;
-        //    $scope.sms = data.sms;
-        //    $scope.email = data.email;
-        //    $scope.weather = data.weather;
-        //    $scope.traffic = data.traffic;
-        //  })
-        //  .error(function(data) {
-        //    alert("You messed up");
-        //  });
+      $scope.getSettingsFromServer();
+      
+      $scope.getPatientsFromServer();
 
     });
 
     $scope.changeSettings = function() {
-      alert(JSON.stringify($scope.patients));
+      var data = {
+        MessageType: "UserSettingsChange",
+        Username: 'atsou3',
+        GetsPush: $scope.settings.push,
+        GetsSMS: $scope.settings.sms,
+        GetsEmail: $scope.settings.email
+      };
 
-      //$localstorage.setObject("settings", $scope.settings);
-      //
-      //// Update colors and stuff in DB according to $scope.patients
-      //for (i = 0; i < $scope.appts.length; i++) {
-      //  if($scope.appts[i].patientID === "0") {
-      //    $scope.appts[i].color = $scope.johnnyColor;
-      //
-      //  } else if ($scope.appts[i].patientID === "1") {
-      //    $scope.appts[i].color = $scope.johannaColor;
-      //  }
-      //}
-      //
-      //$localstorage.setObject('appts', $scope.appts);
-      //$localstorage.setObject('johnnyColor', $scope.johnnyColor);
-      //$localstorage.setObject('johannaColor', $scope.johannaColor);
+      $http({
+        method: "POST",
+        url: "http://localhost/",
+        data: data
+      }).then(function successCallback(response) {
+        if (response.data.MessageType === "Error") {
+          alert("Server error. " + response.data.Message);
+        }
+      }, function errorCallback(response) {
+        alert("Unable to connect to server!");
+      });
+      
+      for(var i = 0; i < $scope.patients.length; i++) {
+        data = {
+          MessageType: "SaveColorForPatient",
+          PatientID: $scope.patients[i].pid,
+          Color: $scope.patients[i].color
+        };
+
+        $http({
+          method: "POST",
+          url: "http://localhost/",
+          data: data
+        }).then(function successCallback(response) {
+          if (response.data.MessageType === "Error") {
+            alert("Server error. " + response.data.Message);
+          }
+        }, function errorCallback(response) {
+          alert("Unable to connect to server!");
+        });
+      }
     };
 
     $scope.changeJohnnyColor = function(color) {
@@ -92,14 +130,4 @@ angular.module('medIT.settings', [])
       $scope.johannaColor = color;
       $localstorage.setObject('johannaColor', $scope.johannaColor);
     };
-
-    //$scope.getWeather = function() {
-    //  $http.get("http://api.wunderground.com/api/e6fd20d04846f5be/hourly/q/GA/Atlanta.json")
-    //    .success(function(data) {
-    //      alert(JSON.stringify(data));
-    //    })
-    //    .error(function(data) {
-    //      alert("You messed up");
-    //    });
-    //};
   });

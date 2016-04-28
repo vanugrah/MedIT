@@ -53,9 +53,9 @@ public class DatabaseManager {
             connection = DatabaseManager.getConnection();
 
             statement = connection.createStatement();
-            statement.execute("UPDATE Preference SET Gets_Push = " + (getsPush ? "1" : "0") + " WHERE Username = '" + username + "';");
-            statement.execute("UPDATE Preference SET Gets_SMS = " + (getsSMS ? "1" : "0") + " WHERE Username = '" + username + "';");
-            statement.execute("UPDATE Preferences SET Gets_Email = " + (getsEmail ? "1" : "0") + " WHERE Username = '" + username + "';");
+            statement.execute("UPDATE Preference SET Gets_Push = b'" + (getsPush ? "1" : "0") + "' WHERE Username = '" + username + "';");
+            statement.execute("UPDATE Preference SET Gets_SMS = b'" + (getsSMS ? "1" : "0") + "' WHERE Username = '" + username + "';");
+            statement.execute("UPDATE Preference SET Gets_Email = b'" + (getsEmail ? "1" : "0") + "' WHERE Username = '" + username + "';");
         } catch(SQLException e) {
             e.printStackTrace();
         } finally {
@@ -410,6 +410,37 @@ public class DatabaseManager {
             statement.execute("UPDATE Appointment SET Date_of_last_reminder = \"" + date + "\" WHERE AppointmentID = " +
                     appointment.appointmentID + ";");
 
+        } catch(SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(results != null) {
+                try {
+                    results.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if(statement != null) {
+                try {
+                    statement.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void saveColorForPatient(int patientID, String color) {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet results = null;
+
+        try {
+            connection = DatabaseManager.getConnection();
+
+            statement = connection.createStatement();
+            statement.execute("UPDATE Patient SET Color = \"" + color + "\" WHERE PatientID = '" + patientID + "';");
         } catch(SQLException e) {
             e.printStackTrace();
         } finally {
