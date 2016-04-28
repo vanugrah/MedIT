@@ -85,17 +85,23 @@ public class Server implements Runnable {
             }
             case "AppointmentsQuery": {
                 System.out.println("Appointments Query received.");
-                int patientID = root.getInt("PatientID");
-                Patient p = EPICManager.getPatientInformation(patientID);
-                if(p == null) {
+                String username = root.getString("Username");
+                User user = DatabaseManager.getUser(username);
+                if(user == null) {
                     response.put("MessageType", "Error");
-                    response.put("Message", "Could not find patient with ID " + patientID);
-                } else {
-                    List<Appointment> appointments = p.getAppointments();
-                    response.put("MessageType", "AppointmentsQueryResults");
-                    response.put("Appointments", new JSONArray());
-                    for (Appointment app : appointments) {
-                        response.append("Appointments", app.toJSON());
+                    response.put("Message", "Could not find user with username " + username);
+                    break;
+                }
+                List<Patient> patients = DatabaseManager.getPatientsForUser(user);
+
+                response.put("MessageType", "AppointmentsQueryResults");
+                response.put("Appointments", new JSONArray());
+
+                for (Patient patient : patients) {
+                    System.out.println("Getting appointments for " + patient.firstName);
+                    List<Appointment> appointments = patient.getAppointments();
+                    for(Appointment appointment : appointments) {
+                        response.append("Appointments", appointment.toJSON());
                     }
                 }
                 break;

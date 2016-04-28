@@ -21,9 +21,9 @@ public class Tester {
         HttpURLConnection connection = null;
         try {
             JSONObject obj = new JSONObject();
-            obj.put("MessageType", "CheckInForAppointment");
+            obj.put("MessageType", "AppointmentsQuery");
 
-            obj.put("AppointmentID", "1");
+            obj.put("Username", "mbarulic3");
 
             URL url = new URL("http://127.0.0.1/");
             connection = (HttpURLConnection) url.openConnection();

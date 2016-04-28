@@ -22,7 +22,7 @@ Looking up a patient
 Looking up appointments
   Request
     MessageType : String = "AppointmentsQuery"
-    PatientID : int
+    Username : String
   Response
     MessageType : String = "AppointmentsQueryResults"
     Appointments : Appointment[]

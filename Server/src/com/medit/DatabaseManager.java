@@ -92,6 +92,11 @@ public class DatabaseManager {
                 user.lastName = results.getString("Parent_Lname");
                 user.phoneNumber = results.getString("Parent_Phone");
                 user.emailAddress = results.getString("Email");
+            } else {
+                results.close();
+                statement.close();
+                connection.close();
+                return null;
             }
             results.close();
 

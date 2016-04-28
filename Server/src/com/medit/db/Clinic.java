@@ -18,6 +18,7 @@ public class Clinic {
         json.put("ClinicID", clinicID);
         json.put("Specialization", specialization);
         json.put("PhoneNumber", phoneNumber);
+        json.put("Hospital", hospital.toJSON());
 
         return json;
     }

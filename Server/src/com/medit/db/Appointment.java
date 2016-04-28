@@ -82,6 +82,10 @@ public class Appointment {
         json.put("Confirmed", Confirmed);
         json.put("Cancelled", Cancelled);
         json.put("CheckedIn", CheckedIn);
+        json.put("Patient", patient.toJSON());
+        json.put("User", user.toJSON());
+        json.put("Clinic", clinic.toJSON());
+        json.put("Doctor", doctor.toJSON());
 
         return json;
     }

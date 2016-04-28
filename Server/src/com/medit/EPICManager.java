@@ -70,7 +70,7 @@ public class EPICManager {
             connection = DatabaseManager.getConnection();
 
             statement = connection.createStatement();
-            results = statement.executeQuery("SELECT * FROM Appointment");
+            results = statement.executeQuery("SELECT * FROM Appointment WHERE PatientID = " + patient.patientID);
 
             while(results.next()) {
                 Appointment appointment = new Appointment();
