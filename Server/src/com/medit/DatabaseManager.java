@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -383,4 +384,38 @@ public class DatabaseManager {
         return ret;
     }
 
+    public static void saveDateOfLastReminder(Appointment appointment, Date dateOfLastReminder) {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet results = null;
+
+        try {
+            connection = DatabaseManager.getConnection();
+
+            java.sql.Date date = new java.sql.Date(dateOfLastReminder.getTime());
+
+            statement = connection.createStatement();
+            statement.execute("UPDATE Appointment SET Date_of_last_reminder = \"" + date + "\" WHERE AppointmentID = " +
+                    appointment.appointmentID + ";");
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(results != null) {
+                try {
+                    results.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if(statement != null) {
+                try {
+                    statement.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

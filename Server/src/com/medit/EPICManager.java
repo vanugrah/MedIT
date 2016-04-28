@@ -75,6 +75,7 @@ public class EPICManager {
             while(results.next()) {
                 Appointment appointment = new Appointment();
 
+                appointment.appointmentID = results.getInt("AppointmentID");
                 appointment.patient = patient;
                 appointment.user.username = results.getString("Username");
                 appointment.doctor.doctorID = results.getInt("DoctorID");
@@ -85,6 +86,12 @@ public class EPICManager {
                 appointment.Confirmed = results.getBoolean("Confirmed");
                 appointment.CheckedIn = results.getBoolean("Checked_In");
                 appointment.Cancelled = results.getBoolean("Cancelled");
+                java.sql.Date dateOfLastReminder = results.getDate("Date_of_last_reminder");
+                if(dateOfLastReminder == null) {
+                    appointment.dateOfLastReminder = null;
+                } else {
+                    appointment.dateOfLastReminder = new java.util.Date(dateOfLastReminder.getTime());
+                }
 
                 ret.add(appointment);
             }
@@ -99,6 +106,16 @@ public class EPICManager {
                     appointment.user.firstName = results.getString("Parent_Fname");
                     appointment.user.lastName = results.getString("Parent_Lname");
                     appointment.user.phoneNumber = results.getString("Parent_Phone");
+                }
+                results.close();
+                statement.close();
+
+                statement = connection.createStatement();
+                results = statement.executeQuery("SELECT * FROM Preference WHERE Username='" + appointment.user.username + "';");
+                if(results.next()) {
+                    appointment.user.preferences.getsEmail = results.getBoolean("Gets_Email");
+                    appointment.user.preferences.getsSMS = results.getBoolean("Gets_SMS");
+                    appointment.user.preferences.getsPush = results.getBoolean("Gets_Push");
                 }
                 results.close();
                 statement.close();

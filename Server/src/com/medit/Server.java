@@ -21,30 +21,23 @@ public class Server implements Runnable {
 
     private JSONObject getJSONFromPOSTReader(BufferedReader reader) {
         try {
-            String currentLine = reader.readLine();
-            String headerLine = currentLine;
-            StringTokenizer tokenizer = new StringTokenizer(headerLine);
-            String httpMethod = tokenizer.nextToken();
+            String currentLine = null;
             int contentLength = 0;
 
-            if (httpMethod.equals("POST")) {
-                while (reader.ready()) {
-                    currentLine = reader.readLine();
-                    if (currentLine.contains("Content-type:")) {
-                        if (!currentLine.contains("application/json"))
-                            System.out.println("Unsupported content type in POST.");
-                    }
-                    if (currentLine.contains("Content-Length:")) {
-                        contentLength = Integer.parseInt(currentLine.split(" ")[1]);
-                    }
-                    if (currentLine.equals("")) {
-                        char[] bytes = new char[contentLength];
-                        reader.read(bytes);
-                        return new JSONObject(new String(bytes));
-                    }
+            while (reader.ready()) {
+                currentLine = reader.readLine();
+                if (currentLine.contains("Content-type:")) {
+                    if (!currentLine.contains("application/json"))
+                        System.out.println("Unsupported content type in POST.");
                 }
-            } else {
-                System.out.println("Unsupported request type.");
+                if (currentLine.contains("Content-Length:")) {
+                    contentLength = Integer.parseInt(currentLine.split(" ")[1]);
+                }
+                if (currentLine.equals("")) {
+                    char[] bytes = new char[contentLength];
+                    reader.read(bytes);
+                    return new JSONObject(new String(bytes));
+                }
             }
         } catch(IOException e) {
             e.printStackTrace();
@@ -179,6 +172,15 @@ public class Server implements Runnable {
         return response;
     }
 
+    private String handleGETRequest(String path) {
+        if(path.substring(1,8).equals("Confirm")) {
+            int appointmentID = Integer.parseInt(path.substring(12));
+            EPICManager.confirmAppointment(appointmentID);
+            return "<html>Thank you for confirming!</html>";
+        }
+        return "";
+    }
+
     @Override
     public void run() {
         try {
@@ -195,18 +197,45 @@ public class Server implements Runnable {
 
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-                JSONObject obj = getJSONFromPOSTReader(bufferedReader);
-                JSONObject response = executeJSONRequest(obj);
+                String currentLine = bufferedReader.readLine();
+                String headerLine = currentLine;
+                StringTokenizer tokenizer = new StringTokenizer(headerLine);
+                String httpMethod = tokenizer.nextToken();
 
-                OutputStream out = new BufferedOutputStream(clientSocket.getOutputStream());
-                final String HEADERS = "HTTP/1.1 200 OK\r\n" +
-                        "Content-Type: application/json\r\n" +
-                        "Content-Length: ";
-                String reponseString = response.toString();
-                out.write( (HEADERS + reponseString.length() + "\r\n\r\n" + reponseString).getBytes());
-                out.flush();
-                out.close();
-                System.out.println("Response sent.");
+                switch(httpMethod) {
+                    case "POST": {
+                        JSONObject obj = getJSONFromPOSTReader(bufferedReader);
+                        JSONObject response = executeJSONRequest(obj);
+
+                        OutputStream out = new BufferedOutputStream(clientSocket.getOutputStream());
+                        final String HEADERS = "HTTP/1.1 200 OK\r\n" +
+                                "Content-Type: application/json\r\n" +
+                                "Content-Length: ";
+                        String responseString = response.toString();
+                        out.write((HEADERS + responseString.length() + "\r\n\r\n" + responseString).getBytes());
+                        out.flush();
+                        out.close();
+                        System.out.println("Response sent.");
+                        break;
+                    }
+                    case "GET" : {
+                        OutputStream out = new BufferedOutputStream(clientSocket.getOutputStream());
+                        final String HEADERS = "HTTP/1.1 200 OK\r\n" +
+                                "Content-Type: text/html\r\n" +
+                                "Content-Length: ";
+
+                        String responseString = handleGETRequest(tokenizer.nextToken());
+                        out.write((HEADERS + responseString.length() + "\r\n\r\n" + responseString).getBytes());
+                        out.flush();
+                        out.close();
+                        System.out.println("Response sent.");
+                        break;
+                    }
+                    default : {
+                        System.out.println("Unsupported HTTP method : " + httpMethod);
+                        break;
+                    }
+                }
             }
         } catch(IOException e) {
             System.err.println("Server thread encountered an error.");
