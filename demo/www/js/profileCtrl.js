@@ -3,26 +3,33 @@
  */
 
 angular.module('medIT.profile', [])
-  .controller('ProfileCtrl', function($scope, $localstorage, $ionicPopup) {
-
-    $scope.$on('$ionicView.loaded', function() {
-      $scope.isCheckingIn = false;
-      //$localstorage.setObject('isCheckingIn', false);
-    });
+  .controller('ProfileCtrl', function($scope, $localstorage, $ionicPopup, $spinner, $http) {
 
     $scope.$on('$ionicView.afterEnter', function() {
-      $scope.johnnyColor = $localstorage.getObject('johnnyColor');
-      $scope.johannaColor = $localstorage.getObject('johannaColor');
-      $scope.isCheckingIn = $localstorage.getObject('isCheckingIn');
+      $spinner.show();
 
-      //$http.get("http://127.0.0.1/getPatients")
-      //  .success(function(data) {
-      //    $scope.patients = data;
-      //  })
-      //  .error(function(data) {
-      //    console.log("You messed up yo");
-      //  });
-      //console.log($scope.isCheckingIn);
+      $scope.isCheckingIn = $localstorage.getObject('isCheckingIn');
+      $scope.user = $localstorage.getObject('user');
+
+      var data = {
+        MessageType: "UserPatientsQuery",
+        Username: $scope.user.Username
+      };
+
+      $http({
+        method: "POST",
+        url: "http://localhost/",
+        data: data
+      }).then(function successCallback(response) {
+        $spinner.hide();
+        if (response.data.MessageType === "Error") {
+          alert("An error has occurred. Please try again.");
+        } else {
+          $scope.patients = response.data;
+        }
+      }, function errorCallback(response) {
+        alert("An error has occurred. Please try again.");
+      });
 
       $scope.user = {
         name: "John Doe",

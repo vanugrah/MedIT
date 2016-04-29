@@ -22,4 +22,21 @@ angular.module('ionic.utils', [])
         return JSON.parse($window.localStorage[key] || '{}');
       }
     }
+  }])
+
+  .factory('$spinner', ['$ionicLoading', function($ionicLoading) {
+    return {
+      show: function() {
+        $ionicLoading.show({
+          template: '<h2>Loading...</h2> <p> <ion-spinner icon="android" class="spinner-positive" style="height: 50px !important;"></ion-spinner>',
+          animation: 'fade-in',
+          noBackdrop: false,
+          maxWidth: 200
+        });
+      },
+
+      hide: function() {
+        $ionicLoading.hide();
+      }
+    }
   }]);

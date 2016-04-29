@@ -1,13 +1,7 @@
 <ion-view title="Appointment Details">
     <ion-content padding="true" class="has-header">
 
-        <!--<div class="list card">-->
-            <!--<div class="item item-divider text-center">-->
-              <!--<strong>Appointment Details</strong>-->
-            <!--</div>-->
-        <!--</div>-->
-
-          <div class="item item-text-wrap card" ng-repeat="details in appt">
+          <div class="item item-text-wrap card">
                 <ion-list>
 
                   <ion-item class="item item-icon-left">
@@ -15,7 +9,7 @@
                     <i class="icon ion-ios-calendar-outline"></i>
 
                     <span style="font-weight: bold;">Date: </span>
-                    {{details.date}}
+                    {{appt.Date | date: 'MMM dd, yyyy'}}
                   </ion-item>
 
                   <ion-item class="item item-icon-left">
@@ -23,7 +17,7 @@
                     <i class="icon ion-ios-time-outline"></i>
 
                     <span style="font-weight: bold;">Time: </span>
-                    {{details.time}}
+                    {{appt.Date | date: 'h:mm a'}}
                   </ion-item>
 
                   <ion-item class="item item-icon-left">
@@ -31,7 +25,7 @@
                     <i class="icon ion-ios-person-outline"></i>
 
                     <span style="font-weight: bold;">Patient:</span>
-                    {{details.patient}}
+                    {{appt.Patient.FirstName}} {{appt.Patient.LastName}}
 
                   </ion-item>
 
@@ -40,7 +34,7 @@
                     <i class="icon ion-ios-home"></i>
 
                     <span style="font-weight: bold;">Clinic:</span>
-                    {{details.location}}
+                    {{appt.Clinic.Hospital.Name}} - {{appt.Clinic.Hospital.Branch}}
                   </ion-item>
 
                   <ion-item class="item item-icon-left">
@@ -48,15 +42,15 @@
                     <i class="icon ion-ios-location-outline"></i>
 
                     <span style="font-weight: bold;">Address:</span>
-                    {{details.address}}, {{details.city}}, {{details.state}} {{details.zip}}</p>
+                    {{appt.Clinic.Hospital.Address}}, {{appt.Clinic.Hospital.City}}, {{appt.Clinic.Hospital.State}} {{appt.Clinic.Hospital.ZipCode}}</p>
                   </ion-item>
 
                   <ion-item class="item item-icon-left">
 
                     <i class="icon ion-medkit"></i>
 
-                    <span style="font-weight: bold;">With:</span>
-                    {{details.physician}}
+                    <span style="font-weight: bold;">Physician:</span>
+                    {{appt.Doctor.FirstName}} {{appt.Doctor.LastName}}
                   </ion-item>
 
                   <ion-item class="item item-icon-left">
@@ -64,7 +58,7 @@
                     <i class="icon ion-clipboard"></i>
 
                     <span style="font-weight: bold;">Notes:</span>
-                    {{details.notes}}
+                    {{appt.Notes}}
                   </ion-item>
 
 
@@ -87,14 +81,14 @@
           <a href="tel:+1-1800-555-5555" class="button button-block button-positive icon-left ion-ios-telephone">Contact</a>
 
           <button class="button button-block button-balanced icon-left ion-ios-navigate-outline"
-                  ng-click="checkinAppt(0)"
-                  ng-hide="hasCheckedIn">
+                  ng-click="checkinAppt()"
+                  ng-hide="appt.CheckedIn">
             Check-in
           </button>
 
           <button class="button button-block button-outline button-balanced icon-left ion-ios-navigate-outline"
-                  ng-hide="!hasCheckedIn"
-                  ng-click="checkinAppt(1)">
+                  ng-show="appt.CheckedIn"
+                  ng-click="checkinAppt()">
             Checked In
           </button>
         </div>

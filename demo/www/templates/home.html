@@ -8,19 +8,18 @@
     </div>
 
     <div class="item item-text-wrap card"
-         ng-repeat="appt in appts"
-         ng-click="viewAppt(appt)"
+         ng-repeat="appt in appts | orderBy:'Date'"
          ng-hide="appt.Cancelled"
-         ui-sref="app.apptDetails">
+         ng-click="viewApptDetails(appt)">
 
       <div id="vert-bar"
            ng-class="appt.Patient.Color">
       </div>
 
         <ion-item class="no-padding-bot">
-            <span class="item-title">{{appt.Date | date: 'MMM dd, yyyy - h:mm a'}}</span>
+            <span class="item-title">{{appt.Date | date: 'MMM dd, yyyy (h:mm a)'}}</span>
             <br>
-            {{appt.Clinic.Hospital.Address}}<br>{{appt.Clinic.Hospital.City}}, {{appt.Clinic.Hospital.State}}
+            {{appt.Clinic.Hospital.Name}} -<br> {{appt.Clinic.Hospital.Branch}} ({{appt.Clinic.Specialization}})
             <p>{{appt.Patient.FirstName}} {{appt.Patient.LastName}}</p>
             <div class="text-green" ng-show="appt.CheckedIn">CHECKED IN</div>
             <br>

@@ -1,7 +1,7 @@
 // Home Controller
 angular.module('medIT.home', [])
 
-  .controller('HomeCtrl', function($scope, $localstorage, $ionicPopup, $ionicLoading, $http) {
+  .controller('HomeCtrl', function($scope, $localstorage, $ionicPopup, $spinner, $http, $state) {
 
     $scope.$on('$ionicView.loaded', function() {
       //$scope.apptReminder = false;
@@ -65,22 +65,17 @@ angular.module('medIT.home', [])
       //$localstorage.setObject('appts', $scope.appts)
     });
 
-    $scope.$on('$ionicView.beforeEnter', function() {
+    $scope.$on('$ionicView.afterEnter', function() {
       // Setup the loader
-      $ionicLoading.show({
-        template: '<h2>Loading...</h2> <p> <ion-spinner icon="android" class="spinner-positive" style="height: 50px !important;"></ion-spinner>',
-        animation: 'fade-in',
-        noBackdrop: false,
-        maxWidth: 200
-      });
+      $spinner.show();
+      $scope.user = $localstorage.getObject('user');
       $scope.getAppts();
     });
 
     $scope.getAppts = function() {
-
       var data = {
         MessageType: "AppointmentsQuery",
-        Username: 'atsou3'
+        Username: $scope.user.Username
       };
 
       $http({
@@ -88,16 +83,22 @@ angular.module('medIT.home', [])
         url: "http://localhost/",
         data: data
       }).then(function successCallback(response) {
-        $ionicLoading.hide();
+        $spinner.hide();
         if (response.data.MessageType === "Error") {
-          alert("Error");
+          alert("An error has occurred. Please try again.");
         } else {
           $scope.appts = response.data.Appointments;
         }
       }, function errorCallback(response) {
-        alert("You messed up");
+        alert("An error has occurred. Please try again.");
       });
 
     };
- 
+
+    $scope.viewApptDetails = function(appt) {
+      $localstorage.setObject('appt', appt);
+      $state.go('app.apptDetails');
+    };
+
+
   });

@@ -1,13 +1,13 @@
 angular.module('medIT.controllers', [])
 
-.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state, $timeout, $http) {
-    
+.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state, $timeout, $http, $localstorage) {
+
     $scope.$on('$ionicView.beforeEnter', function() {
       $scope.data = {};
     });
 
     $scope.login = function() {
-      
+
       var data = {
         MessageType: "AuthRequest",
         Username: $scope.data.username,
@@ -23,8 +23,8 @@ angular.module('medIT.controllers', [])
           alert("Server error. " + response.data.Message);
         } else {
           if(response.data.Success) {
-            // user = response.data.User;
-            
+            $localstorage.setObject('user', response.data.User);
+
             // Redirect to homepage
             $state.go('app.home');
           } else {
