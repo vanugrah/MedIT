@@ -26,13 +26,13 @@
 
       <div class="item">
         <div class="profile-image">
-          <img class="profile-image" src="img/user.jpg" />
+          <img class="profile-image" ng-src="{{user.Photo}}" />
         </div>
 
         <center>
-          <h2>John Doe</h2>
-          <p>jdoe@gatech.edu</p> 
-        </center>      
+          <h2>{{user.FirstName}} {{user.LastName}}</h2>
+          <p>{{user.EmailAddress}}</p>
+        </center>
       </div>
 
       <ion-list>
@@ -56,7 +56,7 @@
           <i class="icon ion-ios-close-outline "></i>
           Logout
         </ion-item>
-        
+
       </ion-list>
     </ion-content>
   </ion-side-menu>

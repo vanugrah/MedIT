@@ -3,7 +3,7 @@
  */
 
 angular.module('medIT.profile', [])
-  .controller('ProfileCtrl', function($scope, $localstorage, $ionicPopup, $spinner, $http) {
+  .controller('ProfileCtrl', function($scope, $localstorage, $ionicPopup, $spinner, $http, $state) {
 
     $scope.$on('$ionicView.afterEnter', function() {
       $spinner.show();
@@ -25,45 +25,16 @@ angular.module('medIT.profile', [])
         if (response.data.MessageType === "Error") {
           alert("An error has occurred. Please try again.");
         } else {
-          $scope.patients = response.data;
+          $scope.patients = response.data.Patients;
         }
       }, function errorCallback(response) {
         alert("An error has occurred. Please try again.");
       });
-
-      $scope.user = {
-        name: "John Doe",
-        email: "jdoe@gatech.edu",
-        phone: "404-915-3496",
-        address: "733 Techwood Dr. Atlanta",
-        city: "Atlanta",
-        state: "GA",
-        zip: "30313"
-      };
-
-      $scope.patients = [
-        {
-          name: "Johnny Doe Jr",
-          age: "8",
-          gender: "Male",
-          insuranceID: "902933285",
-          insuranceProvider: "BCBS Georgia",
-          color: "blue",
-          photo: "img/boy-child.jpg"
-        },
-        {
-          name: "Johanna Doe",
-          age: "5",
-          gender: "Female",
-          insuranceID: "902933251",
-          insuranceProvider: "BCBS Georgia",
-          color: "green",
-          photo: "img/girl-child.jpg"
-        }
-      ];
     });
 
     $scope.checkIn = function(res) {
+      $spinner.show();
+
       var title = "Checking In";
       var template = "";
       if (res === 0) {
@@ -71,9 +42,29 @@ angular.module('medIT.profile', [])
           "<br>Please see the front desk upon arrival in order to update your information!";
       } else {
         template = "Thank you for checking in! <br>" +
-          "<br>You will be added to the waiting queue upon arrival.";
+          "<br>You will be added to the waiting queue.";
       }
-      $scope.result(title, template);
+
+      var appt = $localstorage.getObject('appt');
+      var data = {
+        MessageType: "CheckInForAppointment",
+        AppointmentID: appt.AppointmentID
+      };
+
+      $http({
+        method: "POST",
+        url: "http://localhost/",
+        data: data
+      }).then(function successCallback(response) {
+        $spinner.hide();
+        if (response.data.MessageType === "Error") {
+          alert("An error has occurred. Please try again.");
+        } else {
+          $scope.result();
+        }
+      }, function errorCallback(response) {
+        alert("An error has occurred. Please try again.");
+      });
     };
 
     $scope.result = function(title, template) {
@@ -85,9 +76,7 @@ angular.module('medIT.profile', [])
       alertPopup.then(function(res) {
         $scope.isCheckingIn = false;
         $localstorage.setObject('isCheckingIn', false);
-        $localstorage.setObject('hasCheckedIn', true);
-
-
+        $state.go('app.home');
       });
     };
   });

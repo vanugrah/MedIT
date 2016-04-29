@@ -1,4 +1,4 @@
-angular.module('medIT.controllers', [])
+angular.module('medIT.login', [])
 
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state, $timeout, $http, $localstorage) {
 
@@ -38,23 +38,6 @@ angular.module('medIT.controllers', [])
         alert("Unable to connect to server!");
       });
     };
-})
-
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicLoading) {
-
-  // Form data for the login modal
-  $scope.loginData = {};
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // // Simulate a login delay. Remove this and replace with your login
-    // $timeout(function() {
-    //   $scope.closeLogin();
-    //   $ionicLoading.hide();
-    // }, 2000);
-  };
 });
 
 

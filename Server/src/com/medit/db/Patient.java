@@ -37,6 +37,9 @@ public class Patient {
     public Sex sex = Sex.Male;
     public User user = new User();
     public String color = "";
+    public String insuranceID = "";
+    public String insuranceProvider = "";
+    public String photo = "";
 
     public List<Appointment> getAppointments() {
         return EPICManager.getAppointmentsForPatient(this);
@@ -51,6 +54,9 @@ public class Patient {
         json.put("Age", age);
         json.put("Sex", sex);
         json.put("Color", color);
+        json.put("InsuranceID", insuranceID);
+        json.put("InsuranceProvider", insuranceProvider);
+        json.put("Photo", photo);
         if(user != null) json.put("User", user.toJSON());
 
         return json;

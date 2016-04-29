@@ -97,6 +97,7 @@ public class DatabaseManager {
                 user.lastName = results.getString("Parent_Lname");
                 user.phoneNumber = results.getString("Parent_Phone");
                 user.emailAddress = results.getString("Email");
+                user.photo = results.getString("Parent_Photo");
             } else {
                 results.close();
                 statement.close();
@@ -162,6 +163,9 @@ public class DatabaseManager {
                 patient.age = results.getInt("Age");
                 patient.sex = results.getString("Sex").equals("M") ? Patient.Sex.Male : Patient.Sex.Female;
                 patient.color = results.getString("Color");
+                patient.insuranceID = results.getString("InsuranceID");
+                patient.insuranceProvider = results.getString("InsuranceProvider");
+                patient.photo = results.getString("Patient_Photo");
 
                 patient.user = getUser(results.getString("Username"));
 

@@ -8,15 +8,15 @@
           </div>
 
           <div class="settings-page">
-            <img class="profile-image settings-page" src="img/user.jpg" />
+            <img class="profile-image settings-page" ng-src="{{user.Photo}}" />
           </div>
 
           <div class="item">
-              <h2><strong>{{user.name}}</strong></h2>
-              <p><strong>Email:</strong> {{user.email}}</p>
-              <p><strong>Phone:</strong> {{user.phone}}</p>
-              <p><strong>Address:</strong> {{user.address}}</p>
-              <p>{{user.city}}, {{user.state}} {{user.zip}}</p>
+              <h2><strong>{{user.FirstName}} {{user.LastName}}</strong></h2>
+              <p><strong>Email:</strong> {{user.EmailAddress}}</p>
+              <p><strong>Phone:</strong> {{user.PhoneNumber}}</p>
+              <!--<p><strong>Address:</strong> {{user.address}}</p>-->
+              <!--<p>{{user.city}}, {{user.state}} {{user.zip}}</p>-->
           </div>
         </div>
       </div>
@@ -29,22 +29,19 @@
 
           <div class="item item-text-wrap"
                 ng-repeat="patient in patients">
-            <div id="vert-bar" ng-class="patient.color">
+            <div id="vert-bar" ng-class="patient.Color">
             </div>
 
             <div class="profile-image-boy settings-page">
-              <img ng-src="{{patient.photo}}"/>
+              <img ng-src="{{patient.Photo}}"/>
             </div>
 
             <div class="profile-text">
-                <h2>{{patient.name}} |  {{patient.age}}, {{patient.gender}} </h2>
-                <p>Insurance ID: {{patient.insuranceID}}</p>
-                <p>Insurance Provider: {{patient.insuranceProvider}}</p>
+                <h2><strong>{{patient.FirstName}} {{patient.LastName}}</strong> |  {{patient.Age}}, {{patient.Sex}} </h2>
+                <p><strong>Insurance ID:</strong> {{patient.InsuranceID}}</p>
+                <p><strong>Insurance Provider:</strong> {{patient.InsuranceProvider}}</p>
             </div>
-
           </div>
-
-
         </div>
       </div>
 

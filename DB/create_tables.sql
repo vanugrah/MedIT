@@ -7,6 +7,7 @@ CREATE TABLE Parent (
 	Parent_Lname varchar(255) NOT NULL,
 	Parent_Phone char(12) NOT NULL,
 	Email varchar(255) NOT NULL,
+    Parent_Photo varchar(255),
 	PRIMARY KEY (Username)
 ) ENGINE = InnoDB;
 
@@ -19,6 +20,7 @@ CREATE TABLE Patient (
 	Color varchar(255),
     InsuranceID varchar(255) NOT NULL,
     InsuranceProvider varchar(255) NOT NULL,
+    Patient_Photo varchar(255),
 	Username varchar(255) NOT NULL,
 	PRIMARY KEY (PatientID, Username),
 	FOREIGN KEY (Username)

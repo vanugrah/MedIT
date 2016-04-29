@@ -31,6 +31,7 @@ public class User {
     public String lastName = "";
     public String phoneNumber = "";
     public String emailAddress = "";
+    public String photo = "";
     public Preferences preferences = new Preferences();
 
     public List<Patient> getPatients() {
@@ -59,6 +60,7 @@ public class User {
         json.put("LastName", lastName);
         json.put("PhoneNumber", phoneNumber);
         json.put("EmailAddress", emailAddress);
+        json.put("Photo", photo);
         if(preferences != null) json.put("Preferences", preferences.toJSON());
         return json;
     }

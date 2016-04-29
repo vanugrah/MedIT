@@ -1,7 +1,8 @@
 angular.module('medIT',
   ['ionic',
     'ionic.utils',
-    'medIT.controllers',
+    'medIT.login',
+    'medIT.menu',
     'medIT.home',
     'medIT.services',
     'medIT.settings',
@@ -37,7 +38,7 @@ angular.module('medIT',
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+    controller: 'MenuCtrl'
   })
 
   .state('app.home', {
