@@ -60,7 +60,7 @@ angular.module('medIT.profile', [])
         if (response.data.MessageType === "Error") {
           alert("An error has occurred. Please try again.");
         } else {
-          $scope.result();
+          $scope.result(title, template);
         }
       }, function errorCallback(response) {
         alert("An error has occurred. Please try again.");
