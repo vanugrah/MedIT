@@ -80,12 +80,12 @@ public class EPICManager {
                 appointment.user.username = results.getString("Username");
                 appointment.doctor.doctorID = results.getInt("DoctorID");
                 appointment.clinic.clinicID = results.getInt("ClinicID");
-                java.sql.Date date = results.getDate("Date_of_appt");
-                java.sql.Time time = results.getTime("Time_of_appt");
-                appointment.date = new java.util.Date(date.getTime() + time.getTime());
+                java.sql.Timestamp date = results.getTimestamp("Date_of_appt");
+                appointment.date = new java.util.Date(date.getTime());
                 appointment.Confirmed = results.getBoolean("Confirmed");
                 appointment.CheckedIn = results.getBoolean("Checked_In");
                 appointment.Cancelled = results.getBoolean("Cancelled");
+                appointment.notes = results.getString("Notes");
                 java.sql.Date dateOfLastReminder = results.getDate("Date_of_last_reminder");
                 if(dateOfLastReminder == null) {
                     appointment.dateOfLastReminder = null;

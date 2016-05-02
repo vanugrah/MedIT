@@ -21,7 +21,7 @@ public class DatabaseManager {
     // TODO : Crashes occasionally with null connection objects
 
     private static final String MySQLIP = "localhost:3306";
-    private static final String MySQLDatabaseName = "test";
+    private static final String MySQLDatabaseName = "medit";
     private static final String MySQLUsername = "serverUser";
     private static final String MySQLPassword = "gtsecret";
 

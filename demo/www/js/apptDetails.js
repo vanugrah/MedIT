@@ -77,8 +77,8 @@ angular.module('medIT.apptDetails', [])
         now.setHours(now.getHours() + 1);
 
         // Check if within 1 hour of appointment
-        //if (now < $scope.appt.Date) {
-        if (true) { // TODO: Implement the check for within 1 hr of appt
+        if (now < $scope.appt.Date) {
+        //if (true) { // TODO: Implement the check for within 1 hr of appt
           // Can check in for appointment.
           $localstorage.setObject('isCheckingIn', true);
           $state.go('app.profile');

@@ -73,21 +73,21 @@ INSERT INTO preference()
 	VALUES ('mbarulic3', 0, 0, 1, 0, 0);
     
 -- Appointment
-INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Time_of_appt, Confirmed, Checked_In, Cancelled, Notes)
-	VALUE(1, 'atsou3', 1, 5, '2016-05-02', '12:30:00', 0, 0, 0, 'Check-up');
-INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Time_of_appt, Confirmed, Checked_In, Cancelled, Notes)
-	VALUE(3, 'avijay3', 2, 4, '2016-06-05', '12:45:00', 0, 0, 0, NULL);
-INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Time_of_appt, Confirmed, Checked_In, Cancelled, Notes)
-	VALUE(4, 'skim3', 2, 4, '2016-04-17', '13:15:00', 0, 0, 1, 'No comment');
-INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Time_of_appt, Confirmed, Checked_In, Cancelled, Notes)
-	VALUE(7, 'pbothra3', 3, 1, '2016-03-15', '14:30:00', 1, 1, 0,'Condition seems normal but check-up in 2 weeks just in case');
-INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Time_of_appt, Confirmed, Checked_In, Cancelled, Notes)
-	VALUE(8, 'mbarulic3', 1, 5, '2016-07-19', '08:45:00', 0, 0, 0, 'N/A');
-INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Time_of_appt, Confirmed, Checked_In, Cancelled, Notes)
-	VALUE(3, 'avijay3', 1, 5, '2016-02-22', '09:00:00', 1, 1, 1, 'Prescribed medicine');
-INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Time_of_appt, Confirmed, Checked_In, Cancelled, Notes)
-	VALUE(2, 'atsou3', 2, 4, '2016-04-20', '10:30:00', 1, 0, 0, 'Notes notes notes notes');
-INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Time_of_appt, Confirmed, Checked_In, Cancelled, Notes)
-	VALUE(5, 'skim3', 3, 1, '2016-05-30', '11:45:00', 0, 0, 0, NULL);
-INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Time_of_appt, Confirmed, Checked_In, Cancelled, Notes)
-	VALUE(4, 'skim3', 1, 5, '2016-06-14', '10:45:00', 0, 0, 0, NULL);
+INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Confirmed, Checked_In, Cancelled, Notes)
+	VALUE(1, 'atsou3', 1, 5, '2016-05-02 18:00:00', 0, 0, 0, 'Check-up');
+INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Confirmed, Checked_In, Cancelled, Notes)
+	VALUE(3, 'avijay3', 2, 4, '2016-06-05 12:45:00', 0, 0, 0, NULL);
+INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Confirmed, Checked_In, Cancelled, Notes)
+	VALUE(4, 'skim3', 2, 4, '2016-04-17 13:15:00', 0, 0, 1, 'No comment');
+INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Confirmed, Checked_In, Cancelled, Notes)
+	VALUE(7, 'pbothra3', 3, 1, '2016-03-15 14:30:00', 1, 1, 0,'Condition seems normal but check-up in 2 weeks just in case');
+INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Confirmed, Checked_In, Cancelled, Notes)
+	VALUE(8, 'mbarulic3', 1, 5, '2016-07-19 08:45:00', 0, 0, 0, 'N/A');
+INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Confirmed, Checked_In, Cancelled, Notes)
+	VALUE(3, 'avijay3', 1, 5, '2016-02-22 09:00:00', 1, 1, 1, 'Prescribed medicine');
+INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Confirmed, Checked_In, Cancelled, Notes)
+	VALUE(2, 'atsou3', 2, 4, '2016-05-05 10:30:00', 1, 0, 0, 'Notes notes notes notes');
+INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Confirmed, Checked_In, Cancelled, Notes)
+	VALUE(5, 'skim3', 3, 1, '2016-05-30 11:45:00', 0, 0, 0, NULL);
+INSERT INTO appointment(PatientID, Username, DoctorID, ClinicID, Date_of_appt, Confirmed, Checked_In, Cancelled, Notes)
+	VALUE(4, 'skim3', 1, 5, '2016-06-14 10:45:00', 0, 0, 0, NULL);
