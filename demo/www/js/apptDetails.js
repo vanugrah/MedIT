@@ -14,9 +14,6 @@ angular.module('medIT.apptDetails', [])
 
     $scope.$on('$ionicView.beforeEnter', function() {
       $scope.appt = $localstorage.getObject('appt');
-
-
-
       $scope.hasCheckedIn = $localstorage.getObject('hasCheckedIn');
       //$scope.appt = [];
       $scope.apptID = $localstorage.getObject('apptID');

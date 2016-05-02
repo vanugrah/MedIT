@@ -4,25 +4,19 @@
 // Settings Controller
 angular.module('medIT.settings', [])
 
-  .controller('SettingsCtrl', function($scope, $http, $localstorage) {
+  .controller('SettingsCtrl', function($scope, $http, $localstorage, $spinner, $ionicPopup) {
 
     $scope.$on('$ionicView.loaded', function() {
-
-      $scope.settings = {
-        push: false,
-        sms: false,
-        email: false
-      };
-
-      $scope.patients = [ ];
-
+      $scope.patients = [];
+      $scope.settings = [];
       $scope.colors = ["blue", "yellow", "red", "green"];
     });
 
     $scope.getSettingsFromServer = function() {
+
       var data = {
         MessageType: "UserSettingsQuery",
-        Username: 'atsou3'
+        Username: $scope.user.Username
       };
 
       $http({
@@ -40,12 +34,12 @@ angular.module('medIT.settings', [])
       }, function errorCallback(response) {
         alert("Unable to connect to server!");
       });
-    }
-    
+    };
+
     $scope.getPatientsFromServer = function() {
       var data = {
         MessageType: "UserPatientsQuery",
-        Username: 'atsou3'
+        Username: $scope.user.Username
       };
 
       $http({
@@ -70,19 +64,21 @@ angular.module('medIT.settings', [])
         alert("Unable to connect to server!");
       });
     }
-    
-    // Sets the settings when the user enters settings page
-    $scope.$on('$ionicView.beforeEnter', function(){
-      $scope.getSettingsFromServer();
-      
-      $scope.getPatientsFromServer();
 
+    // Sets the settings when the user enters settings page
+    $scope.$on('$ionicView.afterEnter', function(){
+      $spinner.show();
+      $scope.user = $localstorage.getObject('user');
+      $scope.getSettingsFromServer();
+      $scope.getPatientsFromServer();
+      $spinner.hide();
     });
 
     $scope.changeSettings = function() {
+      $spinner.show();
       var data = {
         MessageType: "UserSettingsChange",
-        Username: 'atsou3',
+        Username: $scope.user.Username,
         GetsPush: $scope.settings.push,
         GetsSMS: $scope.settings.sms,
         GetsEmail: $scope.settings.email
@@ -99,7 +95,7 @@ angular.module('medIT.settings', [])
       }, function errorCallback(response) {
         alert("Unable to connect to server!");
       });
-      
+
       for(var i = 0; i < $scope.patients.length; i++) {
         data = {
           MessageType: "SaveColorForPatient",
@@ -119,15 +115,14 @@ angular.module('medIT.settings', [])
           alert("Unable to connect to server!");
         });
       }
+      $spinner.hide();
+      $scope.saveResult();
     };
 
-    $scope.changeJohnnyColor = function(color) {
-      $scope.johnnyColor = color;
-      $localstorage.setObject('johnnyColor', $scope.johnnyColor);
-    };
-
-    $scope.changeJohannaColor = function(color) {
-      $scope.johannaColor = color;
-      $localstorage.setObject('johannaColor', $scope.johannaColor);
+    $scope.saveResult = function() {
+      $ionicPopup.alert({
+        title: 'Settings',
+        template: 'Your settings have been saved!'
+      });
     };
   });
