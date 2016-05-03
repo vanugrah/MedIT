@@ -1,11 +1,18 @@
+/**
+ * Created by Anthony Tsou on 4/10/2016.
+ *
+ * Controller that handles login for users in database
+ */
 angular.module('medIT.login', [])
 
-.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state, $timeout, $http, $localstorage) {
+.controller('LoginCtrl', function($scope, $ionicPopup, $state, $timeout, $http, $localstorage) {
 
     $scope.$on('$ionicView.beforeEnter', function() {
+      // Username and Password entered by user will be in this
       $scope.data = {};
     });
 
+    // Logging into the application
     $scope.login = function() {
 
       var data = {
@@ -14,6 +21,7 @@ angular.module('medIT.login', [])
         Password: $scope.data.password
       };
 
+      // HTTP Request using login credentials
       $http({
         method: "POST",
         url: "http://localhost/",

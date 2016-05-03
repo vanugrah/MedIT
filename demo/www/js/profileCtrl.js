@@ -1,5 +1,7 @@
 /**
  * Created by Anthony Tsou on 4/19/2016.
+ *
+ * Controller for the Profile page
  */
 
 angular.module('medIT.profile', [])
@@ -8,7 +10,10 @@ angular.module('medIT.profile', [])
     $scope.$on('$ionicView.afterEnter', function() {
       $spinner.show();
 
+      // Determines if the checkin material should show
       $scope.isCheckingIn = $localstorage.getObject('isCheckingIn');
+
+      // Need user info to get profile info
       $scope.user = $localstorage.getObject('user');
 
       var data = {
@@ -16,6 +21,8 @@ angular.module('medIT.profile', [])
         Username: $scope.user.Username
       };
 
+      // HTTP request that gets user information
+      // and information for all patients associated with that user
       $http({
         method: "POST",
         url: "http://localhost/",
@@ -32,6 +39,7 @@ angular.module('medIT.profile', [])
       });
     });
 
+    // Check user into appointment
     $scope.checkIn = function(res) {
       $spinner.show();
 
@@ -51,6 +59,7 @@ angular.module('medIT.profile', [])
         AppointmentID: appt.AppointmentID
       };
 
+      // HTTP request to change checkedin status of appointment in DB
       $http({
         method: "POST",
         url: "http://localhost/",
@@ -67,6 +76,7 @@ angular.module('medIT.profile', [])
       });
     };
 
+    // Result of checkin attempt
     $scope.result = function(title, template) {
       var alertPopup = $ionicPopup.alert({
         title: title,

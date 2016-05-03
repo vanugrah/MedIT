@@ -1,17 +1,29 @@
 /**
  * Created by Anthony Tsou on 4/12/2016.
+ *
+ * Controller for the settings page
  */
-// Settings Controller
 angular.module('medIT.settings', [])
 
   .controller('SettingsCtrl', function($scope, $http, $localstorage, $spinner, $ionicPopup) {
 
+    // Initializes objects
     $scope.$on('$ionicView.loaded', function() {
       $scope.patients = [];
       $scope.settings = [];
       $scope.colors = ["blue", "yellow", "red", "green"];
     });
 
+    // Sets the settings when the user enters settings page
+    $scope.$on('$ionicView.afterEnter', function(){
+      $spinner.show();
+      $scope.user = $localstorage.getObject('user');
+      $scope.getSettingsFromServer();
+      $scope.getPatientsFromServer();
+      $spinner.hide();
+    });
+
+    // Gets the settings for the logged-in user from the database
     $scope.getSettingsFromServer = function() {
 
       var data = {
@@ -36,6 +48,7 @@ angular.module('medIT.settings', [])
       });
     };
 
+    // Gets the list of patients for the logged-in user
     $scope.getPatientsFromServer = function() {
       var data = {
         MessageType: "UserPatientsQuery",
@@ -63,17 +76,9 @@ angular.module('medIT.settings', [])
       }, function errorCallback(response) {
         alert("Unable to connect to server!");
       });
-    }
+    };
 
-    // Sets the settings when the user enters settings page
-    $scope.$on('$ionicView.afterEnter', function(){
-      $spinner.show();
-      $scope.user = $localstorage.getObject('user');
-      $scope.getSettingsFromServer();
-      $scope.getPatientsFromServer();
-      $spinner.hide();
-    });
-
+    // Save the settings that have changed
     $scope.changeSettings = function() {
       $spinner.show();
       var data = {
@@ -119,6 +124,7 @@ angular.module('medIT.settings', [])
       $scope.saveResult();
     };
 
+    // Show user result of saving
     $scope.saveResult = function() {
       $ionicPopup.alert({
         title: 'Settings',

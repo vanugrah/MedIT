@@ -1,8 +1,14 @@
 /**
  * Created by Anthony Tsou on 3/9/2016.
+ *
+ * Utility module
+ * Has different functions that can be used throughout the project,
+ * usually for convenience and to prevent code repetition
  */
 angular.module('ionic.utils', [])
 
+  // Factory that handles setting and getting from localstorage
+  // Handles any object <-> string conversions
   .factory('$localstorage', ['$window', function($window) {
     return {
       // Saves a string value in localstorage with specified key
@@ -24,6 +30,7 @@ angular.module('ionic.utils', [])
     }
   }])
 
+  // Factory that handles the ionicLoading spinner
   .factory('$spinner', ['$ionicLoading', function($ionicLoading) {
     return {
       show: function() {

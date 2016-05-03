@@ -1,7 +1,10 @@
 /**
  * Created by Anthony Tsou on 4/18/2016.
+ * Appointment Details Controller
+ *
+ * This controller is for the screen where users view specific information
+ * on the appointment that they selected from the list of upcoming appointments
  */
-// Home Controller
 angular.module('medIT.apptDetails', [])
 
   .controller('ApptDetailsCtrl', function($scope, $localstorage, $ionicPopup, $state, $http, $spinner) {
@@ -9,20 +12,19 @@ angular.module('medIT.apptDetails', [])
     $scope.$on('$ionicView.loaded', function() {
       $scope.hasCheckedIn = false;
       $localstorage.setObject('hasCheckedIn', false);
-      $localstorage.setObject('firstAlert', true);
     });
 
+
     $scope.$on('$ionicView.beforeEnter', function() {
+      // Appointment selected on home screen
       $scope.appt = $localstorage.getObject('appt');
       $scope.hasCheckedIn = $localstorage.getObject('hasCheckedIn');
-      //$scope.appt = [];
-      $scope.apptID = $localstorage.getObject('apptID');
-      $scope.appts = $localstorage.getObject('appts');
-      //$scope.appt[0] = $scope.appts[$scope.apptID];
     });
 
     // Try to cancel appointment
     $scope.cancelAppt = function() {
+
+      // Confirmation Dialog
       var confirmPopup = $ionicPopup.confirm({
         title: '<strong>Cancel Appointment</strong>',
         template: 'Are you sure you want to cancel this appointment?',
@@ -30,6 +32,7 @@ angular.module('medIT.apptDetails', [])
         okText: 'Yes'
       });
 
+      // If user selects yes, cancel the appointment
       confirmPopup.then(function(res) {
         if(res) {
           $spinner.show();
@@ -39,6 +42,7 @@ angular.module('medIT.apptDetails', [])
             AppointmentID: $scope.appt.AppointmentID
           };
 
+          // HTTP Request to cancel appointment
           $http({
             method: "POST",
             url: "http://localhost/",
@@ -57,6 +61,7 @@ angular.module('medIT.apptDetails', [])
       });
     };
 
+    // Give feedback to user regarding cancellation of appointment
     $scope.cancelResult = function() {
       var alertPopup = $ionicPopup.alert({
         title: '<strong>Cancel Appointment</strong>',
@@ -72,9 +77,11 @@ angular.module('medIT.apptDetails', [])
     $scope.checkinAppt = function() {
       // Check if appt has been checked in already
       if ($scope.appt.CheckedIn === false) {
-        // Current Date + Time
+        // Current Date & Time
         var now = new Date();
         now -= now.getTimezoneOffset();
+
+        // Date & Time to check against
         var checkTime = new Date($scope.appt.Date);
         checkTime = checkTime.setHours(checkTime.getHours() - 1);
 

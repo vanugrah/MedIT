@@ -4,7 +4,6 @@ angular.module('medIT',
     'medIT.login',
     'medIT.menu',
     'medIT.home',
-    'medIT.services',
     'medIT.settings',
     'medIT.apptDetails',
     'medIT.profile'])
@@ -24,6 +23,7 @@ angular.module('medIT',
   });
 })
 
+// All states of the application, should be one for each screen
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
