@@ -1,6 +1,5 @@
 package com.medit;
 
-import javax.swing.*;
 import java.io.IOException;
 
 /**
@@ -10,6 +9,14 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
+        // Register MySQL Driver
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.err.println("Unable to register MySQL Driver class:");
+            e.printStackTrace();
+        }
+
         Thread serverThread = new Thread(new Server(), "Server");
         ReminderManager reminderManager = new ReminderManager();
         Thread daemonThread = new Thread(reminderManager, "ReminderManager");
