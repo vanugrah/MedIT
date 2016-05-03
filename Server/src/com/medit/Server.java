@@ -239,7 +239,7 @@ public class Server implements Runnable {
 
                 String currentLine = bufferedReader.readLine();
                 String headerLine = currentLine;
-                System.out.println(headerLine);
+
                 StringTokenizer tokenizer = new StringTokenizer(headerLine);
                 String httpMethod = tokenizer.nextToken();
 
@@ -259,10 +259,6 @@ public class Server implements Runnable {
                         out.write((HEADERS + responseString.length() + "\r\n\r\n" + responseString).getBytes());
                         out.flush();
                         out.close();
-
-                        System.out.println((HEADERS + responseString.length() + "\r\n\r\n" + responseString));
-                        System.out.println();
-                        System.out.println("Response sent.");
                         break;
                     }
                     case "GET" : {
@@ -275,7 +271,6 @@ public class Server implements Runnable {
                         out.write((HEADERS + responseString.length() + "\r\n\r\n" + responseString).getBytes());
                         out.flush();
                         out.close();
-                        System.out.println("Response sent.");
                         break;
                     }
                     case "OPTIONS" : {
@@ -296,8 +291,6 @@ public class Server implements Runnable {
                         out.write(HEADERS.getBytes());
                         out.flush();
                         out.close();
-                        System.out.println("Response sent.");
-                        System.out.println(HEADERS);
                         break;
                     }
                     default : {
