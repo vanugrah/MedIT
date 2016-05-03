@@ -31,10 +31,18 @@
 
                   <ion-item class="item item-icon-left">
 
-                    <i class="icon ion-ios-home"></i>
+                    <i class="icon ion-ios-home-outline"></i>
 
                     <span style="font-weight: bold;">Clinic:</span>
                     {{appt.Clinic.Hospital.Name}} - {{appt.Clinic.Hospital.Branch}}
+                  </ion-item>
+
+                  <ion-item class="item item-icon-left">
+
+                    <i class="icon ion-ios-pricetags-outline"></i>
+
+                    <span style="font-weight: bold;">Specialization:</span>
+                    {{appt.Clinic.Specialization}}
                   </ion-item>
 
                   <ion-item class="item item-icon-left">
@@ -47,7 +55,7 @@
 
                   <ion-item class="item item-icon-left">
 
-                    <i class="icon ion-medkit"></i>
+                    <i class="icon ion-ios-medkit-outline"></i>
 
                     <span style="font-weight: bold;">Physician:</span>
                     {{appt.Doctor.FirstName}} {{appt.Doctor.LastName}}
@@ -60,19 +68,6 @@
                     <span style="font-weight: bold;">Notes:</span>
                     {{appt.Notes}}
                   </ion-item>
-
-
-
-
-
-             <!--  <label class="item item-input item-icon-left">
-                <i class="icon ion-clipboard"></i>
-                <span class="input-label" style="font-weight: bold;">Notes:</span>
-                <input type="text" value="{{details.notes}}">
-              </label> -->
-
-
-
                 </ion-list>
             </div>
 
