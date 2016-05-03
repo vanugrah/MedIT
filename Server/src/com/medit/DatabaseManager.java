@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.function.ObjDoubleConsumer;
 
 /**
  * Provides an interface for other parts of the Server to access the medIT database.
@@ -20,12 +21,12 @@ import java.util.List;
  */
 public class DatabaseManager {
 
-    // TODO : Crashes occasionally with null connection objects
-
     private static final String MySQLIP = "localhost:3306";
     private static final String MySQLDatabaseName = "medit";
     private static final String MySQLUsername = "serverUser";
     private static final String MySQLPassword = "gtsecret";
+
+    private static Object lock = new Object();
 
     /**
      * Establishes a connection to the medIT MySQL database with appropriate authentication.
@@ -33,22 +34,24 @@ public class DatabaseManager {
      * @return A connection object used to communicated with the MySQL database.
      */
     public static Connection getConnection() {
-        Connection connection = null;
+        synchronized (lock) {
+            Connection connection = null;
 
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://" + MySQLIP + "/" + MySQLDatabaseName + "?" +
+            try {
+                connection = DriverManager.getConnection("jdbc:mysql://" + MySQLIP + "/" + MySQLDatabaseName + "?" +
                     "user=" + MySQLUsername + "&password=" + MySQLPassword + "&useSSL=false");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            if(connection != null) {
-                try {
-                    connection.close();
-                } catch(SQLException ex) {
-                    ex.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
+            return connection;
         }
-        return connection;
     }
 
     /**

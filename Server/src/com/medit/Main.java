@@ -15,8 +15,7 @@ public class Main {
         Thread daemonThread = new Thread(reminderManager, "ReminderManager");
 
         serverThread.start();
-        // TODO : re-enable daemon when DatabseManager crashes are solved.
-//        daemonThread.start();
+        daemonThread.start();
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
