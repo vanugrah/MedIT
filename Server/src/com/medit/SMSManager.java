@@ -22,9 +22,9 @@ import java.util.List;
  */
 public class SMSManager {
 
-    // This should be filled with your Twilio SID
+    // TODO : This should be filled with your Twilio SID
     public static final String ACCOUNT_SID = "";
-    // This should be filled with your Twilio authorization token
+    // TODO : This should be filled with your Twilio authorization token
     public static final String AUTH_TOKEN = "";
 
     /**

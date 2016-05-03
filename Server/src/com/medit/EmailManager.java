@@ -71,6 +71,7 @@ public class EmailManager {
 
         String from = "MedIT.auto@gmail.com";
         String username = "MedIT.auto";
+        // TODO : Paste gmail password here to enable email reminders.
         String password = "";
 
         String host = "smtp.gmail.com";
