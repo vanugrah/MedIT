@@ -9,10 +9,18 @@ import javax.mail.internet.*;
 
 
 /**
+ * Provides an interface for other parts of the Server for sending email reminders and confirmations.
+ *
  * Created by matt on 4/4/2016.
  */
 public class EmailManager {
 
+    /**
+     * Builds reminder message for given appointment and sends this message to the email address of the User associated
+     * with this appointment.
+     *
+     * @param appointment
+     */
     static public void sendEmailReminder(Appointment appointment) {
 
         String to = appointment.user.emailAddress;
@@ -30,6 +38,12 @@ public class EmailManager {
         sendEmail(to, messageText, subject);
     }
 
+    /**
+     * Builds confirmation message for given appointment and sends this message to the email address of the User
+     * associated with this appointment.
+     *
+     * @param appointment
+     */
     static public void sendEmailConfirmation(Appointment appointment) {
         String to = appointment.user.emailAddress;
 
@@ -46,6 +60,13 @@ public class EmailManager {
         sendEmail(to, messageText, subject);
     }
 
+    /**
+     * Sends the given message to the given recipient email address with the given subject line.
+     *
+     * @param recipient Email address to send the email to
+     * @param messageText Text of the message to send
+     * @param subject Subject line to attach to the message
+     */
     static private void sendEmail(String recipient, String messageText, String subject) {
 
         String from = "MedIT.auto@gmail.com";

@@ -1,15 +1,15 @@
 package com.medit.db;
 
-import com.medit.DatabaseManager;
-import com.medit.EPICManager;
+import com.medit.EpicManager;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 
 /**
+ * Represents data associated with a patient.
+ *
  * Created by matt on 4/4/2016.
  */
 public class Patient {
@@ -41,10 +41,20 @@ public class Patient {
     public String insuranceProvider = "";
     public String photo = "";
 
+    /**
+     * Retrieve a list of all appointments associated with this patient.
+     *
+     * @return List of patient's appointments.
+     */
     public List<Appointment> getAppointments() {
-        return EPICManager.getAppointmentsForPatient(this);
+        return EpicManager.getAppointmentsForPatient(this);
     }
 
+    /**
+     * Serializes this object to JSON.
+     *
+     * @return A JSON representation of this object.
+     */
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
 

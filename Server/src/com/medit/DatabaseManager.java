@@ -14,6 +14,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * Provides an interface for other parts of the Server to access the medIT database.
+ *
  * Created by matt on 4/4/2016.
  */
 public class DatabaseManager {
@@ -25,6 +27,11 @@ public class DatabaseManager {
     private static final String MySQLUsername = "serverUser";
     private static final String MySQLPassword = "gtsecret";
 
+    /**
+     * Establishes a connection to the medIT MySQL database with appropriate authentication.
+     *
+     * @return A connection object used to communicated with the MySQL database.
+     */
     public static Connection getConnection() {
         Connection connection = null;
 
@@ -44,6 +51,14 @@ public class DatabaseManager {
         return connection;
     }
 
+    /**
+     * Saves the given settings values for the given username
+     *
+     * @param username
+     * @param getsPush
+     * @param getsSMS
+     * @param getsEmail
+     */
     public static void saveSettings(String username, boolean getsPush, boolean getsSMS, boolean getsEmail) {
         Connection connection = null;
         Statement statement = null;
@@ -77,6 +92,12 @@ public class DatabaseManager {
         }
     }
 
+    /**
+     * Pulls user information from the database for the given username.
+     *
+     * @param username
+     * @return A populated User instance if the given username is found. A null object if the username is not found.
+     */
     public static User getUser(String username) {
 
         Connection connection = null;
@@ -141,6 +162,12 @@ public class DatabaseManager {
         return null;
     }
 
+    /**
+     * Pulls a list of all patients registered for the given user from the database.
+     * @param user
+     * @return List of patients registered for the given user. If the user is not found in the database, the list will
+     * be empty.
+     */
     public static List<Patient> getPatientsForUser(User user) {
         Connection connection = null;
         Statement statement = null;
@@ -195,6 +222,14 @@ public class DatabaseManager {
         return patients;
     }
 
+    /**
+     * Checks provided login credentials against those stored in the database.
+     *
+     * @param username
+     * @param password
+     * @return True if the given username and password are valid. False if the username is not found or if the given
+     * password is incorrect.
+     */
     public static boolean verifyLoginCredentials(String username, String password) {
 
         Connection connection = null;
@@ -239,109 +274,11 @@ public class DatabaseManager {
         return false;
     }
 
-    public static Patient createNewPatient(Patient patient) {
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet results = null;
-
-        try {
-            connection = DatabaseManager.getConnection();
-
-            statement = connection.createStatement();
-
-            statement.execute("INSERT INTO patient(Patient_Fname, Patient_Lname, Age, Sex, Username) VALUES ('" +
-                    patient.firstName + "', '" +
-                    patient.lastName + "', '" +
-                    patient.age + "', '" +
-                    patient.sex.toString() + "', '" +
-                    patient.user.username + "');");
-
-            results = statement.executeQuery("SELECT PatientID FROM Patient " +
-                    "WHERE Username = '" + patient.user.username  + "' " +
-                    "AND Parent_Fname = '" + patient.firstName + "' " +
-                    "AND Parent_Lname = '" + patient.lastName + "';");
-
-            if(results.next()) {
-                patient.patientID = results.getInt("PatientID");
-            }
-
-        } catch(SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if(results != null) {
-                try {
-                    results.close();
-                } catch(SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if(statement != null) {
-                try {
-                    statement.close();
-                } catch(SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return null;
-    }
-
-    public static User createNewUser(User user, String password) {
-
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet results = null;
-
-        try {
-            connection = DatabaseManager.getConnection();
-
-            statement = connection.createStatement();
-            results = statement.executeQuery("SELECT * FROM Parent WHERE Username = '" + user.username + "';");
-
-            if(results.next()) {
-                // username already taken
-                return null;
-            } else {
-                results.close();
-
-                statement.execute("INSERT INTO parent() VALUES ('" +
-                        user.username + "', '" +
-                        password + "', '" +
-                        user.firstName + "', '" +
-                        user.lastName + "', '" +
-                        user.phoneNumber + "', '" +
-                        user.emailAddress + "');"
-                );
-
-                statement.close();
-                return user;
-            }
-
-        } catch(SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if(results != null) {
-                try {
-                    results.close();
-                } catch(SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if(statement != null) {
-                try {
-                    statement.close();
-                } catch(SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return null;
-    }
-
+    /**
+     * Retrieves list of all patients associated with medIT users.
+     *
+     * @return List of patients in database
+     */
     public static List<Patient> getAllPatients() {
         Connection connection = null;
         Statement statement = null;
@@ -400,6 +337,11 @@ public class DatabaseManager {
         return ret;
     }
 
+    /**
+     * Writes the given date of last reminder to the database storage for the given appointment.
+     * @param appointment
+     * @param dateOfLastReminder
+     */
     public static void saveDateOfLastReminder(Appointment appointment, Date dateOfLastReminder) {
         Connection connection = null;
         Statement statement = null;
@@ -435,6 +377,11 @@ public class DatabaseManager {
         }
     }
 
+    /**
+     * Writes the given color preference to the database storage for the patient with the given ID.
+     * @param patientID
+     * @param color
+     */
     public static void saveColorForPatient(int patientID, String color) {
         Connection connection = null;
         Statement statement = null;

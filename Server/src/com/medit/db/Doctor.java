@@ -3,6 +3,8 @@ package com.medit.db;
 import org.json.JSONObject;
 
 /**
+ * Represents data associated with an individual doctor.
+ *
  * Created by matt on 4/11/2016.
  */
 public class Doctor {
@@ -12,6 +14,11 @@ public class Doctor {
     public String lastName = "";
     public String specialization = "";
 
+    /**
+     * Serializes this object to JSON.
+     *
+     * @return A JSON representation of this object.
+     */
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
 

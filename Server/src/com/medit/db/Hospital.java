@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Represents data associated with a hospital.
+ *
  * Created by matt on 4/11/2016.
  */
 public class Hospital {
@@ -18,10 +20,11 @@ public class Hospital {
     public String state = "";
     public String zipCode = "";
 
-    public List<Clinic> getClinics() {
-        return new ArrayList<>();
-    }
-
+    /**
+     * Serializes this object to JSON.
+     *
+     * @return A JSON representation of this object.
+     */
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
 

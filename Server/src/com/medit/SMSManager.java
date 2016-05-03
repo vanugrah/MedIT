@@ -14,13 +14,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Provides an interface for other parts of the Server to send SMS messages.
+ *
+ * This implementation uses the Twilio service.
+ *
  * Created by matt on 4/4/2016.
  */
 public class SMSManager {
 
+    // This should be filled with your Twilio SID
     public static final String ACCOUNT_SID = "";
+    // This should be filled with your Twilio authorization token
     public static final String AUTH_TOKEN = "";
 
+    /**
+     * Builds a reminder message and sends it to the phone number for the user associated with the given appointment.
+     *
+     * @param appointment
+     */
     public static void sendSMSReminder(Appointment appointment) {
         String to = "+1" + appointment.user.phoneNumber;
 
@@ -34,6 +45,11 @@ public class SMSManager {
         sendSMS(to, messageText);
     }
 
+    /**
+     * Builds a confirmation message and sends it to the phone number for the user associated with the given appointment.
+     *
+     * @param appointment
+     */
     public static void sendSMSConfirmation(Appointment appointment) {
         String to = "+1" + appointment.user.phoneNumber;
 
@@ -47,6 +63,12 @@ public class SMSManager {
         sendSMS(to, messageText);
     }
 
+    /**
+     * Sends the given message to the given phone number as a text message.
+     *
+     * @param to The phone number to send the message to.
+     * @param messageText The text of the message to send.
+     */
     private static void sendSMS(String to, String messageText) {
         TwilioRestClient client = new TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN);
 

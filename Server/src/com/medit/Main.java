@@ -3,6 +3,10 @@ package com.medit;
 import javax.swing.*;
 import java.io.IOException;
 
+/**
+ * Entry point for Server code. Initializes a thread for the application-facing JSON interface and a daemon for sending
+ * appointment reminders.
+ */
 public class Main {
 
     public static void main(String[] args) {
@@ -11,7 +15,7 @@ public class Main {
         Thread daemonThread = new Thread(reminderManager, "ReminderManager");
 
         serverThread.start();
-        // TODO : re-enable daemon
+        // TODO : re-enable daemon when DatabseManager crashes are solved.
 //        daemonThread.start();
         try {
             Thread.sleep(1000);

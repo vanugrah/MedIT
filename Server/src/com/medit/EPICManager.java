@@ -8,10 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Provides an interface for other parts of the Server to interact with the Epic system.
+ *
+ * NOTE: Currently, due to a lack of access to a testable Epic instance, this implementation simply connects to the
+ * medIT database, which holds a mock version of data needed from Epic. Some method signatures may need to change to
+ * port this to an actual Epic connection.
+ *
  * Created by matt on 4/4/2016.
  */
-public class EPICManager {
+public class EpicManager {
 
+    /**
+     * Retrieves information for the patient with the given patient ID.
+     *
+     * @param patientID
+     * @return A populated Patient instance, or a null instance if the given patient ID is not found.
+     */
     public static Patient getPatientInformation(int patientID) {
         Connection connection = null;
         Statement statement = null;
@@ -60,6 +72,12 @@ public class EPICManager {
         return null;
     }
 
+    /**
+     * Retrieves all appointments for the given patient.
+     *
+     * @param patient
+     * @return List of appointments for patient, or empty list if patient is not found in Epic system.
+     */
     public static List<Appointment> getAppointmentsForPatient(Patient patient) {
         List<Appointment> ret = new ArrayList<>();
         Connection connection = null;
@@ -175,6 +193,14 @@ public class EPICManager {
         return ret;
     }
 
+    /**
+     * Marks the appointment for the given appointment ID as confirmed.
+     *
+     * Right now, this raises a flag in the medIT database, but a final implementation should raise a similar flag in
+     * the Epic system, or add a note to the appointment visible to the clinic's scheduler.
+     *
+     * @param appointmentID
+     */
     public static void confirmAppointment(int appointmentID) {
         Connection connection = null;
         Statement statement = null;
@@ -207,6 +233,14 @@ public class EPICManager {
         }
     }
 
+    /**
+     * Marks the appointment for the given appointment ID as cancelled.
+     *
+     * Right now, this raises a flag in the medIT database, but a final implementation should raise a similar flag in
+     * the Epic system, or add a note to the appointment visible to the clinic's scheduler.
+     *
+     * @param appointmentID
+     */
     public static void cancelAppointment(int appointmentID) {
         Connection connection = null;
         Statement statement = null;
@@ -239,6 +273,14 @@ public class EPICManager {
         }
     }
 
+    /**
+     * Marks the appointment for the given appointment ID to reflect that the patient has checked-in at the clinic.
+     *
+     * Right now, this raises a flag in the medIT database, but a final implementation should raise a similar flag in
+     * the Epic system, or add a note to the appointment visible to the clinic's scheduler.
+     *
+     * @param appointmentID
+     */
     public static void checkInForAppointment(int appointmentID) {
         Connection connection = null;
         Statement statement = null;
@@ -270,7 +312,4 @@ public class EPICManager {
             }
         }
     }
-
-
-
 }

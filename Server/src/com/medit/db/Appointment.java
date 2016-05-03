@@ -8,7 +8,9 @@ import java.util.Date;
 import static java.lang.Math.abs;
 
 /**
- * Created by matt on 4/4/2016.
+ * Represents a scheduled appointment including information about the patient, doctor, and clinic.
+ *
+ * Created by Matthew Barulic on 4/4/2016.
  */
 public class Appointment {
     public int appointmentID = -1;
@@ -25,6 +27,11 @@ public class Appointment {
 
     private static final long OneDayInMS = 86400000;
 
+    /**
+     * Determines if this appointment needs a reminder sent for it.
+     *
+     * @return True if a reminder should be sent for this appointment. False otherwise.
+     */
     public boolean dueForReminder() {
         Date today = new Date();
 
@@ -52,6 +59,11 @@ public class Appointment {
         return false;
     }
 
+    /**
+     * Determines if this appointment needs to be confirmed now.
+     *
+     * @return True if a confirmation request should be sent for this appointment. False otherwise.
+     */
     public boolean dueForConfirmation() {
         Date today = new Date();
 
@@ -73,6 +85,11 @@ public class Appointment {
         return false;
     }
 
+    /**
+     * Serializes this object to JSON.
+     *
+     * @return A JSON representation of this object.
+     */
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
 

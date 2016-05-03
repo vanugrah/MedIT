@@ -3,7 +3,6 @@ package com.medit;
 import com.medit.db.Appointment;
 import com.medit.db.Patient;
 import com.medit.db.User;
-import com.mysql.fabric.xmlrpc.base.Data;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -16,10 +15,19 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
+ * Primary class for application-facing JSON interface.
+ *
  * Created by matt on 4/2/2016.
  */
 public class Server implements Runnable {
 
+    /**
+     * Parses JSON message from given BufferedReader
+     *
+     * @param reader
+     * @return Populated JSONObject instance or empty JSONObject instance if there was a problem parsing the data from
+     * the BufferedReader.
+     */
     private JSONObject getJSONFromPOSTReader(BufferedReader reader) {
         try {
             String currentLine = null;
@@ -46,6 +54,12 @@ public class Server implements Runnable {
         return new JSONObject();
     }
 
+    /**
+     * Handles application requests in JSON form.
+     *
+     * @param root
+     * @return Response JSON data to be sent back to the application instance which made the request.
+     */
     private JSONObject executeJSONRequest(JSONObject root) {
         JSONObject response = new JSONObject();
         if(!root.has("MessageType")) {
@@ -73,7 +87,7 @@ public class Server implements Runnable {
             case "PatientQuery": {
                 System.out.println("Patient Query received.");
                 int id = root.getInt("PatientID");
-                Patient p = EPICManager.getPatientInformation(id);
+                Patient p = EpicManager.getPatientInformation(id);
                 response.put("MessageType", "PatientQueryResults");
                 if(p != null) {
                     response.put("Found", true);
@@ -148,7 +162,7 @@ public class Server implements Runnable {
             case "ConfirmAppointment" : {
                 System.out.println("Appointment confirmation received.");
                 int appointmentID = root.getInt("AppointmentID");
-                EPICManager.confirmAppointment(appointmentID);
+                EpicManager.confirmAppointment(appointmentID);
                 response.put("MessageType", "AppointmentConfirmed");
                 response.put("AppointmentID", appointmentID);
                 break;
@@ -156,7 +170,7 @@ public class Server implements Runnable {
             case "CancelAppointment" : {
                 System.out.println("Appointment cancellation received.");
                 int appointmentID = root.getInt("AppointmentID");
-                EPICManager.cancelAppointment(appointmentID);
+                EpicManager.cancelAppointment(appointmentID);
                 response.put("MessageType", "AppointmentCancelled");
                 response.put("AppointmentID", appointmentID);
                 break;
@@ -164,7 +178,7 @@ public class Server implements Runnable {
             case "CheckInForAppointment" : {
                 System.out.println("Appointment check-in received.");
                 int appointmentID = root.getInt("AppointmentID");
-                EPICManager.checkInForAppointment(appointmentID);
+                EpicManager.checkInForAppointment(appointmentID);
                 response.put("MessageType", "AppointmentCheckedIn");
                 response.put("AppointmentID", appointmentID);
                 break;
@@ -189,16 +203,25 @@ public class Server implements Runnable {
         return response;
     }
 
+    /**
+     * Handles HTTP GET requests sent to the server.
+     *
+     * @param path
+     * @return HTML data to be returned to the host which made the request.
+     */
     private String handleGETRequest(String path) {
         if(path.substring(1,8).equals("Confirm")) {
             int appointmentID = Integer.parseInt(path.substring(12));
-            EPICManager.confirmAppointment(appointmentID);
+            EpicManager.confirmAppointment(appointmentID);
             return "<html>Thank you for confirming!</html>";
         }
         return "";
     }
 
     @Override
+    /**
+     * Entry point for this thread. Opens a Server web socket and handles connections from clients.
+     */
     public void run() {
         try {
             ServerSocket serverSocket = new ServerSocket(80);
